@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	 <title>spacetest</title>
+  	 <meta charset="utf-8"/>
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+      
+
+      <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+      
+      <script>
+           angular
+            .module('firstApplication', ['ngMaterial'])
+      </script>
+
+     
+  </head>
+
+  <body ng-app="firstApplication">
+  	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////tool bar -->
+  	 <md-toolbar  layout-align="center center" style="background-color: white; height: 110px;  border-bottom: 3px solid #7CA427;" >
+
+         <div  class="md-toolbar-tools" layout="row" >
+
+           <div hide-gt-md flex="none">
+             <md-menu-bar class="menu2tool">
+               <md-menu>
+
+                  <md-button class="md-icon-button md-primary" ng-click="$mdOpenMenu()" aria-label="Settings" style="background-color: white; " >
+                    <md-icon style=" color: rgba(0, 0, 0, 1); padding:0;" class="material-icons">menu</md-icon>
+                  </md-button>
+
+                  <md-menu-content width="3" >
+                     <md-menu-item>
+                         <md-button class="menu2btn"><p>HOME</p></md-button>
+                     </md-menu-item>
+                     
+                     <md-menu-item>
+                         <md-button class="menu2btn"><p>QUIENES SOMOS</p></md-button>
+                     </md-menu-item>
+                     
+                     <md-menu-item>
+                         <md-button class="menu2btn"><p>SERVICIOS</p></md-button>
+                     </md-menu-item>
+                     
+                     <md-menu-item>
+                         <md-button class="menu2btn"><p>PROYECTOS</p></md-button>
+                     </md-menu-item>
+                     
+                     <md-menu-item>
+                         <md-button class="menu2btn"><p>PUBLICACIONES</p></md-button>
+                     </md-menu-item>
+                     
+                     <md-menu-item>
+                         <md-button class="menu2btn"><p>BIBLIOTECA</p></md-button>
+                     </md-menu-item>
+                     
+                     <md-menu-divider hide show-xs></md-menu-divider>
+                     <md-menu-item hide show-xs>
+                         <md-button class="menu2btn"style="background-color:#A51716;"><p style="color: white; font-size: 14px;">CONTACTO</p></md-button>
+                     </md-menu-item>
+                     
+                     
+                  </md-menu-content>
+               </md-menu>
+              </md-menu-bar>
+           </div>
+
+           <div flex ="20" flex-md="90" flex-sm="90" flex-xs="90">
+             <md-button  style="background-color: white;" ><img src="http://www.centroeure.org.mx/images/template/centro_eure.png" style="width:195px;height:50px; "></md-button>
+           </div>
+
+           <div class="menu1tool" flex="70" layout="row" hide show-gt-md>
+            <p class="btn btn-2">HOME</p>
+
+             <md-menu-bar class="buttondrop" >
+              <md-menu >
+                 <p  ng-click="$mdOpenMenu()" class="btn btn-2" >QUIENES SOMOS▾</p>
+                 <md-menu-content >
+                    <md-menu-item>
+                        <md-button><p>link</p></md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item>
+                        <md-button><p>link</p></md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item>
+                        <md-button><p>link</p></md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                 </md-menu-content>
+              </md-menu>
+            </md-menu-bar>
+
+            <p class="btn btn-2">SERVICIOS</p>
+            <p class="btn btn-2">PROYECTOS</p>
+
+             <md-menu-bar class="buttondrop" >
+              <md-menu >
+                 <p  ng-click="$mdOpenMenu()" class="btn btn-2" >PUBLICACIONES▾</p>
+                 <md-menu-content >
+                    <md-menu-item>
+                        <md-button><p>link</p></md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item>
+                        <md-button><p>link</p></md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item>
+                        <md-button><p>link</p></md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                 </md-menu-content>
+              </md-menu>
+            </md-menu-bar>            
+
+             <md-menu-bar class="buttondrop" >
+              <md-menu >
+                 <p  ng-click="$mdOpenMenu()" class="btn btn-2" >BIBLIOTECA▾</p>
+                 <md-menu-content >
+                    <md-menu-item>
+                        <md-button><p>link</p></md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item>
+                        <md-button><p>link</p></md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item>
+                        <md-button><p>link</p></md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                 </md-menu-content>
+              </md-menu>
+            </md-menu-bar> 
+           </div>
+
+           <div flex="none" layout="row">
+           	 <md-button  hide-xs style="background-color: #A51716;"><p style="font-size: 14px; font-family: Arial; font-weight: bold; margin: 2px 15px; color: white;">CONTACTO</p></md-button>
+
+           	 <md-button class="md-icon-button md-primary" aria-label="Settings" style="background-color: white; ">
+               <md-icon style=" color: rgba(0, 0, 0, 1); " class="material-icons">search</md-icon>
+             </md-button>
+           </div>
+
+         </div>
+  	 </md-toolbar>
+  <!-- //////////////////////////////////////////////////////////////////////////////////////////////toolbar end -->
+
+  <!-- ////////////////////////////////////////////////////////////////////////////////////////////////caroussel -->
+     <md-content  style="  padding-bottom:5px;  border-bottom: 30px solid #7CA427; " hide show-gt-sm >
+          <img class="mySlides" src="http://www.w3schools.com/w3css/img_fjords_wide.jpg" style="width:100%; ">
+          <img class="mySlides" src="http://www.w3schools.com/w3css/img_mountains_wide.jpg" style="width:100%; ">
+          <img class="mySlides" src="http://www.w3schools.com/w3css/img_nature_wide.jpg" style="width:100%; ">
+        
+          <div   flex="90">
+          <div class="w3-display-bottommiddle " style="color:white" >
+              <h1 class="md-display-3" style="margin:0; font-family: Verdana;">Programa Metropolitano</h1>
+              <h2 class="md-display-2" style="margin:0;   font-family: Verdana;">para Mérida Y sus zonas conurbadas</h2>
+              <div style="text-align:center;   margin-top:34px;  font-family: Verdana;">
+                 <p class="md-headline" style="margin:0">Identifica los grandes problemas y potenciales de la zona y propone 
+                 <br>una estrategia integrada y de largo plazo para su desarrollo asi como 
+                 <br>los proyectos estrategicos y los instrumentos para ejecutarla, desde la
+                 <br>optica de la sustentabilidad</p>
+                 
+                 <md-button  hide show-gt-md style="background-color: #A51716;   margin-top:27px;">
+                   <p style="font-size: 14px; font-family: Arial; font-weight: bold; margin: 8px 39px; color: white;" >LEER MÁS</p>
+                </md-button>
+                <md-button  hide-gt-md style="background-color: #A51716;   margin-top:18px;">
+                   <p style="font-size: 14px; font-family: Arial; font-weight: bold; margin: 4px 12px; color: white;" >LEER MÁS</p>
+                </md-button>
+
+              </div>
+              
+          </div>
+        
+          <div hide show-gt-md class="w3-center w3-section w3-large w3-text-white w3-display-middle" style="width:100%; position:absolute;top:45%">
+            
+            <md-button aria-label="More" class="w3-left  w3-text-white w3-hover-text-khaki" onclick="plusDivs(-1)" style="background-color: #7CA427; right:9px;">
+                <p class="material-icons">navigate_before</p>
+            </md-button>
+            <md-button aria-label="More" class="w3-right  w3-text-white w3-hover-text-khaki" onclick="plusDivs(1)" style="background-color: #7CA427; left:8px; ">
+              <p class="material-icons" >navigate_next</p>
+            </md-button>
+          </div>
+          </div>
+
+          
+          
+    </md-content>
+       
+       
+
+    <md-content hide-gt-sm layout="column" layout-align="center center" style="color:#535353; border-bottom: 30px solid #7CA427; " >
+                 <h1 class="md-display-1"  style="text-align:center; margin:0;  font-family: Verdana;">Programa Metropolitano</h1>
+                 <h2 class="md-title" style="text-align:center; margin:0;   font-family: Verdana;">para Mérida y sus zonas conurbadas</h2>
+                 <div style="text-align:center;   margin-top:10px;  font-family: Verdana;">
+                   <p class="md-subhead" style="margin:0">Identifica los grandes problemas y potenciales de la zona y propone 
+                   <br>una estrategia integrada y de largo plazo para su desarrollo asi como 
+                   <br>los proyectos estrategicos y los instrumentos para ejecutarla, desde la
+                   <br>optica de la sustentabilidad</p>
+
+                   <md-button   style="background-color: #A51716;   margin-top:27px;">
+                     <p style="font-size: 10px; font-family: Arial; font-weight: bold; margin: 4px 10px; color: white;" >LEER MÁS</p>
+                   </md-button>
+                 </div>
+    </md-content>
+
+  <!-- ////////////////////////////////////////////////////////////////////////////////////////////////caroussel end -->
+  
+  <!-- ////////////////////////////////////////////////////////////////////////////////////////////////segunda parte -->
+
+    <md-content hide show-gt-sm  >
+      <div layout-align="center center" layout="column" style="margin-top:7%; margin-bottom:7%;">
+         <h1 class="md-display-2" style="margin:0; font-family: Arial; font-weight:bold;">Centro Eure</h1>
+         <hr  width="30%" />
+         <div style="text-align:center;   margin-top:34px;  font-family: Verdana;">
+            <p class="md-title" style="margin:2% 0">Es una Sociedad Civil con 30 años de experiancia, dedicada a la investigacion aplicada, asi como la 
+            <br>asesoría y consultoría especializadas y a la formacíon y divulgación del conocimiento en Estudios</p>
+            <p class="md-title" style="margin:2% 0">territoriales,planeacion y evaluación de politicas públicas.
+            <br>En un espacio de análisis, reflexión y diálogo y de formulacion de propuestas sobre los fenómenos y 
+            <br>problmas del desarrollo urbano-metropolitano y regional del ambiente y en general de la sociedad
+            </p>
+            <md-button   style="background-color: white; border:1px solid #205f78;   margin-top:30px;">
+              <p style="font-size: 14px; font-family: Arial; font-weight: bold; margin: 8px 39px; color: #205f78;" >LEER MÁS</p>
+           </md-button>
+         </div>
+      </div>
+    </md-content>
+
+
+    <md-content hide-gt-sm >
+      <div layout-align="center center" layout="column" style="margin-top:7%;">
+         <h1 class="title" style="text-align:center; margin:0; font-family: Arial; font-weight:bold;">Centro Eure</h1>
+         <hr  width="30%" />
+         <div style="text-align:center;   margin-top:34px;  font-family: Verdana;">
+            <p class="md-subhead" style="margin:2% 0">Es una Sociedad Civil con 30 años de experiancia, dedicada a la investigacion aplicada, asi como la 
+            <br>asesoría y consultoría especializadas y a la formacíon y divulgación del conocimiento en Estudios</p>
+            <p class="md-subhead" style="margin:2% 0">territoriales,planeacion y evaluación de politicas públicas.
+            <br>En un espacio de análisis, reflexión y diálogo y de formulacion de propuestas sobre los fenómenos y 
+            <br>problmas del desarrollo urbano-metropolitano y regional del ambiente y en general de la sociedad
+            </p>
+            <md-button   style="background-color: white;   border:1px solid #205f78; margin-top:20px;">
+              <p style="font-size: 10px; font-family: Arial; font-weight: bold; margin: 4px 10px; color: #205f78;" >LEER MÁS</p>
+            </md-button>
+         </div>
+      </div>
+    </md-content>
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////// segunda parte end -->
+    
+    <md-content hide show-gt-sm  >
+      <div layout-align="center center" layout="column" style="margin-top:7%; margin-bottom:7%;">
+         <h1 class="md-display-2" style="margin:0; font-family: Arial; font-weight:bold;">Áreas de Especialización</h1>
+         <hr  width="30%" />
+         
+         <div layout="row"  layout-align="space-around center">
+           <div flex>
+             <p>DESARROLLO URBANO-METROPOLITANO:</p>
+           </div>
+           <div flex>
+             <p>DESARROLLO URBANO-METROPOLITANO:</p>
+           </div>
+           <div flex>
+             <p>DESARROLLO URBANO-METROPOLITANO:</p>
+           </div>
+         </div>
+         <div layout="row"  layout-align="space-around center">
+           <div flex>
+             <p>DESARROLLO URBANO-METROPOLITANO:</p>
+           </div>
+           <div flex>
+             <p>DESARROLLO URBANO-METROPOLITANO:</p>
+           </div>
+           <div flex>
+               <p>DESARROLLO URBANO-METROPOLITANO:</p>
+           </div>
+
+        </div>
+    </md-content>
+
+
+    <md-content hide-gt-sm >
+      <div layout-align="center center" layout="column" style="margin-top:7%;">
+         <h1 class="md-display-2" style="margin:0; font-family: Arial; font-weight:bold;">Áreas de Especialización</h1>
+         <hr  width="30%" />
+         <div style="text-align:center;   margin-top:34px;  font-family: Verdana;">
+            <p class="md-subhead" style="margin:2% 0">Es una Sociedad Civil con 30 años de experiancia, dedicada a la investigacion aplicada, asi como la 
+            <br>asesoría y consultoría especializadas y a la formacíon y divulgación del conocimiento en Estudios</p>
+            <p class="md-subhead" style="margin:2% 0">territoriales,planeacion y evaluación de politicas públicas.
+            <br>En un espacio de análisis, reflexión y diálogo y de formulacion de propuestas sobre los fenómenos y 
+            <br>problmas del desarrollo urbano-metropolitano y regional del ambiente y en general de la sociedad
+            </p>
+            <md-button   style="background-color: white;   border:1px solid #205f78; margin-top:20px;">
+              <p style="font-size: 10px; font-family: Arial; font-weight: bold; margin: 4px 10px; color: #205f78;" >LEER MÁS</p>
+            </md-button>
+         </div>
+      </div>
+    </md-content>
+
+  </body>
+
+</html>
+
+
+<script>
+ // ////////////////////////////////caroussel
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 5000); 
+}
+
+</script>
+
+
+<style>
+  /*style para  botones del toolbar*/
+    .menu2tool .md-button:hover {
+     background-color: gray;
+    }
+
+    .menu2btn p{
+      color:#535353;
+      font-size: 12px;
+      font-family: Arial;
+      font-weight: bold;
+    }
+    .menu2tool{
+      padding: 0;
+    }
+
+    
+
+    .menu1tool{
+      margin-top:5px;
+    }
+
+    .buttondrop{
+      top:-7px;
+      padding: 0;
+    }
+
+    .md-button:hover {
+       background-color: white;
+    }
+
+    /*linea roja*/
+     
+    .btn {
+       font-size: 13px;
+       font-family: Arial; 
+       font-weight: bold;
+       color:#535353;
+       cursor: pointer;
+       margin: 0px 20px;
+       transition-duration: 0.3s;
+       
+     }
+
+    .btn-2:after,
+    .btn-2:before {
+      backface-visibility: hidden;
+      border-bottom: 2px solid #A51716;
+      bottom: 0px;
+      content: " ";
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      transition: all 270ms ease-in-out;
+      width: 0;
+    }
+    
+    .btn-2:hover:after,
+    .btn-2:hover:before {
+      backface-visibility: hidden;
+      border-color: #A51716;
+      transition: width 350ms ease-in-out;
+      width: 100%;
+    }
+    .btn-2:hover:before {
+      width: 0%;
+    }
+
+     .btn:hover{
+      color:#A51716;
+    }
+</style>
