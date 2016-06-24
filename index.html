@@ -108,9 +108,9 @@
                </div>
             </div>
            
-            <md-button class="md-icon-button md-primary" ng-click="$mdOpenMenu()" aria-label="Settings" style="background-color: white; margin:5% 0;" >
-              <md-icon ng-style="{'font-size':'36px', height:'36px'}" style=" color: rgba(0, 0, 0, 1); padding:0;" class="material-icons">keyboard_arrow_down</md-icon>
-            </md-button>
+           
+            <div class="arrowblock" style="background-color: white; margin:5% 0;"><img src="color-arrow-block.png" ></div>
+            
        
   
      </md-content>
@@ -119,14 +119,14 @@
      <md-toolbar   style="background-color: gray; " layout="row"  >
 
          <div flex ="30" flex-sm="40" flex-xs="85" layout="row" layout-align="center center" style="background-color:#01AFEC; ">
-           <div hide show-gt-sm style="margin-left:20%">  
-             <img src="logocubo.png" >
+           <div flex-offset="45" hide show-gt-sm >  
+             <img src="logo.png" width="80%" height="80%">
            </div>
-           <div hide show-sm style="margin-left:9%">  
-             <img src="logocubo.png" >
+           <div flex-offset="45" hide show-sm >  
+             <img src="logo.png" width="80%" height="80%">
            </div>
-           <div hide show-xs>  
-             <img src="logocubo.png" >
+           <div flex-offset="20" hide show-xs>  
+             <img src="logo.png" width="80%" height="80%">
            </div>
            
         </div>
@@ -494,7 +494,7 @@
 <!--  //////////////////////////////////////////////////////////////////////////////////////////////////////////clientes end -->
 
 <!--  //////////////////////////////////////////////////////////////////////////////////////////////////////////blog -->
-<!-- <md-content style=" top:10%;" layout="column" >
+<md-content style=" top:10%;" layout="column" >
   <div  style="margin-top:2%; " layout="column" layout-align="center center">
       <p style="font-size:30px; margin-bottom:0%; color:gray; ">BLOG</p>
       <hr  width="20%" />
@@ -504,9 +504,9 @@
   </div>
   <div>
   <div layout="row"  layout-align="center center" style="margin-top:10%">
-      <div laytout="column" layout-align="center center" class="blog">
+      <div flex="80" flex-offset="10" laytout="column" layout-align="center center" class="blog">
         <div layout="column">
-         <img src="a.png" width="100%">
+         <img src="thumb1.jpg" width="100%">
          <div style="background-color:rgb(242,242,242)">
           <p>Titulo uno</p>
         </div>
@@ -520,10 +520,10 @@
       </div>
 
 
-       <div laytout="column" layout-align="center center">
-        <div>
+       <div felx laytout="column" layout-align="center center">
+        <div flex="33">
          <div layout="column">
-          <img src="c.png" width="100%">
+          <img src="thumb3.jpg" width="100%">
           <div style="background-color:rgb(242,242,242)">
            <p>Titulo uno</p>
          </div>
@@ -532,9 +532,9 @@
            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
          </div>
         </div>
-        <div>
+        <div flex="33">
          <div layout="column">
-          <img src="c.png" width="100%">
+          <img src="thumb3.jpg" width="100%">
           <div style="background-color:rgb(242,242,242)">
            <p>Titulo uno</p>
          </div>
@@ -546,7 +546,7 @@
     </div>
   </div>  
 </div>
-</md-content> -->
+</md-content>
 
 <!--  //////////////////////////////////////////////////////////////////////////////////////////////////////////blog end -->
 
@@ -626,6 +626,11 @@
 
    .rhomb2:hover, .rhomb1:hover {
       background: #01AFEC;
+   }
+
+
+   .arrowblock:hover{
+     cursor: pointer;
    }
 
 
