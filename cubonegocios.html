@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	 <title>cubonegocios</title>
+  	 <meta charset="utf-8"/>
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+      <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+      <script>
+           angular
+            .module('firstApplication', ['ngMaterial'])
+      </script>
+  </head>
+
+  <body ng-app="firstApplication">
+    <!--///////////////////////////////////////////////////////////////////////////////////////////////////home-->
+     <md-content class="main"  layout="column" layout-align="center center" style="background-color:rgb(242,242,242);">
+        
+            <!-- <img  src="http://www.planwallpaper.com/static/images/recycled_texture_background_by_sandeep_m-d6aeau9_PZ9chud.jpg" style="width:100%;  position: relative " > -->
+            <div hide show-gt-sm style="margin-top:11%" >
+               <div layout="column" layout-align="center center">
+                 <p  style="color:black; padding:0; margin:0;  font-size:45px; font-weight:bold;">CUBO</p>
+                 <p  style="color:black; padding:0; margin:0;  margin-top:-10px; font-size:12px;">NEGOCIOS EN ACCION</p>
+                 <p  style="color:black; padding:0; margin:0;  margin-top:40px; font-size:40px; font-weight:bold;">EXPERIENCIA Y EFICIENCIA </p>
+               </div>
+               <div layout="row" layout-align="center center" style="margin-top:10%;">
+                 <div layout="column" layout-align="center center">
+                   <div class="rhomb1"></div>
+                   <p style="color:black; margin:0; padding:0; font-size:12px; font-weight:bold;">QUIENES SOMOS</p>
+                 </div>
+                 <div layout="column" layout-align="center center">
+                   <div class="rhomb1"></div>
+                   <p style="color:black; margin:0; padding:0; font-size:12px; font-weight:bold;">SERVICIOS</p>
+                 </div>
+                 <div layout="column" layout-align="center center">
+                   <div class="rhomb1"></div>
+                   <p style="color:black; margin:0; padding:0; font-size:12px; font-weight:bold;">CLIENTES</p>
+                 </div>
+                 <div layout="column" layout-align="center center">
+                   <div class="rhomb1"></div>
+                   <p style="color:black; margin:0; padding:0; font-size:12px; font-weight:bold;">BLOG</p>
+                 </div>
+                 <div layout="column" layout-align="center center">
+                   <div class="rhomb1"></div>
+                   <p style="color:black; margin:0; padding:0; font-size:12px; font-weight:bold;">CONTACTO</p>
+                 </div>
+                 <div layout="column" layout-align="center center">
+                   <div class="rhomb1"></div>
+                   <p style="color:black; margin:0; padding:0; font-size:12px; font-weight:bold;">LOGIN</p>
+                 </div>
+                 
+               </div>
+
+            </div>
+            <div hide show-sm  style="margin-top:11%" >
+               <div layout="column" layout-align="center center">
+                 <p  style="color:black; padding:0; margin:0;  font-size:45px; font-weight:bold;">CUBO</p>
+                 <p  style="color:black; padding:0; margin:0;  margin-top:-10px; font-size:12px;">NEGOCIOS EN ACCION</p>
+                 <p  style="color:black; padding:0; margin:0;  margin-top:40px; font-size:35px; font-weight:bold;">EXPERIENCIA Y EFICIENCIA </p>
+               </div>
+               <div layout="row" layout-align="center center" style="margin-top:5%;">
+                 <div layout="column" layout-align="center center">
+                   <div class="rhomb2"></div>
+                   <p style="color:black; margin:0; padding:0; font-size:9px; font-weight:bold;">QUIENES SOMOS</p>
+                 </div>
+                 <div layout="column" layout-align="center center">
+                   <div class="rhomb2"></div>
+                   <p style="color:black; margin:0; padding:0; font-size:9px; font-weight:bold;">SERVICIOS</p>
+                 </div>
+                 <div layout="column" layout-align="center center">
+                   <div class="rhomb2"></div>
+                   <p style="color:black; margin:0; padding:0; font-size:9px; font-weight:bold;">CLIENTES</p>
+                 </div>
+                 <div layout="column" layout-align="center center">
+                   <div class="rhomb2"></div>
+                   <p style="color:black; margin:0; padding:0; font-size:9px; font-weight:bold;">BLOG</p>
+                 </div>
+                 <div layout="column" layout-align="center center">
+                   <div class="rhomb2"></div>
+                   <p style="color:black; margin:0; padding:0; font-size:9px; font-weight:bold;">CONTACTO</p>
+                 </div>
+                 <div layout="column" layout-align="center center">
+                   <div class="rhomb2"></div>
+                   <p style="color:black; margin:0; padding:0; font-size:9px; font-weight:bold;">LOGIN</p>
+                 </div>
+                 
+               </div>
+
+            </div>
+
+            <div  hide-gt-xs  style="margin-top:6%" >
+               <div layout="column" layout-align="center center">
+                 <p  style="color:black; padding:0; margin:0;  font-size:45px; font-weight:bold;">CUBO</p>
+                 <p  style="color:black; padding:0; margin:0;  margin-top:-10px; font-size:12px;">NEGOCIOS EN ACCION</p>
+                 <p  style="color:black; padding:0; margin:0;  margin-top:40px; font-size:18px; font-weight:bold;">EXPERIENCIA Y EFICIENCIA </p>
+               </div>
+               <div layout="row" layout-align="center center" style="margin-top:10%;">
+                 <div layout="column" layout-align="center center">
+                   <div class="rhomb1"></div>
+                 </div>
+                 
+               </div>
+            </div>
+           
+           
+            <div class="arrowblock" style="background-color:rgb(242,242,242); margin:5% 0;"><img src="color-arrow-block.png" ></div>
+            
+       
+  
+     </md-content>
+
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////tool bar -->
+     <md-toolbar   style="background-color: gray; " layout="row"  >
+
+         <div flex ="30" flex-sm="40" flex-xs="85" layout="row" layout-align="center center" style="background-color:#01AFEC; ">
+           <div flex-offset="45" hide show-gt-sm >  
+             <img src="logo.png" width="80%" height="80%">
+           </div>
+           <div flex-offset="45" hide show-sm >  
+             <img src="logo.png" width="80%" height="80%">
+           </div>
+           <div flex-offset="20" hide show-xs>  
+             <img src="logo.png" width="80%" height="80%">
+           </div>
+           
+        </div>
+
+      
+        <div hide show-gt-md layout="column" flex  layout-align="center end" style="margin:0; padding:0; margin-right:7%; ">
+          <div layout="row"  >
+            <p style="font-size:11px;" class="btn2">CuboNegocios</p>
+            <p style="font-size:11px;" class="btn2">Cubo_Negocios</p>
+            <p style="font-size:11px;" class="btn2">52(998)892 2141/273 2246</p>
+          </div>
+          <div layout="row" style="margin-top:1%;" >
+            <p style="font-size:14px;"  class="btn1">QUIENES SOMOS</p>
+            <p style="font-size:14px;"  class="btn1">SERVICIOS</p>
+            <p style="font-size:14px;" class="btn1">CLIENTES</p>
+            <p style="font-size:14px;"  class="btn1">BLOG</p>
+            <p style="font-size:14px;" class="btn1">CONTACTO</p>
+            <p style="font-size:14px;" class="btn1">LOGIN</p>
+          </div>
+        </div>
+        <div hide show-md  layout="column" flex  layout-align="center end" style="margin:0; padding:0; ">
+          <div layout="row">
+            <p style="font-size:10px;" class="btn2">CuboNegocios</p>
+            <p style="font-size:10px;" class="btn2">Cubo_Negocios</p>
+            <p style="font-size:10px;" class="btn2">52(998)892 2141/273 2246</p>
+          </div>
+          <div layout="row"  style="margin-top:1%;">
+            <p style="font-size:12px;"  class="btn1">QUIENES SOMOS</p>
+            <p style="font-size:12px;"  class="btn1">SERVICIOS</p>
+            <p style="font-size:12px;" class="btn1">CLIENTES</p>
+            <p style="font-size:12px;"  class="btn1">BLOG</p>
+            <p style="font-size:12px;" class="btn1">CONTACTO</p>
+            <p style="font-size:12px;" class="btn1">LOGIN</p>
+          </div>
+        </div>
+
+        <div hide-gt-sm  layout="column" flex  layout-align="center end" style="margin:0; padding:0; ">
+             <md-menu-bar class="menu2tool">
+               <md-menu>
+
+                  <md-button class="md-icon-button md-primary" ng-click="$mdOpenMenu()" aria-label="Settings" style="background-color: gray;" >
+                    <md-icon style=" color: rgba(0, 0, 0, 1); padding:0;" class="material-icons">menu</md-icon>
+                  </md-button>
+
+                  <md-menu-content width="3" >
+                     <md-menu-item>
+                         <md-button class="menu2btn"><p>QUIENES SOMOS</p></md-button>
+                     </md-menu-item>
+                     
+                     <md-menu-item>
+                         <md-button class="menu2btn"><p>SERVICIOS</p></md-button>
+                     </md-menu-item>
+                     
+                     <md-menu-item>
+                         <md-button class="menu2btn"><p>CLIENTES</p></md-button>
+                     </md-menu-item>
+                     
+                     <md-menu-item>
+                         <md-button class="menu2btn"><p>BLOG</p></md-button>
+                     </md-menu-item>
+                     
+                     <md-menu-item>
+                         <md-button class="menu2btn"><p>CONTACTO</p></md-button>
+                     </md-menu-item>
+                     
+                     <md-menu-item>
+                         <md-button class="menu2btn"><p>LOGIN</p></md-button>
+                     </md-menu-item>
+                     
+                     
+                  </md-menu-content>
+               </md-menu>
+              </md-menu-bar>
+           </div>
+
+     </md-toolbar>
+  <!-- //////////////////////////////////////////////////////////////////////////////////////////////toolbar end -->
+
+ <!--  ///////////////////////////////////////////////////////////////////////////////////////////////primera parte -->
+ <md-content layout="column" layout-align="center center">
+     <div style="margin-top:6%; margin-bottom:4%;" class="rhomb"></div>
+
+     <div hide show-gt-xs layout="column" layout-align="center center">
+       <p style="font-size:25px; ">We just launch our new website #relaunch</p>
+       <p style="color:#01AFEC; font-size:15px; font-weight:bold; margin-top:0;">que garantiza la total satisfaccion de</p>
+     </div>
+     <div hide-gt-xs layout="column" layout-align="center center">
+       <p style="font-size:15px;  font-weight:bold;">We just launch our new website #relaunch</p>
+       <p style="color:#01AFEC; font-size:12px; font-weight:bold; margin-top:0;">que garantiza la total satisfaccion de</p>
+     </div>
+
+     <div layout="row" layout-align="center center" style="margin-top:4%; margin-bottom:5%;">
+         <md-button class="md-icon-button md-primary" ng-click="$mdOpenMenu()" aria-label="Settings" style="background-color: white; margin:0;" >
+           <md-icon style=" color: rgba(0, 0, 0, 1); padding:0;" class="material-icons">navigate_before</md-icon>
+         </md-button>
+         <md-button class="md-icon-button md-primary" ng-click="$mdOpenMenu()" aria-label="Settings" style="background-color: white; margin:0;" >
+           <md-icon style=" color: rgba(0, 0, 0, 1); padding:0;" class="material-icons">navigate_next</md-icon>
+         </md-button>
+     </div>
+ </md-content>
+
+
+ <!-- /////////////////////////////////////////////////////////////////////////////////////////////////primera parte end -->
+
+ <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////servicios -->
+ <md-content layout="column" layout-align="center center" style="background-color:rgb(242,242,242);">
+
+     <div hide show-gt-xs layout="column" layout-align="center center">
+       <p style="font-size:30px; color:gray; margin-bottom:0;">SERVICIOS</p>
+       <hr  width="10%" />
+       <p style="font-size:13px; color:gray;  margin-top:0;">que garantiza la total satisfaccion de las necesidades de su compañia</p>
+       
+
+     </div>
+     <div hide-gt-xs layout="column" layout-align="center center">
+       <p style="font-size:20px; color:gray; margin-bottom:0;">SERVICIOS</p>
+       <hr  width="10%" />
+       <p style="font-size:10px; color:gray;  margin-top:0;">que garantiza la total satisfaccion de las necesidades de su compañia</p>
+       
+
+     </div>
+
+     <div layout="column" layout-align="center center" style="margin-top:5%" class="servicios">
+       <div layout="row" layout-xs="column"  layout-align="space-around center">
+
+          <div layout="column" style="margin:0%; margin-top:3%;" flex-gt-xs="20"> <!-- box -->
+            <div layout="row">
+              <img src="cuboservicios.png" >
+              <div layout="column" layout-align="center center" >
+                <p style="font-size:12px; color:gray; font-weight:bold; margin-left:5%;">consultoria en sueldos y salarios</p>
+              </div>
+            </div>
+            <div layout="column" layout-align="start start">
+              <p style="font-size:10px; color:gray; font-weight:bold; margin-bottom:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+              <md-button class="btnhoverblue">
+                <p style="margin: 0">Leer mas</p>
+              </md-button>
+            </div>
+          </div>
+
+
+          <div layout="column" style="margin:0%; margin-top:3%;" flex-gt-xs="20"> <!-- box -->
+            <div layout="row">
+              <img src="cuboservicios.png" >
+              <div layout="column" layout-align="center center" >
+                <p style="font-size:12px; color:gray; font-weight:bold; margin-left:5%;">consultoria en sueldos y salarios</p>
+              </div>
+            </div>
+            <div layout="column" layout-align="start start">
+              <p style="font-size:10px; color:gray; font-weight:bold; margin-bottom:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+              <md-button class="btnhoverblue">
+                <p style="margin: 0">Leer mas</p>
+              </md-button>
+            </div>
+          </div>
+
+
+          <div layout="column" style="margin:0%; margin-top:3%; " flex-gt-xs="20"> <!-- box -->
+            <div layout="row">
+              <img src="cuboservicios.png" >
+              <div layout="column" layout-align="center center" >
+                <p style="font-size:12px; color:gray; font-weight:bold; margin-left:5%;">consultoria en sueldos y salarios</p>
+              </div>
+            </div>
+            <div layout="column" layout-align="start start">
+              <p style="font-size:10px; color:gray; font-weight:bold; margin-bottom:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+              <md-button class="btnhoverblue">
+                <p style="margin: 0">Leer mas</p>
+              </md-button>
+            </div>
+          </div>
+
+          
+
+       </div>
+       <div layout="row" layout-xs="column"  layout-align="space-around center">
+
+           <div layout="column" style="margin:0%; margin-top:3%; margin-bottom:6%" flex-gt-xs="20"> <!-- box -->
+            <div layout="row">
+              <img src="cuboservicios.png" >
+              <div layout="column" layout-align="center center" >
+                <p style="font-size:12px; color:gray; font-weight:bold; margin-left:5%;">consultoria en sueldos y salarios</p>
+              </div>
+            </div>
+            <div layout="column" layout-align="start start">
+              <p style="font-size:10px; color:gray; font-weight:bold; margin-bottom:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+              <md-button class="btnhoverblue">
+                <p style="margin: 0">Leer mas</p>
+              </md-button>
+            </div>
+          </div>
+
+
+          <div layout="column" style="margin:0%; margin-top:3%; margin-bottom:6%" flex-gt-xs="20"> <!-- box -->
+            <div layout="row">
+              <img src="cuboservicios.png" >
+              <div layout="column" layout-align="center center" >
+                <p style="font-size:12px; color:gray; font-weight:bold; margin-left:5%;">consultoria en sueldos y salarios</p>
+              </div>
+            </div>
+            <div layout="column" layout-align="start start">
+              <p style="font-size:10px; color:gray; font-weight:bold; margin-bottom:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+              <md-button class="btnhoverblue">
+                <p style="margin: 0">Leer mas</p>
+              </md-button>
+            </div>
+          </div>
+
+
+          <div layout="column" style="margin:0%; margin-top:3%; margin-bottom:6%" flex-gt-xs="20"> <!-- box -->
+            <div layout="row">
+              <img src="cuboservicios.png" >
+              <div layout="column" layout-align="center center" >
+                <p style="font-size:12px; color:gray; font-weight:bold; margin-left:5%;">consultoria en sueldos y salarios</p>
+              </div>
+            </div>
+            <div layout="column" layout-align="start start">
+              <p style="font-size:10px; color:gray; font-weight:bold; margin-bottom:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+              <md-button class="btnhoverblue">
+                <p style="margin: 0">Leer mas</p>
+              </md-button>
+            </div>
+          </div>
+
+       </div>
+     </div>
+
+     
+ </md-content>
+
+
+ <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////servicios end -->
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////nuestros productos -->
+ <md-content layout="column" layout-align="center center">
+
+     <div hide show-gt-xs layout="column" layout-align="center center">
+       <p style="font-size:30px; color:gray; margin-bottom:0;">NUESTROS PRODUCTOS</p>
+       <hr  width="20%" />
+       <div layout="column" layout-align="center center">
+         <p style="font-size:13px; color:gray;  margin:0; ">Que garantiza la total satisfaccion de</p>
+         <p style="font-size:13px; color:gray;  margin:0;">las necesidades de su compañia</p>
+       </div>
+
+     </div>
+     <div hide-gt-xs layout="column" layout-align="center center">
+       <p style="font-size:20px; color:gray; margin-bottom:0;">NUESTROS PRODUCTOS</p>
+       <hr  width="20%" />
+       <div layout="column" layout-align="center center">
+         <p style="font-size:10px; color:gray;  margin:0; ">Que garantiza la total satisfaccion de</p>
+         <p style="font-size:10px; color:gray;  margin:0;">las necesidades de su compañia</p>
+       </div>
+       
+
+     </div>
+
+     
+       <div layout="row" layout-xs="column"  layout-align="center center"  class="nuestrosproductos" >
+
+          <div layout="column" style="margin:1%; margin-top:6%; " flex-gt-xs="25"> <!-- box -->
+            <div>
+              <img src="a.png" width="100%" >
+            </div>
+            <div layout="column" layout-align="start start">
+              <p style="font-size:10px; color:gray; font-weight:bold; margin-bottom:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+              <md-button class="btnhoverblue">
+                <p style="margin: 0">Leer mas</p>
+              </md-button>
+            </div>
+          </div>
+
+
+          <div layout="column" style="margin:1%; margin-top:6%; " flex-gt-xs="25"> <!-- box -->
+            <div >
+              <img src="l.png" width="100%" >
+            </div>
+            <div layout="column" layout-align="start start">
+              <p style="font-size:10px; color:gray; font-weight:bold; margin-bottom:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+              <md-button class="btnhoverblue">
+                <p style="margin: 0">Leer mas</p>
+              </md-button>
+            </div>
+          </div>
+
+
+          <div layout="column" style="margin:1%; margin-top:6%; " flex-gt-xs="25"> <!-- box -->
+            <div >
+              <img src="c.png" width="100%">
+            </div>
+            <div layout="column" layout-align="start start">
+              <p style="font-size:10px; color:gray; font-weight:bold; margin-bottom:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+              <md-button class="btnhoverblue">
+                <p style="margin: 0">Leer mas</p>
+              </md-button>
+            </div>
+          </div>
+
+          
+
+       </div>
+       
+    
+
+     
+ </md-content>
+
+
+ <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////nuestros productos end -->
+
+<!--  //////////////////////////////////////////////////////////////////////////////////////////////////////////beneficios -->
+<md-content style="background-color:#01AFEC; top:10%;" layout="row" layout-xs="column" layout-align="center center">
+  <div layout="row" flex-gt-xs="30">
+    <div hide show-gt-md style="margin-top:5%;">
+       <img src="123.png" width="60%" >
+    </div>
+    <div layout="column"  style="margin-top:2%; margin-bottom:2%;">
+       <div>
+        <p style="font-size:15px; margin-bottom:0; font-weight:bold; color:white;">esquema premium </p>
+        <p style="font-size:15px; margin-top:0; color:white;">para sus empresas</p>
+       </div>
+       <div>
+        <p style="font-size:15px; margin-bottom:0; font-weight:bold; color:white;">esquema estandar</p>
+        <p style="font-size:15px; margin-top:0; color:white;">para su empresa y trabajadores</p>
+       </div>
+       <div>
+        <p style="font-size:15px; margin-bottom:0; font-weight:bold; color:white;">esquema basico</p>
+        <p style="font-size:15px;  margin-top:0; color:white;">para los trabajadores</p>
+       </div>
+    </div>
+  </div>
+  <div layout="column" flex-gt-xs="30" flex-offset-gt-xs="10"  style="margin-top:2%; margin-bottom:2%;">
+      <p style="font-size:25px; margin-bottom:0; color:white;">Beneficios</p>
+      <p style="font-size:12px; color:white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et</p>
+      <div>
+        <md-button style="border: 2px solid white;">
+          <p style="margin: 0; padding:0; color:white; font-weight:bold; font-size:10px;">Leer mas</p>
+        </md-button>
+      </div>
+  </div>
+</md-content>
+
+<!--  //////////////////////////////////////////////////////////////////////////////////////////////////////////beneficios end -->
+
+<!--  //////////////////////////////////////////////////////////////////////////////////////////////////////////clientes -->
+<md-content style="background-color:rgb(242,242,242); top:10%;" layout="column" >
+  <div  style="margin-top:2%; " layout="column" layout-align="center center">
+      <p style="font-size:30px; color:gray; ">CLIENTES</p>
+  </div>
+  <div layout-gt-xs="row" layout="column"  layout-align="space-around center">
+      <div   >
+        <img src="logo-empresas-.png" width="90%">
+        <p class="md-headline" style="margin-top:2%; color:black;">cliente</p>
+      </div>
+      <div  >
+        <img src="logo-empresas-.png" width="90%">
+        <p class="md-headline" style="margin-top:2%; color:black;">cliente</p>
+      </div>
+      <div  >
+        <img src="logo-empresas-.png" width="90%">
+        <p class="md-headline" style="margin-top:2%; color:black;">cliente</p>
+      </div>
+      <div  >
+        <img src="logo-empresas-.png" width="90%">
+        <p class="md-headline" style="margin-top:2%; color:black;">cliente</p>
+      </div>
+  </div>
+</md-content>
+
+<!--  //////////////////////////////////////////////////////////////////////////////////////////////////////////clientes end -->
+
+<!--  //////////////////////////////////////////////////////////////////////////////////////////////////////////blog -->
+<md-content style=" top:10%;" layout="column" >
+  <div  style="margin-top:2%; " layout="column" layout-align="center center">
+      <p style="font-size:30px; margin-bottom:0%; color:gray; ">BLOG</p>
+      <hr  width="20%"/>
+      <div layout="column" layout-align="center center">
+        <p style="font-size:13px; color:gray;  margin:0; ">Conoce lo que acontece en nuestra empresa</p>
+      </div>
+  </div>
+  <div>
+  <div layout="row" layout-align="center start" style="margin:2%">
+      <div flex="50" flex-offset="20" laytout="column" layout-align="center center" class="blog" style="margin:5%">
+        <div layout="column">
+         <img src="thumb1.jpg" width="100%">
+         <div style="background-color:rgb(242,242,242)">
+          <p>Titulo uno</p>
+        </div>
+        </div>
+        <div layout="column" layout-align="start start">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+          <md-button class="btnhoverblue">
+            <p style="margin: 0">Leer mas</p>
+          </md-button>
+        </div>
+      </div>
+
+
+       <div flex laytout="column" layout-align="center center" style="margin:5%; margin-left:0; margin-right:10%;">
+        <div >
+         <div layout="column">
+          <img src="thumb3.jpg" width="100%">
+          <div style="background-color:rgb(242,242,242)">
+           <p>Titulo uno</p>
+         </div>
+         </div>
+         <div style="margin-top:-5%;">
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </p>
+         </div>
+         <md-button  style="margin-top:-5%;">
+            <p style="margin: 0">Leer mas</p>
+          </md-button>
+        </div>
+        <div >
+         <div layout="column">
+          <img src="thumb3.jpg" width="100%">
+          <div style="background-color:rgb(242,242,242)">
+           <p>Titulo uno</p>
+         </div>
+         </div>
+         <div style="margin-top:-5%;">
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+         </div>
+         <md-button  style="margin-top:-5%;">
+            <p style="margin: 0">Leer mas</p>
+          </md-button>
+        </div>
+    </div>
+  </div>  
+</div>
+</md-content>
+
+<!--  //////////////////////////////////////////////////////////////////////////////////////////////////////////blog end -->
+
+
+  </body>
+
+</html>
+
+
+<style>
+
+   .main{
+     background-image url:("http://www.planwallpaper.com/static/images/recycled_texture_background_by_sandeep_m-d6aeau9_PZ9chud.jpg");
+     background-repeat: no-repeat;
+     background-size: 100%;
+   }
+
+  .rhomb{
+     -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+     box-sizing: content-box;
+     width: 60px;
+     height: 60px;
+     margin: 14px 19px;
+     border: none;
+     font: normal 100%/normal Arial, Helvetica, sans-serif;
+     color: rgba(0,0,0,1);
+     -o-text-overflow: clip;
+     text-overflow: clip;
+     background: #01AFEC;
+     -webkit-transform: rotateZ(-45deg)   ;
+     transform: rotateZ(-45deg)   ;
+     -webkit-transform-origin: 0 100% 0deg;
+     transform-origin: 0 100% 0deg;
+   }
+
+   .rhomb1 {
+     -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+     box-sizing: content-box;
+     width: 70px;
+     height: 70px;
+     cursor: pointer;
+     margin: 15px 25px;
+     border: none;
+     font: normal 100%/normal Arial, Helvetica, sans-serif;
+     color: rgba(0,0,0,1);
+     -o-text-overflow: clip;
+     text-overflow: clip;
+     background: rgba(140,140,140,0.52);
+     -webkit-transform: rotateZ(-45deg)   ;
+     transform: rotateZ(-45deg)   ;
+     -webkit-transform-origin: 0 100% 0deg;
+     transform-origin: 0 100% 0deg;
+   }
+
+
+   .rhomb2 {
+     -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+     box-sizing: content-box;
+     width: 60px;
+     height: 60px;
+     cursor: pointer;
+     margin: 14px 18px;
+     border: none;
+     font: normal 100%/normal Arial, Helvetica, sans-serif;
+     color: rgba(0,0,0,1);
+     -o-text-overflow: clip;
+     text-overflow: clip;
+     background: rgba(140,140,140,0.52);
+     -webkit-transform: rotateZ(-45deg)   ;
+     transform: rotateZ(-45deg)   ;
+     -webkit-transform-origin: 0 100% 0deg;
+     transform-origin: 0 100% 0deg;
+   }
+
+   .rhomb2:hover, .rhomb1:hover {
+      background: #01AFEC;
+   }
+
+
+   .arrowblock:hover{
+     cursor: pointer;
+   }
+
+
+
+     
+    .btn1 {
+       font-family: Arial; 
+       font-weight: bold;
+       color: black;
+       cursor: pointer;
+       margin: 0px 20px;
+       transition-duration: 0.3s;
+       
+     }
+     .btn2 {
+       font-family: Arial; 
+       font-weight: bold;
+       color:#535353;
+       cursor: pointer;
+       margin: 0px 20px;
+       transition-duration: 0.3s;
+       
+     }
+    
+    
+
+
+    .btn1:hover,.btn2:hover{
+      color:#01AFEC;
+    }
+
+
+    .servicios .md-button:hover{
+      background-color:#01AFEC;
+      color:white;
+    }
+
+    .servicios .md-button{
+      margin-left: 0;
+      font-size:11px;
+      font-weight: bold;
+      color:#01AFEC;
+    }
+    
+    .blog .md-button:hover{
+      background-color:#01AFEC;
+      color:white;
+    }
+
+    .blog .md-button{
+      margin-left: 0;
+      font-size:11px;
+      font-weight: bold;
+      color:#01AFEC;
+    }
+
+    .nuestrosproductos .md-button:hover{
+      background-color:#01AFEC;
+      color:white;
+    }
+
+    .nuestrosproductos .md-button{
+      margin-left: 0;
+      font-size:11px;
+      font-weight: bold;
+      color:#01AFEC;
+    }
+
+
+
+
+
+   .menu2tool .md-button:hover {
+     background-color: gray;
+    }
+
+    .menu2btn p{
+      color:#535353;
+      font-size: 12px;
+      font-family: Arial;
+      font-weight: bold;
+    }
+    .menu2tool{
+      padding: 0;
+    }
+
+
+    .md-content hr{
+      background-color:#01AFEC;
+      color:#01AFEC ;
+    }
+
+
+
+
+</style>
