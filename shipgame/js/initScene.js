@@ -11,7 +11,7 @@ function skycreation(){
             /** SKYBOX **/
     BABYLON.Engine.ShadersRepository = "shaders/";
         
-    skybox = BABYLON.Mesh.CreateSphere("skyBox", 10, 5500, scene);
+    skybox = BABYLON.Mesh.CreateSphere("skyBox", 10, 3500, scene);
 
     var shader = new BABYLON.ShaderMaterial("gradient", scene, "gradient", {});
     shader.setFloat("offset", 0);
