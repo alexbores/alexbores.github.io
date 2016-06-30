@@ -347,7 +347,7 @@ var onload = function () {
     //create sky
     skycreation();
 
-    Ship(1,scene);
+    
     // ground
     //var ground = BABYLON.Mesh.CreateGround("ground", 800, 2000, 2, scene);
 
@@ -355,10 +355,12 @@ var onload = function () {
 
     //sounds
     soundmanage();
-
+    
+    Ship(1,scene);
     // Enable Collisions
     collisions();
-
+    
+    createbox();
     main();    
 };
 
