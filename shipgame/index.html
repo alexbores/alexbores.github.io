@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<head>
+        <script src="js/babylon.js"></script>
+        <script src="js/initScene.js"></script>
+        <script src="js/Ship.js"></script>
+        <script src="js/soundmanage.js"></script>
+        <script src="js/Oimo.js"></script>
+        <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            position: fixed;
+        }
+        #renderCanvas {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #ammoLabel {
+            position:absolute;
+            top:20px;
+            left : 20px;
+            color:white;
+            font-size: 2em;
+        }
+        </style>
+</head>
+<body >
+	
+    <canvas id="renderCanvas"></canvas>
+
+    
+</body>
+</html>
+
+<script>
+///////////////////////////////////////////////////////////////////////////////  support functions////////////////////////////////////////////////
+var randomNumber = function (min, max) {
+    if (min == max) {
+        return (min);
+    }
+    var random = Math.random();
+    return ((random * (max - min)) + min);
+};
+
+//////////////////////////////////////////////////////////////////////////// meshes handler /////////////////////////////////////////////////////
+var boxes=[];
+function createbox() {
+    var minZ = camera.position.z+200;
+    var maxZ = camera.position.z+500;
+    if(keys[65]==true){
+        var minX = camera.position.x - 100, maxX = camera.position.x;
+        var maxZ = camera.position.z+500;
+    }
+    else if(keys[68]==true){
+        var minX = camera.position.x , maxX = camera.position.x+100;
+        var maxZ = camera.position.z+500;
+    }
+    else{
+       var minX = camera.position.x - 80, maxX = camera.position.x+80;
+    }
+
+    if(keys[83]==true){
+        var minY = camera.position.y - 100, maxY = camera.position.y;
+        var maxZ = camera.position.z+500;
+    }
+    else if(keys[87]==true){
+        var minY = camera.position.y , maxY = camera.position.y+100;
+        var maxZ = camera.position.z+500;
+    }
+    else{
+       var minY = camera.position.y - 80, maxY = camera.position.y+80;
+    }
+
+    var minSize = 2, maxSize = 10;
+
+    var randomX, randomZ, randomY, randomSize;
+
+    randomX = randomNumber(minX, maxX);
+    randomZ = randomNumber(minZ, maxZ);
+    randomY = randomNumber(minY, maxY);
+    randomSize = randomNumber(minSize, maxSize);
+
+    var b = BABYLON.Mesh.CreateBox("bb", randomSize, scene);
+
+    if(randomNumber(0,5)<3){
+       b.scaling.x = randomNumber(0.5, 2);
+       b.scaling.y = randomNumber(4, 8);
+       b.scaling.z = randomNumber(2, 3);
+    }
+    else{
+       b.scaling.y = randomNumber(0.5, 2);
+       b.scaling.x = randomNumber(4, 8);
+       b.scaling.z = randomNumber(2, 3);
+    }
+
+    b.position.x = randomX;
+    b.position.y = randomY;
+    b.position.z = randomZ;
+
+    // // We must create a new ActionManager for our building in order to use Actions.
+    // b.actionManager = new BABYLON.ActionManager(scene);
+    
+    // // The trigger is OnIntersectionEnterTrigger
+    // var trigger = {trigger:BABYLON.ActionManager.OnIntersectionEnterTrigger, parameter: ship};
+
+    // // Our first action !
+    // var sba = new BABYLON.SwitchBooleanAction(trigger, ship, "killed");
+    // b.actionManager.registerAction(sba);
+
+    b.checkCollisions = true;
+
+    boxes.push(b);
+
+};
+
+function cleanboxes() {
+    // For all clones
+    for (var n=0; n<boxes.length; n++) {
+        if (boxes[n].position.z < camera.position.z-10) {
+            var box = boxes[n];
+            // Destroy the clone !
+            box.dispose();
+            boxes.splice(n, 1);
+            n--;
+        }
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////// player handler //////////////////////////////////////////////////////
+var keys=[];     
+keys[65]=false;
+keys[68]=false;
+keys[83]=false;
+keys[32]=false;
+keys[80]=false;
+
+document.body.addEventListener("keydown", function(e) {
+    keys[e.keyCode] = true;
+});
+document.body.addEventListener("keyup", function(e) {
+    keys[e.keyCode] = false;
+});
+
+function getMousePos(evt) {
+    var rect = renderCanvas.getBoundingClientRect();
+    return {
+      x: evt.clientX - rect.left,
+      y: evt.clientY - rect.top
+    };
+}
+
+// canvas.addEventListener('click', function(evt) {
+//     mousePos = getMousePos(evt);
+//     if(nodesinserted==0){
+//       insertnodes(mousePos.x,mousePos.y);
+//     }
+//     else if(dijkstraend == 0){
+//       connectnodes(mousePos.x,mousePos.y);
+//     }
+//     console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
+// }, false);
+
+var mousePos;
+var cursorposx;
+var cursorposy;
+document.body.addEventListener('mousemove', function(evt) {
+    mousePos = getMousePos(evt);
+    cursorposx=mousePos.x;
+    cursorposy=mousePos.y;  
+}, false);
+
+
+
+/////////////////////////////////////////////////////////////////////////////player main functions///////////////////////////////////////////////////////////////
+
+
+var shootactive=false;
+var flytimecontrol= false;
+var flycontrol=0;
+function move() {
+    
+
+    if (keys[68]==true) {
+        ship.position.x += 1.5;
+        camera.position.x += 1.5;
+        ship.rotation.z = -0.2;
+    }
+    else if (keys[65]==true) {
+        ship.position.x += -1.5;
+        camera.position.x += -1.5;
+        ship.rotation.z = 0.2;
+    }
+    else{
+        ship.rotation.z = 0;
+    }
+
+    if (keys[87]==true) {
+        ship.position.y += 1.5;
+        camera.position.y += 1.5;
+        ship.rotation.x = -0.2;
+    }
+    else if (keys[83]==true) {
+        ship.position.y += -1.5;
+        camera.position.y += -1.5;
+        ship.rotation.x = 0.6;
+    }
+    else{
+        ship.rotation.x = 0;
+    }
+
+    // if(keys[32]==true && shootactive==false && frame%10!=0){
+    //     ammo();
+    //     shootactive=true;
+    // }
+    // if(shootactive==true && frame%10==0){
+    //   shootactive=false;
+    // }
+
+    skybox.position.x=ship.position.x;
+    skybox.position.y=ship.position.y;
+    skybox.position.z=ship.position.z-500;
+
+    return 0;
+}
+
+
+
+
+var bullets=[];
+var ammo = function() {
+    var bull = BABYLON.Mesh.CreateSphere("bull", 10,1, scene);
+    
+
+    bull.position.x = ship.position.x;
+    bull.position.y = ship.position.y;
+    bull.position.z = ship.position.z;
+
+    
+    bull.checkCollisions = true;
+
+    bullets.push(bull);
+
+};
+function movebullets(){
+    for(var i=0; i<bullets.length; i++){
+        bullets[i].position.z += 15;
+
+        
+        for(var j=0; j<boxes.length; j++){
+            var bull = bullets[i];
+            var box = boxes[j];
+            if (bull.intersectsMesh(box, true)) {
+                bull.emissiveColor = new BABYLON.Color3(1, 0, 0);
+               
+            } 
+        }
+        if(bullets[i].position.z > ship.position.z+500){
+            var bull = bullets[i];
+            // Destroy the clone !
+            bull.dispose();
+            bullets.splice(i, 1);
+        }
+         
+    }
+    return 0;
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////// main ////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var frame=0;
+function main(){
+    // The render function
+    engine.runRenderLoop(function () { /////////////////loop
+        if(ship.killed == false){
+          for(var i=0; i<boxes.length; i++){
+              var box = boxes[i];
+              if (ship.intersectsMesh(box, true)) {
+                  ship.emissiveColor= new BABYLON.Color3(1,0,0);
+                  explosion.play();
+                  controlcounter=2;
+                  ship.killed=true;
+                  jet.stop();
+              } 
+          }
+        }
+
+        if (ship.killed==false) {
+            move();
+
+    
+            camera.position.z += ship.speed;
+            ship.position.z += ship.speed;
+            //ground.position.z += ship.speed;
+
+            createbox();
+        }
+        
+
+        movebullets();
+
+        frame+=1;
+        if(frame >= 60){
+            frame=0;
+        }
+        scene.render();
+    });///////////loop end
+
+    return 0;
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////// general supports ////////////////////////////////////////////////////////
+// Engine creation
+var canvas = document.getElementById("renderCanvas");
+var engine = new BABYLON.Engine(canvas, true);
+// The scene creation
+var scene = new BABYLON.Scene(engine);
+
+
+// The camera creation
+// camera.keysUp.push(87); 
+var camera = new BABYLON.FreeCamera("Camera", new BABYLON.Vector3(0, 5, -15), scene);
+camera.setTarget(new BABYLON.Vector3(0,0,20));
+camera.maxZ = 1000;
+camera.speed = 4;
+
+//ligths
+lights();
+
+
+//create sky
+skycreation();
+
+// The function onload is loaded when the DOM has been loaded
+document.addEventListener("DOMContentLoaded", function () {
+    onload();
+}, false);
+var onload = function () {
+    Ship(1,scene);
+
+    // ground
+    //var ground = BABYLON.Mesh.CreateGround("ground", 800, 2000, 2, scene);
+
+
+
+    //sounds
+    soundmanage();
+
+    // Enable Collisions
+    collisions();
+
+    main();    
+};
+
+
+////////////evita que los objetos se modifiquen
+   window.addEventListener("resize", function(){engine.resize();});
+</script>
