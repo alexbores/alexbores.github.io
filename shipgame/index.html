@@ -324,7 +324,7 @@ var canvas = document.getElementById("renderCanvas");
 var engine = new BABYLON.Engine(canvas, true);
 // The scene creation
 var scene = new BABYLON.Scene(engine);
-
+Ship(1,scene);
 
 // The camera creation
 // camera.keysUp.push(87); 
@@ -355,7 +355,7 @@ var onload = function () {
     //sounds
     soundmanage();
     
-    Ship(1,scene);
+    
     // Enable Collisions
     collisions();
     
