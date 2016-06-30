@@ -222,9 +222,9 @@ function move() {
     //   shootactive=false;
     // }
 
-    //skybox.position.x=ship.position.x;
-    //skybox.position.y=ship.position.y;
-    //skybox.position.z=ship.position.z-500;
+    skybox.position.x=ship.position.x;
+    skybox.position.y=ship.position.y;
+    skybox.position.z=ship.position.z-500;
 
     return 0;
 }
@@ -344,8 +344,7 @@ var onload = function () {
     lights();
 
 
-    //create sky
-    //skycreation();
+    
 
     
     // ground
@@ -360,7 +359,8 @@ var onload = function () {
     // Enable Collisions
     collisions();
     
-    
+    //create sky
+    skycreation();
     main();    
 };
 
