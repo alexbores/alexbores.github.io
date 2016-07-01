@@ -276,6 +276,7 @@ function movebullets(){
 ///////////////////////////////////////////////////////////////////////////////////// main ////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var frame=0;
+var score=0;
 function main(){
     // The render function
     engine.runRenderLoop(function () { /////////////////loop
@@ -288,6 +289,7 @@ function main(){
                   controlcounter=2;
                   ship.killed=true;
                   jet.stop();
+                  alert("score: "+score+" secs");
               } 
           }
         }
@@ -311,6 +313,7 @@ function main(){
         frame+=1;
         if(frame >= 60){
             frame=0;
+            score+=1;
         }
         scene.render();
     });///////////loop end
