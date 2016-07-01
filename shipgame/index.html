@@ -299,8 +299,10 @@ function main(){
             camera.position.z += ship.speed;
             ship.position.z += ship.speed;
             //ground.position.z += ship.speed;
-
-            createbox();
+            
+            if(ship.position.z > 50){
+              createbox();
+            }
         }
         
 
