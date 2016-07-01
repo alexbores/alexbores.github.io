@@ -84,7 +84,9 @@ Ship = function(size,scene) {
     // BABYLON.Mesh.call(this, "ship", scene);
     vertexData.applyToMesh(ship, false);
     
-
+    // var material = new BABYLON.StandardMaterial("", scene);
+    // ship.material = material;
+    // ship.material.emissiveColor = new BABYLON.Color3(0, 5, 5);
 
 
 

@@ -50,10 +50,11 @@ var randomNumber = function (min, max) {
 var time=0;
 var secs=0;
 function timecount(){
-	secs+=1;
-	if(ship.killed==true){
-	   clearInterval(time);
-	}
+    secs+=1;
+    if(ship.killed==true){
+       clearInterval(time);
+    }
+    return 0;
 }
 
 //////////////////////////////////////////////////////////////////////////// meshes handler /////////////////////////////////////////////////////
@@ -95,6 +96,10 @@ function createbox() {
     randomSize = randomNumber(minSize, maxSize);
 
     var b = BABYLON.Mesh.CreateBox("bb", randomSize, scene);
+    
+    var material = new BABYLON.StandardMaterial("", scene);
+    b.material = material;
+    b.material.emissiveColor = new BABYLON.Color3(1, 0.15, 0.15);
 
     if(randomNumber(0,5)<3){
        b.scaling.x = randomNumber(0.5, 2);
@@ -231,9 +236,9 @@ function move() {
     //   shootactive=false;
     // }
 
-    //skybox.position.x=ship.position.x;
-    //skybox.position.y=ship.position.y;
-    //skybox.position.z=ship.position.z-1000;
+    skybox.position.x=ship.position.x;
+    skybox.position.y=ship.position.y;
+    skybox.position.z=ship.position.z-500;
 
     return 0;
 }
@@ -309,10 +314,8 @@ function main(){
             camera.position.z += ship.speed;
             ship.position.z += ship.speed;
             //ground.position.z += ship.speed;
-            
-            if(ship.position.z > 300){
-              createbox();
-            }
+
+            createbox();
         }
         
 
@@ -347,6 +350,9 @@ camera.speed = 4;
 
 
 
+
+
+
 // The function onload is loaded when the DOM has been loaded
 document.addEventListener("DOMContentLoaded", function () {
     onload();
@@ -355,23 +361,17 @@ var onload = function () {
     //ligths
     lights();
 
-
     
     //create sky
-    //skycreation();
-    
-    // ground
-    //var ground = BABYLON.Mesh.CreateGround("ground", 800, 2000, 2, scene);
-
+    skycreation();
 
 
     //sounds
     soundmanage();
-    
-    
+
     // Enable Collisions
     collisions();
-    
+
     time = setInterval(timecount, 1000);
     main();    
 };

@@ -11,7 +11,7 @@ function skycreation(){
             /** SKYBOX **/
     BABYLON.Engine.ShadersRepository = "shaders/";
         
-    skybox = BABYLON.Mesh.CreateSphere("skyBox", 10, 3500, scene);
+    skybox = BABYLON.Mesh.CreateSphere("skyBox", 10, 2500, scene);
 
     var shader = new BABYLON.ShaderMaterial("gradient", scene, "gradient", {});
     shader.setFloat("offset", 0);
@@ -37,17 +37,17 @@ function lights(){
     var h = new BABYLON.HemisphericLight("hemi", new BABYLON.Vector3(0, 10, 0), scene);
      // h.specular = new BABYLON.Color3(0,0,0); //o
      // h.diffuse = new BABYLON.Color3(1,1,1); //( )
-     h.intensity = 0.6;
+     h.intensity = 0.2;
     // var light0 = new BABYLON.PointLight("Omni", new BABYLON.Vector3(0,0,0), scene);
     // light0.diffuse = new BABYLON.Color3(1,1,1); //( )
     // light0.specular = new BABYLON.Color3(1,1,1); //o
     // A directional light to add some colors
     var d = new BABYLON.DirectionalLight("dir", new BABYLON.Vector3(0,-0.5,0.5), scene);
     d.position = new BABYLON.Vector3(0.1,100,-100);
-    d.specular = new BABYLON.Color3(0,0,0); //o
-    d.intensity = 0.4;
+    // d.specular = new BABYLON.Color3(0,0,0); //o
+    d.intensity = 0.0;
     // Purple haze, all around !
-    d.diffuse = BABYLON.Color3.FromInts(255,0,0);
+    // d.diffuse = BABYLON.Color3.FromInts(255,0,0);
 
     return 0;
 }
