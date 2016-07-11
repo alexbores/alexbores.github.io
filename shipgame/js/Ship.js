@@ -98,7 +98,7 @@ Ship = function(size,scene) {
 
 
     // Movement attributes
-    ship.speed = 2;
+    ship.speed = 3;
 
     //this._initMovement();
 
