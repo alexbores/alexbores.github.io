@@ -1,0 +1,2210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	 <title>bluecore home</title>
+  	 <meta charset="utf-8"/>
+
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+      
+      <script>
+           angular
+            .module('firstApplication', ['ngMaterial'])
+
+  .controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+    $scope.toggleLeft = buildDelayedToggler('left');
+    $scope.toggleRight = buildToggler('right');
+    $scope.isOpenRight = function(){
+      return $mdSidenav('right').isOpen();
+    };
+    /**
+     * Supplies a function that will continue to operate until the
+     * time is up.
+     */
+    function debounce(func, wait, context) {
+      var timer;
+      return function debounced() {
+        var context = $scope,
+            args = Array.prototype.slice.call(arguments);
+        $timeout.cancel(timer);
+        timer = $timeout(function() {
+          timer = undefined;
+          func.apply(context, args);
+        }, wait || 10);
+      };
+    }
+    /**
+     * Build handler to open/close a SideNav; when animation finishes
+     * report completion in console
+     */
+    function buildDelayedToggler(navID) {
+      return debounce(function() {
+        // Component lookup should always be available since we are not using `ng-if`
+        $mdSidenav(navID)
+          .toggle()
+          .then(function () {
+            $log.debug("toggle " + navID + " is done");
+          });
+      }, 200);
+    }
+    function buildToggler(navID) {
+      return function() {
+        // Component lookup should always be available since we are not using `ng-if`
+        $mdSidenav(navID)
+          .toggle()
+          .then(function () {
+            $log.debug("toggle " + navID + " is done");
+          });
+      }
+    }
+  })
+  .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+    $scope.close = function () {
+      // Component lookup should always be available since we are not using `ng-if`
+      $mdSidenav('left').close()
+        .then(function () {
+          $log.debug("close LEFT is done");
+        });
+    };
+  })
+  .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+    $scope.close = function () {
+      // Component lookup should always be available since we are not using `ng-if`
+      $mdSidenav('right').close()
+        .then(function () {
+          $log.debug("close RIGHT is done");
+        });
+    };
+  });
+
+
+
+  
+angular.module('appSvgIconSets', ['ngMaterial'])
+  .controller('DemoCtrl', function($scope) {})
+  .config(['$mdIconProvider', function($mdIconProvider) {
+    $mdIconProvider
+      .iconSet('social', 'img/icons/sets/social-icons.svg', 24)
+      .defaultIconSet('img/icons/sets/core-icons.svg', 24);
+  }]);
+      </script>
+  </head>
+
+<body ng-controller="AppCtrl" ng-app="firstApplication">
+
+
+  <md-content class="main"  layout="column"  >
+
+    <!--  ////////////////////////////////////////////////////////////toolbar -->
+        <!-- ////////////////////////sidenav -->
+          <md-sidenav class="md-sidenav-left md-whiteframe-10dp" md-component-id="left" style="width:500px; height:450px;">
+             <div style="" ng-controller="LeftCtrl" >
+                <md-button ng-click="close()" style="color:white;" class="md-icon-button btntool" aria-label="Settings">
+                   <md-icon  class="material-icons btnclose" >close</md-icon>
+                </md-button>
+                <div layout="column" layout-align="start start" style="margin-top:50px;">
+                   <div class="dropdown">
+                     <div class="btndropdown">
+                        <p>ACERCA DE BLUE CORE</p>
+                     </div>
+                     <div class="dropdown-content" layout="column" layout-align="start start">
+                        <p>INICIO</p>
+                        <p>EL EQUIPO</p>
+                        <p>¿QUIENES SOMOS?</p>
+                        <p>¿COMO SER PARTE DE BLUE CORE?</p>
+                        <div style="background: #00BCF2; width: 110%; height: 2px; margin-top:30px;  margin-bottom:10px;  margin-left:17px;"></div>
+                     </div>
+                   </div>
+                   <div class="dropdown">
+                     <div class="btndropdown">
+                        <p>FOTOGRAFOS SUBMARINOS</p>
+                     </div>
+                     <div class="dropdown-content" layout="column" layout-align="start start">
+                        <p>INICIO</p>
+                        <p>EL EQUIPO</p>
+                        <p>¿QUIENES SOMOS?</p>
+                        <p>¿COMO SER PARTE DE BLUE CORE?</p>
+                        <div style="background: #00BCF2; width: 110%; height: 2px; margin-top:30px;  margin-bottom:10px;  margin-left:17px;"></div>
+                     </div>
+                   </div>
+                   <div class="dropdown">
+                     <div class="btndropdown">
+                        <p>COLABROACIONES</p>
+                     </div>
+                     <div class="dropdown-content" layout="column" layout-align="start start">
+                        <p>INICIO</p>
+                        <p>EL EQUIPO</p>
+                        <p>¿QUIENES SOMOS?</p>
+                        <p>¿COMO SER PARTE DE BLUE CORE?</p>
+                        <div style="background: #00BCF2; width: 110%; height: 2px; margin-top:30px;  margin-bottom:10px;  margin-left:17px;"></div>
+                     </div>
+                   </div>
+                   <div class="dropdown">
+                     <div class="btndropdown">
+                        <p>BENEFACTORES</p>
+                     </div>
+                     <div class="dropdown-content" layout="column" layout-align="start start">
+                        <p>INICIO</p>
+                        <p>EL EQUIPO</p>
+                        <p>¿QUIENES SOMOS?</p>
+                        <p>¿COMO SER PARTE DE BLUE CORE?</p>
+                        <div style="background: #00BCF2; width: 110%; height: 2px; margin-top:30px;  margin-bottom:10px;  margin-left:17px;"></div>
+                     </div>
+                   </div>
+                   <div class="dropdown">
+                     <div class="btndropdown">
+                        <p>EXPEDICIONES</p>
+                     </div>
+                     <div class="dropdown-content" layout="column" layout-align="start start">
+                        <p>INICIO</p>
+                        <p>EL EQUIPO</p>
+                        <p>¿QUIENES SOMOS?</p>
+                        <p>¿COMO SER PARTE DE BLUE CORE?</p>
+                        <div style="background: #00BCF2; width: 110%; height: 2px; margin-top:30px;  margin-bottom:10px;  margin-left:17px;"></div>
+                     </div>
+                   </div>
+                   <div class="dropdown">
+                     <div class="btndropdown">
+                        <p>ACTIVIDADES</p>
+                     </div>
+                     <div class="dropdown-content" layout="column" layout-align="start start">
+                        <p>INICIO</p>
+                        <p>EL EQUIPO</p>
+                        <p>¿QUIENES SOMOS?</p>
+                        <p>¿COMO SER PARTE DE BLUE CORE?</p>
+                        <div style="background: #00BCF2; width: 110%; height: 2px; margin-top:30px;  margin-bottom:10px;  margin-left:17px;"></div>
+                     </div>
+                   </div>
+                   <div class="dropdown">
+                     <div class="btndropdown">
+                        <p>EXPLORA</p>
+                     </div>
+                     <div class="dropdown-content" layout="column" layout-align="start start">
+                        <p>INICIO</p>
+                        <p>EL EQUIPO</p>
+                        <p>¿QUIENES SOMOS?</p>
+                        <p>¿COMO SER PARTE DE BLUE CORE?</p>
+                        <div style="background: #00BCF2; width: 110%; height: 2px; margin-top:30px;  margin-bottom:10px;  margin-left:17px;"></div>
+                     </div>
+                   </div>
+                   <div class="dropdown">
+                     <div class="btndropdown">
+                        <p>DONACIONES</p>
+                     </div>
+                     <div class="dropdown-content" layout="column" layout-align="start start">
+                        <p>INICIO</p>
+                        <p>EL EQUIPO</p>
+                        <p>¿QUIENES SOMOS?</p>
+                        <p>¿COMO SER PARTE DE BLUE CORE?</p>
+                        <div style="background: #00BCF2; width: 110%; height: 2px; margin-top:30px;  margin-bottom:10px;  margin-left:17px;"></div>
+                     </div>
+                   </div>
+                   <div class="dropdown">
+                     <div class="btndropdown">
+                        <p>TIENDA</p>
+                     </div>
+                     <div class="dropdown-content" layout="column" layout-align="start start">
+                        <p>INICIO</p>
+                        <p>EL EQUIPO</p>
+                        <p>¿QUIENES SOMOS?</p>
+                        <p>¿COMO SER PARTE DE BLUE CORE?</p>
+                        <div style="background: #00BCF2; width: 110%; height: 2px; margin-top:30px;  margin-bottom:10px;  margin-left:17px;"></div>
+                     </div>
+                   </div>
+                   <div class="dropdown">
+                     <div class="btndropdown">
+                        <p>BLOG</p>
+                     </div>
+                     <div class="dropdown-content" layout="column" layout-align="start start">
+                        <p>INICIO</p>
+                        <p>EL EQUIPO</p>
+                        <p>¿QUIENES SOMOS?</p>
+                        <p>¿COMO SER PARTE DE BLUE CORE?</p>
+                        <div style="background: #00BCF2; width: 110%; height: 2px; margin-top:30px;  margin-bottom:10px;  margin-left:17px;"></div>
+                     </div>
+                   </div>
+                   <div class="dropdown">
+                     <div class="btndropdown">
+                        <p>CONTACTO</p>
+                     </div>
+                     <div class="dropdown-content" layout="column" layout-align="start start">
+                        <p>INICIO</p>
+                        <p>EL EQUIPO</p>
+                        <p>¿QUIENES SOMOS?</p>
+                        <p>¿COMO SER PARTE DE BLUE CORE?</p>
+                        <div style="background: #00BCF2; width: 110%; height: 2px; margin-top:30px;  margin-bottom:10px;  margin-left:17px;"></div>
+                     </div>
+                   </div>
+                </div>
+             </div>
+          </md-sidenav>
+
+
+          <div  hide show-gt-sm layout="row"   layout-align="center start" layout-wrap style="margin:0; padding:0; ">
+             
+               
+             <div flex layout="row" layout-align="space-around center">
+               
+               <md-button ng-click="toggleLeft()" ng-hide="isOpenLeft()" style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
+                 <md-icon  class="material-icons btn1">menu</md-icon>
+               </md-button>
+               
+
+              
+               
+                <md-button  class="btntool" style="color:white;" >
+                     <div layout="row">
+                       <md-icon  class="material-icons btn1" >person</md-icon>
+                       <!-- <md-icon md-svg-src="imagenes/login.svg" style="color:black" aria-label="Settings"></md-icon> -->
+                       <p  class="btn1" >LOG IN</p>
+                     </div>
+                </md-button>
+
+                <md-button class="btntool" style="color:white;">
+                    <div layout="row">
+                      <md-icon  class="material-icons btn1">attach_money</md-icon>
+                      <p  class="btn1" >DONATIVOS</p>
+                    </div>
+                </md-button>
+
+                <md-button class="btntool" style="color:white; margin-right:0;">
+                    <div layout="row" style="margin-right:0;">
+                      <md-icon  class="material-icons btn1">shopping_cart</md-icon>
+                      <p  class="btn1" >CARRITO</p>
+                      <p  class="btn1 shoppingvalue" style="margin-left:5px;">(0)<p>
+                    </div>
+                </md-button>
+                
+                </div>
+
+                <div flex="10" layout="row" layout-align="center center">
+                   <div >
+                    <img src="https://yt3.ggpht.com/-ve-3VFseWeU/AAAAAAAAAAI/AAAAAAAAAAA/vHUIhIdc54E/s900-c-k-no-rj-c0xffffff/photo.jpg" width="100%" height="100%">
+                   </div>
+                </div>
+
+
+                <div flex layout="row" layout-align="space-around center">
+                  <div layout="row" layout-align="center center" style="margin:0;" >
+                    <md-button   class="btntool md-icon-button" aria-label="Settings" style="color:white;" >
+                      <p class="btn1 ">ENG</p>
+                    </md-button>
+                    <div style="width: 1px; height: 15px; background:  #00BCF2; margin:0;"></div>
+                    <md-button   class="btntool md-icon-button" aria-label="Settings" style="color:white;" >
+                      <p class="btn1 ">ESP</p>
+                    </md-button>
+                  </div>
+
+                  <div layout="row" style="margin:0;">
+                    <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
+                      <md-icon  class="material-icons btn1">lens</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
+                      <md-icon  class="material-icons btn1">lens</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
+                      <md-icon  class="material-icons btn1">lens</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
+                      <md-icon  class="material-icons btn1">lens</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
+                      <md-icon  class="material-icons btn1">lens</md-icon>
+                    </md-button>
+                  </div>
+
+                  <div layout="row" style="margin:0;">
+                    
+                      <md-button class="md-icon-button  btntool" ng-click="$mdOpenMenu()" aria-label="Settings" style="color:white; margin:0;">
+                        <md-icon  class="material-icons btn1">search</md-icon>
+                      </md-button>
+                      
+                    
+                  </div>
+                </div>
+
+          </div>
+
+           <div   hide-gt-sm layout="column"   layout-align="start center" layout-wrap style="margin:0; padding:0; ">
+             
+             <div  layout="column" layout-align="center center">
+                <div style="background-image: url('https://yt3.ggpht.com/-ve-3VFseWeU/AAAAAAAAAAI/AAAAAAAAAAA/vHUIhIdc54E/s900-c-k-no-rj-c0xffffff/photo.jpg'); background-size: cover; width:150px; height:150px" >
+                 <!-- <img src="https://yt3.ggpht.com/-ve-3VFseWeU/AAAAAAAAAAI/AAAAAAAAAAA/vHUIhIdc54E/s900-c-k-no-rj-c0xffffff/photo.jpg" width="20%" height="20%"> -->
+                </div>
+             </div>
+               
+             <div  layout="row" layout-align="center center">
+               <md-button ng-click="toggleLeft()" ng-hide="isOpenLeft()" style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
+                 <md-icon  class="material-icons btn1">menu</md-icon>
+               </md-button>
+               
+                <md-button  class="btntool" style="color:white;" >
+                     <div layout="row">
+                       <md-icon  class="material-icons btn1">person</md-icon>
+                       <p  class="btn1" >LOG IN</p>
+                     </div>
+                </md-button>
+
+                <md-button class="btntool" style="color:white;">
+                    <div layout="row">
+                      <md-icon  class="material-icons btn1">attach_money</md-icon>
+                      <p  class="btn1" >DONATIVOS</p>
+                    </div>
+                </md-button>
+
+                <md-button class="btntool" style="color:white;">
+                    <div layout="row">
+                      <md-icon  class="material-icons btn1">shopping_cart</md-icon>
+                      <p  class="btn1" >CARRITO</p>
+                      <p  class="btn1 shoppingvalue" style="margin-left:5px;">(0)<p>
+                    </div>
+                </md-button>
+                
+                </div>
+
+              
+
+
+                <div  layout="row" layout-align="center center">
+                  <div layout="row" layout-align="center center" style="margin:0;" >
+                    <md-button   class="btntool md-icon-button" aria-label="Settings" style="color:white;" >
+                      <p class="btn1 ">ENG</p>
+                    </md-button>
+                    <div style="width: 1px; height: 15px; background:  #00BCF2; margin:0;"></div>
+                    <md-button   class="btntool md-icon-button" aria-label="Settings" style="color:white;" >
+                      <p class="btn1 ">ESP</p>
+                    </md-button>
+                  </div>
+
+                  <div layout="row" style="margin:0;">
+                    <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
+                      <md-icon  class="material-icons btn1">lens</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
+                      <md-icon  class="material-icons btn1">lens</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
+                      <md-icon  class="material-icons btn1">lens</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
+                      <md-icon  class="material-icons btn1">lens</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
+                      <md-icon  class="material-icons btn1">lens</md-icon>
+                    </md-button>
+                  </div>
+
+                  <div layout="row" style="margin:0;">
+                    <md-button class="md-icon-button  btntool" aria-label="Settings" style="color:white; margin:0;">
+                      <md-icon  class="material-icons btn1">search</md-icon>
+                    </md-button>
+                  </div>
+                </div>
+
+          </div>
+
+
+
+
+          <div  flex="100" layout="row" layout-align="center start" style="margin-top:8%;">
+            <div  flex="70" flex-md="85" flex-sm="95" layout="row" layout-align="center center" layout-wrap>
+             <div  flex="100" layout="column" layout-align="center center" style="color:white">
+               <p class="md-title">Cancún Quintana Roo, México</p>
+               <div style="background: white; width: 100px; height: 2px; margin-top:-5px; margin-bottom:2%;"></div>
+             </div>
+
+
+            <div flex="100" hide show-gt-sm layout="column" layout-align="center center" >
+               <h1 class="md-display-4 maintitle" >BLUE CORE A.C. </h1>
+               <p class="md-headline" style="margin-top:2; color:white; text-align:center; font-family:Archie Regular;">Non-Govermental Organization (NGO)</p>
+            </div>
+            <div flex="100" hide show-sm layout="column" layout-align="center center" >
+               <h1 class="md-display-3 maintitle" >BLUE CORE A.C. </h1>
+               <p class="md-title" style="margin-top:2; color:white; text-align:center; font-family:Archie Regular;">Non-Govermental Organization (NGO)</p>
+            </div>
+            <div flex="100" hide show-xs layout="column" layout-align="center center" >
+               <h1 class="md-display-1 maintitle" >BLUE CORE A.C. </h1>
+               <p class="md-subhead" style="margin-top:2; color:white; text-align:center; font-family:Archie Regular;">Non-Govermental Organization (NGO)</p>
+            </div>
+
+
+        <div  flex="100" layout="row" layout-align="center center" layout-wrap>
+          <div style="border: 1px solid white; color: white; margin-top: 110px; margin-bottom: 300px; padding-top: 100px; padding-bottom: 100px; position: relative;" flex="100" layout="row" layout-align="center center" layout-wrap="">
+            <div  hide show-gt-sm class="linea-arriba"></div>
+            <div  hide show-gt-sm class="linea-left"></div>
+            <div  hide show-gt-sm class="linea-right"></div>
+            <div class="cuadro-1 wow bounceInLeft" data-wow-duration="1s" data-wow-delay=".5s" flex="100" layout="column" layout-align="center center" style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: bounceInLeft; color:white; text-align:center;">
+              <h1>Bienvenidos</h1>
+              <p>Nuestra Misión es generar una cultura de conservación marina y costera para el bien común, a través de la ciencia y la educación.Con ello poder contribuir al aprovechamiento sostenible del ecosistema marino de la Península de Yucatán</p>
+            </div>
+            <div class="cuadro-2 wow bounceInRight" data-wow-duration="1s" data-wow-delay=".5s" flex="100" layout="column" layout-align="center center" style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: bounceInRight; color:#01AFEC;">
+              <h1>Amigo Buzo;</h1>
+              <p>Sube tus fotos y reporta tus avistamientos de Raya Águila (Aetobatus narinari) del Caribe Mexicano en este link:</p>
+            </div>
+            
+            <div class="boton-enlace" style="color:white;" layout="row" layout-align="center center">
+                <div layout="row" layout-align="center center">
+                  <p style="color:#00BCF2; margin:0;">SUBIR FOTO</p>
+                  <md-icon  style="color:#00BCF2; " class="material-icons btnmove">file_upload</md-icon>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    
+
+    
+  </md-content>
+
+  
+     <div layout="row" layout-align="space-around center"  class="boxgroup1" >
+
+         <div layout="column" layout-align="center center" style="margin:0;">
+          <div style="margin:5%; margin-top:6%; background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+  background-size: cover;" > <!-- box -->
+            <div layout="column" layout-align="center center" style="margin-left:10%; margin-right:10%; margin-top:15%; margin-bottom:15%">
+              <h1 style="text-align:center; color:white; font-weight:bold;" class="md-headline">Lorem ipsum dolor sit amet 2016</h1>
+              <p  hide show-gt-sm  style="text-align:center; font-size:10px; color:white; font-weight:bold; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut</p>
+            </div>
+          </div>
+          <md-button>
+            <p style="margin: 0">Leer mas</p>
+          </md-button>
+         </div>
+
+         <div layout="column" layout-align="center center" style="margin:0;">
+          <div style="margin:5%; margin-top:6%; background-image: url('imagenes/RX100III-Wide_0035.jpg');
+  background-size: cover;" > <!-- box -->
+            <div layout="column" layout-align="center center" style="margin-left:10%; margin-right:10%; margin-top:15%; margin-bottom:15%">
+              <h1 style="text-align:center; color:white; font-weight:bold;" class="md-headline">Lorem ipsum dolor sit amet 2016</h1>
+              <p  hide show-gt-sm  style="text-align:center; font-size:10px; color:white; font-weight:bold; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut</p>
+            </div>
+          </div>
+          <md-button>
+            <p style="margin: 0">Leer mas</p>
+          </md-button>
+         </div>
+
+
+         <div layout="column" layout-align="center center" style="margin:0;" hide show-gt-sm>
+          <div style="margin:5%; margin-top:6%; background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+  background-size: cover;" > <!-- box -->
+            <div layout="column" layout-align="center center" style="margin-left:10%; margin-right:10%; margin-top:15%; margin-bottom:15%">
+              <h1 style="text-align:center; color:white; font-weight:bold;" class="md-headline">Lorem ipsum dolor sit amet 2016</h1>
+              <p  hide show-gt-sm  style="text-align:center; font-size:10px; color:white; font-weight:bold; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut</p>
+            </div>
+          </div>
+          <md-button>
+            <p style="margin: 0">Leer mas</p>
+          </md-button>
+         </div>
+
+
+         <div layout="column" layout-align="center center" style="margin:0;" hide show-gt-sm>
+          <div style="margin:5%; margin-top:6%; background-image: url('imagenes/78625.ngsversion.1422285259310.jpg');
+  background-size: cover;" > <!-- box -->
+            <div layout="column" layout-align="center center" style="margin-left:10%; margin-right:10%; margin-top:15%; margin-bottom:15%">
+              <h1 style="text-align:center; color:white; font-weight:bold;" class="md-headline">Lorem ipsum dolor sit amet 2016</h1>
+              <p  hide show-gt-sm  style="text-align:center; font-size:10px; color:white; font-weight:bold; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut</p>
+            </div>
+          </div>
+          <md-button>
+            <p style="margin: 0">Leer mas</p>
+          </md-button>
+         </div>
+
+          
+
+       </div>
+
+
+ <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// videos -->
+ <md-content layout="column" layout-align="center center" style="margin-top:170px; margin-bottom:-100px">
+   <h1 class="md-display-3" style="color:rgb(45,49,146);">Videos</h1>
+   
+   <!-- cuadros de video -->
+   <div hide-sm layout="column" layout-align="center center" style="margin: 15%; margin-top:50px"> 
+     <div layout="row" layout-align="center center">
+        <div style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+  background-size: cover; width:600px; height:400px;" layout="column" layout-align="center center">
+          
+        </div>
+        <div style="background-image: url('imagenes/RX100III-Wide_0035.jpg');
+  background-size: cover; width:600px; height:400px;" layout="column" layout-align="center center">
+          
+        </div>
+     </div>
+
+     <div layout="row" layout-align="center center">
+        <div style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+  background-size: cover; width:300px; height:200px;" layout="column" layout-align="center center">
+          
+        </div>
+        <div style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+  background-size: cover; width:300px; height:200px;" layout="column" layout-align="center center">
+          
+        </div>
+        <div style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+  background-size: cover; width:300px; height:200px;" layout="column" layout-align="center center">
+          
+        </div>
+        <div style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+  background-size: cover; width:300px; height:200px;" layout="column" layout-align="center center">
+          
+        </div>
+     </div>
+   </div>
+
+ </md-content>
+
+ <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////blog -->
+ <md-content layout="column" layout-align="center center" style="background-color:rgb(234,234,234);">
+   <h1 class="md-display-3" style="color:rgb(45,49,146);">Blog</h1>
+   <div style="margin-top:50px;" layout="column" layout-align="center center" style="margin:0;" class="slideshow-container">
+
+    <div>
+    <div  class="mySlides fade">
+     <div layout="row" layout-sm="column" layout-xs="column" layout-align="center center"  >
+    
+         <div layout="row" layout-align="start start" > <!-- box -->
+            <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+      background-size: cover; width:200px; height:200px;" >
+               <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
+                 <md-icon  class="material-icons btn1">menu</md-icon>
+               </md-button>
+            </div>
+            <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
+               <p class=" titleblog" style="margin:0; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit<p>
+               <p class="md-subhead fechablog" style="margin:0;">25/jul/16<p>
+               
+               <div layout="column" >
+                 <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
+                 <div layout="row"  style="margin-top:-30px;">
+                   <div layout="row" style="margin-top:0">
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="sharesblognum">11111</p>
+                     <p class="shareblog" style="margin-left:10px"> shares</p>
+                   </div>
+                   <div layout="row" style="margin-top:0; margin-left:10px;" >
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="viewsblognum">11111</p>
+                     <p class="viewsblog"style="margin-left:10px"> views</p>
+                   </div>
+                 </div>
+               </div>
+            </div>
+         </div>
+
+         <div layout="row" layout-align="start start" > <!-- box -->
+            <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+      background-size: cover; width:200px; height:200px;" >
+               <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
+                 <md-icon  class="material-icons btn1">menu</md-icon>
+               </md-button>
+            </div>
+            <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
+               <p class=" titleblog" style="margin:0; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit<p>
+               <p class="md-subhead fechablog" style="margin:0;">25/jul/16<p>
+               
+               <div layout="column" >
+                 <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
+                 <div layout="row"  style="margin-top:-30px;">
+                   <div layout="row" style="margin-top:0">
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="sharesblognum">11111</p>
+                     <p class="shareblog" style="margin-left:10px"> shares</p>
+                   </div>
+                   <div layout="row" style="margin-top:0; margin-left:10px;" >
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="viewsblognum">11111</p>
+                     <p class="viewsblog"style="margin-left:10px"> views</p>
+                   </div>
+                 </div>
+               </div>
+            </div>
+         </div>
+         
+     </div>
+     <div layout="row" layout-sm="column" layout-xs="column" layout-align="center center" style="margin:0; margin-top:20px;">
+    
+         <div layout="row" layout-align="start start" > <!-- box -->
+            <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+      background-size: cover; width:200px; height:200px;" >
+               <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
+                 <md-icon  class="material-icons btn1">menu</md-icon>
+               </md-button>
+            </div>
+            <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
+               <p class=" titleblog" style="margin:0; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit<p>
+               <p class="md-subhead fechablog" style="margin:0;">25/jul/16<p>
+               
+               <div layout="column" >
+                 <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
+                 <div layout="row"  style="margin-top:-30px;">
+                   <div layout="row" style="margin-top:0">
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="sharesblognum">11111</p>
+                     <p class="shareblog" style="margin-left:10px"> shares</p>
+                   </div>
+                   <div layout="row" style="margin-top:0; margin-left:10px;" >
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="viewsblognum">11111</p>
+                     <p class="viewsblog"style="margin-left:10px"> views</p>
+                   </div>
+                 </div>
+               </div>
+            </div>
+         </div>
+
+         <div layout="row" layout-align="start start" > <!-- box -->
+            <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+      background-size: cover; width:200px; height:200px;" >
+               <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
+                 <md-icon  class="material-icons btn1">menu</md-icon>
+               </md-button>
+            </div>
+            <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
+               <p class=" titleblog" style="margin:0; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit<p>
+               <p class="md-subhead fechablog" style="margin:0;">25/jul/16<p>
+               
+               <div layout="column" >
+                 <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
+                 <div layout="row"  style="margin-top:-30px;">
+                   <div layout="row" style="margin-top:0">
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="sharesblognum">11111</p>
+                     <p class="shareblog" style="margin-left:10px"> shares</p>
+                   </div>
+                   <div layout="row" style="margin-top:0; margin-left:10px;" >
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="viewsblognum">11111</p>
+                     <p class="viewsblog"style="margin-left:10px"> views</p>
+                   </div>
+                 </div>
+               </div>
+            </div>
+         </div>
+         
+     </div>
+
+     
+    </div>
+
+    <div  class="mySlides fade">
+     <div layout="row" layout-sm="column" layout-xs="column" layout-align="center center"  >
+    
+         <div layout="row" layout-align="start start" > <!-- box -->
+            <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+      background-size: cover; width:200px; height:200px;" >
+               <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
+                 <md-icon  class="material-icons btn1">menu</md-icon>
+               </md-button>
+            </div>
+            <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
+               <p class=" titleblog" style="margin:0; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit<p>
+               <p class="md-subhead fechablog" style="margin:0;">30/jul/16<p>
+               
+               <div layout="column" >
+                 <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
+                 <div layout="row"  style="margin-top:-30px;">
+                   <div layout="row" style="margin-top:0">
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="sharesblognum">11111</p>
+                     <p class="shareblog" style="margin-left:10px"> shares</p>
+                   </div>
+                   <div layout="row" style="margin-top:0; margin-left:10px;" >
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="viewsblognum">11111</p>
+                     <p class="viewsblog"style="margin-left:10px"> views</p>
+                   </div>
+                 </div>
+               </div>
+            </div>
+         </div>
+
+         <div layout="row" layout-align="start start" > <!-- box -->
+            <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+      background-size: cover; width:200px; height:200px;" >
+               <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
+                 <md-icon  class="material-icons btn1">menu</md-icon>
+               </md-button>
+            </div>
+            <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
+               <p class=" titleblog" style="margin:0; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit<p>
+               <p class="md-subhead fechablog" style="margin:0;">30/jul/16<p>
+               
+               <div layout="column" >
+                 <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
+                 <div layout="row"  style="margin-top:-30px;">
+                   <div layout="row" style="margin-top:0">
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="sharesblognum">11111</p>
+                     <p class="shareblog" style="margin-left:10px"> shares</p>
+                   </div>
+                   <div layout="row" style="margin-top:0; margin-left:10px;" >
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="viewsblognum">11111</p>
+                     <p class="viewsblog"style="margin-left:10px"> views</p>
+                   </div>
+                 </div>
+               </div>
+            </div>
+         </div>
+         
+     </div>
+     <div layout="row" layout-sm="column" layout-xs="column" layout-align="center center"  style="margin:0; margin-top:20px;">
+    
+         <div layout="row" layout-align="start start" > <!-- box -->
+            <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+      background-size: cover; width:200px; height:200px;" >
+               <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
+                 <md-icon  class="material-icons btn1">menu</md-icon>
+               </md-button>
+            </div>
+            <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
+               <p class=" titleblog" style="margin:0; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit<p>
+               <p class="md-subhead fechablog" style="margin:0;">30/jul/16<p>
+               
+               <div layout="column" >
+                 <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
+                 <div layout="row"  style="margin-top:-30px;">
+                   <div layout="row" style="margin-top:0">
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="sharesblognum">11111</p>
+                     <p class="shareblog" style="margin-left:10px"> shares</p>
+                   </div>
+                   <div layout="row" style="margin-top:0; margin-left:10px;" >
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="viewsblognum">11111</p>
+                     <p class="viewsblog"style="margin-left:10px"> views</p>
+                   </div>
+                 </div>
+               </div>
+            </div>
+         </div>
+
+         <div layout="row" layout-align="start start" > <!-- box -->
+            <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
+      background-size: cover; width:200px; height:200px;" >
+               <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
+                 <md-icon  class="material-icons btn1">menu</md-icon>
+               </md-button>
+            </div>
+            <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
+               <p class=" titleblog" style="margin:0; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit<p>
+               <p class="md-subhead fechablog" style="margin:0;">30/jul/16<p>
+               
+               <div layout="column" >
+                 <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
+                 <div layout="row"  style="margin-top:-30px;">
+                   <div layout="row" style="margin-top:0">
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="sharesblognum">11111</p>
+                     <p class="shareblog" style="margin-left:10px"> shares</p>
+                   </div>
+                   <div layout="row" style="margin-top:0; margin-left:10px;" >
+                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <p class="viewsblognum">11111</p>
+                     <p class="viewsblog"style="margin-left:10px"> views</p>
+                   </div>
+                 </div>
+               </div>
+            </div>
+         </div>
+         
+     </div>
+
+     
+    </div>
+    </div>
+
+    <div class="pagination" layout="row" layout-align="center center">
+     <p class="btnnav" onclick="plusSlides(-1)">Anterior</p>
+     <p class="dot" onclick="currentSlide(1)">1</p>
+     <p class="dot" onclick="currentSlide(2)">2</p>
+     <p class="dot" onclick="currentSlide(3)">3</p>
+     <p class="dot" onclick="currentSlide(4)">4</p>
+     <p class="dot" onclick="currentSlide(5)">5</p>
+     <p class="btnnav" onclick="currentSlide(5)">Ultima</p>
+    </div>
+
+   </div>
+ </md-content>
+
+
+
+ <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////photo gallery -->
+ <md-content  layout="column" layout-align="center center" style="background-color:rgb(45,49,146);">
+   <div layout="column" layout-align="center center">
+     <h1 class="md-display-3" style="color:white; margin-top:100px;">Photo Gallery</h1>
+     <p class="md-display-1" style="color:white;">#BLUECORE</p>
+   </div>
+
+   <div>
+   <div  class="slideshow-containergallery">
+
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall1 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall1 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall2 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/a-Eagleray.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/a-Eagleray.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall2 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/a-Eagleray.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+     
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall3 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall3 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall4 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall4 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall5 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall5 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall6 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall6 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall7 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall7 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall8 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall8 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall9 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall9 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall10 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall10 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall11 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall11 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall12 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall12 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall13 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall13 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall14 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall14 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+      <!-- fotos por autor -->
+      <div  class="mySlidesgall15 fade" layout="column" layout-align="center center">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+      <div  class="mySlidesgall15 fade">
+        <div  layout="column" layout-gt-sm="row" layout-align="center center">
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+          <div class="foto" >
+             <img src="imagenes/raie-aigle-de-mer.jpg.pagespeed.ce.E6AslMdd8q.jpg" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+
+
+   </div>
+   </div>
+
+    <!-- Left and right controls -->
+   <div layout="column" layout-align="center center">
+   <div class="gallerybtns" layout="row" layout-align="center center">
+       <md-button  style="color:gray; margin-top:5px; width:150px; height:150px;" class="" aria-label="Settings" onclick="plusSlidesgall(-1)">
+         <md-icon  class="material-icons btn">navigate_before</md-icon>
+       </md-button>
+       <md-button  style="color:gray; margin-top:5px; width:150px; height:150px;" class="" aria-label="Settings" onclick="plusSlidesgall(1)">
+         <md-icon  class="material-icons btn">navigate_next</md-icon>
+       </md-button>
+   </div>
+   </div>
+
+
+
+   <!-- //////////////////////////////////////////////////////////////////////////autores -->
+   <div layout="column" layout-align="center center" style="margin-top:80px; margin-bottom:50px; color:white; font-weight:bold;">
+     <p>FOTOGRAFOS SUBMARINOS</p>
+   </div>
+   <div layout="column" layout-gt-sm="row" layout-align="center center" style="margin-bottom:100px;">
+
+      <div layout="column" >
+          
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(1)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">1-ALBERTO FRISCIONE</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20" >
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(1);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(1);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(2)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">2-CLAUDIO CONTRERAS</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20">
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(2);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(2);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(3)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">3-ISKANDER ITRIAGO</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20">
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(3);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(3);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(4)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">4-HILARIO ITRIAGO</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20">
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(4);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(4);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(5)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">5-GERARDO DEL VILLAR</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20">
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(5);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(5);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+
+
+
+      </div>
+      <div layout="column" >
+          
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(6)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">6-ANUAR PATJANE</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20">
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(6);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(6);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(7)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">7-IXCHEL GARCÍA</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20">
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(7);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(7);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(8)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">8-JAVIER GARCÍA</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20">
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(8);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(8);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(9)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">9-CHRISTIAN VZIL</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20">
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(9);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(9);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(10)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">10-CITLALI CHALVIGNAC</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20">
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(10);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(10);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+          
+
+
+      </div>
+      <div layout="column">
+          
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(11)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">11-RODRIGO FRISCIONE</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20">
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(11);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(11);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(12)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">12-MATTEO CASSELLA</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20">
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(12);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(12);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(13)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">13-NACHO GIL</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20">
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(13);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(13);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(14)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">14-MARIO CHOW</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20">
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(14);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(14);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+          <!--  autor -->
+          <div class="autor" onclick="autorselect(15)" layout="row" layout-align="start center"> 
+             <div flex="80">
+               <p class="autorname">15-ALONSO MARTÍN</p>
+             </div>
+             <div layout="row" style="margin-left:15px;" flex="20">
+               <div class="btn">
+                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(15);">lens</md-icon>
+               </div>
+               <div class="btn">
+                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(15);">lens</md-icon>
+               </div>
+             </div>
+          </div>
+          
+
+
+      </div>
+
+   </div>
+
+
+
+ </md-content>
+
+
+ <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////quienes somos -->
+ <md-content style=" background-image: url('imagenes/'); background-size: cover;" layout="column" >
+
+    <div  flex="100" layout="row" layout-align="center center" layout-wrap style="margin-top:130px;">
+          <div style="border: 1px solid rgb(45,49,146); color: white; margin-top: 110px; margin-bottom: 300px; padding-top: 100px; padding-bottom: 100px; position: relative;" flex="60" layout="row" layout-align="center center" layout-wrap="">
+            <div class="linea-arribaquienes"></div>
+            <div class="cuadroquienes wow bounceInLeft" data-wow-duration="1s" data-wow-delay=".5s" flex="100" layout="column" layout-align="center center" style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: bounceInLeft; color:rgb(45,49,146); text-align:center;">
+              <h1 clas="quienestitle">¿Quienes Sómos?</h1>
+              <p>Blue Core A. C. es una organización ecológica de la sociedad civil, sin fines de lucro, formada en el 2014 por un grupo de jóvenes buzos, biólogos y conservacionistas, comprometidos con el océano y su maravillosa vida marina. Unimos esfuerzos para desarrollar proyectos de investigación, conservación, educación con el objetivo de lograr un equilibrio entre el bienestar humano y los ecosistemas marinos.</p>
+            </div>
+            
+            <div class="botonquienes" style="color:white;" layout="row" layout-align="center center">
+                <div layout="row" layout-align="center center">
+                  <p style=" margin:0;">LEER MÁS</p>
+                  <md-icon   class="material-icons btnmove">file_upload</md-icon>
+                </div>
+            </div>
+
+          </div>
+    </div>
+
+    <div layout="column" layout-gt-sm="row" layout-align="center center" style="margin-top:-200px; margin-bottom:200px" >
+         
+         <!-- card -->
+         <div class="cardquienes" layout="column" layout-align="center center">
+             <div class="fotoquienes" style="background: url(imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg); background-size:cover; no-repeat;"></div>
+             <div class="content" layout="column" layout-align="end center">
+                <h1>Ixchel García</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+             </div>
+         </div>
+         <!-- card -->
+         <div class="cardquienes" layout="column" layout-align="center center">
+             <div class="fotoquienes" style="background: url(imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg); background-size:cover; no-repeat;"></div>
+             <div class="content" layout="column" layout-align="end center">
+                <h1>Ana Millet</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+             </div>
+         </div>
+         <!-- card -->
+         <div class="cardquienes" layout="column" layout-align="center center">
+             <div class="fotoquienes" style="background: url(imagenes/6a00d83451cedf69e201a73dcaba0a970d.jpg); background-size:cover; no-repeat;"></div>
+             <div class="content" layout="column" layout-align="end center">
+                <h1>Florencia Cerutti</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+             </div>
+         </div>
+
+    </div>
+ </md-content>
+
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////tienda -->
+<md-content layout="column" layout-align="center center" style="background-color:rgb(45,49,146);">
+  <div layout="column" layout-align="center center" class="tiendainfo">
+     <h1 class="md-display-3" style="color:white; margin-top:100px;">Tienda</h1>
+     <p>Amigos del mar, llévate de nuestros <span>#productosconcausa</span>. La recaudación de fondos es vital para los programas que llevamos a cabo día a día en Blue Core. Con tu ayuda, juntos podremos seguir trabajando por la conservación de nuestros ecosistemas marinos.</p>
+  </div>
+
+
+  
+  <div layout="column" layout-align="center center" class="mySlidestienda" >
+     <div layout="row" layout-align="center center">
+        <div class="fotogroup1" flex="25" >
+           <img src="imagenes/IMG_2684_edit_1024x1024.jpg" width="100%" height="100%">
+        </div>
+        <div class="fotogroup1" flex="25" >
+           <img src="imagenes/IMG_3039_edit_1024x1024.jpg" width="100%" height="100%">
+        </div>
+        <div class="fotogroup1" flex="25" >
+           <img src="imagenes/IMG_3838_edit_1024x1024.jpg" width="100%" height="100%">
+        </div>
+        <div class="fotogroup1" flex="25" >
+           <img src="imagenes/IMG_0931_edit_large.jpg" width="100%" height="100%">
+        </div>
+
+     </div>
+
+     <div layout="row" layout-align="center center">
+       
+     </div>
+  </div>
+
+
+  <div layout="column" layout-align="center center" class="mySlidestienda" >
+     <div layout="row" layout-align="center center">
+        <div class="fotogroup1" flex="25" >
+           <img src="imagenes/IMG_2684_edit_1024x1024.jpg" width="100%" height="100%">
+        </div>
+        <div class="fotogroup1" flex="25" >
+           <img src="imagenes/IMG_3039_edit_1024x1024.jpg" width="100%" height="100%">
+        </div>
+        <div class="fotogroup1" flex="25" >
+           <img src="imagenes/IMG_3838_edit_1024x1024.jpg" width="100%" height="100%">
+        </div>
+        <div class="fotogroup1" flex="25" >
+           <img src="imagenes/IMG_0931_edit_large.jpg" width="100%" height="100%">
+        </div>
+
+     </div>
+
+     <div layout="row" layout-align="center center">
+       
+     </div>
+  </div>
+   
+  <div style="text-align:center" class="dotstienda">
+    <span class="dottienda" onclick="currenttienda(1)"></span> 
+    <span class="dottienda" onclick="currenttienda(2)"></span> 
+    <span class="dottienda" onclick="currenttienda(3)"></span> 
+    <span class="dottienda" onclick="currenttienda(4)"></span>
+  </div>
+
+</md-content>
+
+
+</body>
+
+</html>
+
+<style>
+
+
+.main{
+  background-image: url('imagenes/fondo-mar.jpg');
+  background-size: cover;
+}
+
+.maintitle{
+  margin-top:0; 
+  margin-bottom:0;
+  color: white;
+  text-transform: uppercase;
+  margin:0;
+  text-align: center;
+  font-family: 'Roboto Thin';
+}
+
+ .btn1{
+   color:white;
+ }
+
+ .btntool p{
+  margin:0;
+ }
+
+.btntool:not([disabled]):hover .btn1 {
+  color: #00BCF2;
+}
+
+
+
+
+/*////////////////////////////sidenav*/
+.btnclose{
+   color:darkgray;
+ }
+.btntool:not([disabled]):hover .btnclose {
+  color: #00BCF2;
+}
+
+
+.btndropdown p{
+   font-size:14px; 
+   font-weight:bold; 
+   margin:0;
+   margin-left:20px;
+}
+.dropdown:hover .btndropdown{
+   border-left: 6px solid #00BCF2;
+}
+.dropdown:hover .btndropdown p{
+   margin-left:14px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin:0;
+}
+
+.dropdown-content {
+    display: none;
+}
+.dropdown-content p{
+   margin:0;
+   font-size:11px; 
+   font-weight:bold; 
+   margin-left:20px;
+   color:darkgray;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content p:hover  {
+    cursor:pointer;
+    color:#00BCF2;
+}
+
+
+
+
+
+.btnlen p{
+    margin: 0;
+    padding: 0;
+}
+.btnlen{
+   margin-right: -5%;
+   width: -10%;
+}
+
+.btnlen1 p{
+    margin: 0;
+    padding: -10%;
+}
+.btnlen1{
+    margin-left: -5%;
+    width: -10%;
+}
+
+
+
+
+ 
+
+/*//////////////////////////////cuadro*/
+ .linea-arriba {
+    width: 1px;
+    height: 130px;
+    background: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -65px;
+    z-index: 1000;
+}
+
+.linea-left {
+    width: 130px;
+    height: 1px;
+    background: white;
+    position: absolute;
+    margin: auto;
+    left: -65px;
+    top: 50%;
+    z-index: 1000;
+}
+.linea-right {
+    width: 130px;
+    height: 1px;
+    background: white;
+    position: absolute;
+    margin: auto;
+    right: -65px;
+    top: 50%;
+    z-index: 1000;
+}
+
+
+
+.cuadro-1 h1 {
+    font-size: 40px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    margin:0;
+}
+.cuadro-1 p {
+    font-size: 17px;
+    width: 70%;
+    text-align: center;
+    line-height: 1.846;
+}
+
+.cuadro-2 {
+    font-style: oblique;
+    margin-top: 30px;
+}
+
+.cuadro-2 h1 {
+    font-size: 40px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    color: #00BCF2;
+    font-family: Lora;
+    margin:0;
+}
+.cuadro-2 p {
+    font-size: 17px;
+    width: 70%;
+    text-align: center;
+    color: #00BCF2;
+    font-family: Lora;
+    line-height: 1.846;
+}
+
+.boton-enlace {
+   background-color: white;
+    /*color: #01BAF2;*/
+    width: 200px;
+    height: 100px;
+    bottom: -50px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-family: 'Roboto Thin';
+}
+
+.boton-enlace:hover{
+  cursor:pointer;
+}
+
+.btnmove{
+  margin:0;
+  transition: 0.5s;
+}
+
+/*.boton-enlace:hover .btnmove {
+  transition: 0.5s;
+  bottom: 10%;
+}*/
+
+
+
+
+/*////////////////////////////////////////////////////////group fotos1*/
+.boxgroup1 {
+    position: absolute;
+    margin-top: -150px;
+    margin-left:5%;
+    margin-right:5%;
+    text-align: center;
+    z-index: 1; /* 1px higher than the overlay layer */
+}
+
+.boxgroup1 .md-button{
+  position: relative;
+  margin-top: -30px;
+  font-size:11px;
+  font-weight: bold;
+  color: white;
+  background-color: #00BCF2;
+}
+.boxgroup1 .md-button:hover{
+  background-color: rgb(45,49,146);;
+  color:white;
+}
+
+
+/*//////////////////////////////////////////////////////////////////////////////// blog*/
+.titleblog{
+  text-align: left;
+  color:rgb(31,27,94);
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.autorblog{
+  color: #00BCF2;
+}
+
+.fechablog{
+  color:rgb(31,27,94);
+}
+
+.viewsblog , .sharesblog, .viewsblognum, .sharesblognum {
+  color:rgb(31,27,94);
+}
+
+
+
+
+/*//////////////////////////////pagination*/
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+
+
+/* The dots/bullets/indicators */
+.dot, .btnnav {
+  cursor:pointer;
+  margin: -1px;
+  border: 1px solid rgb(45,49,146);
+  /*background-color: #bbb;*/
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+
+.active, .dot:hover, .btnnav:hover {
+  background-color: rgb(45,49,146);
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+.pagination{
+  margin-top: 80px;
+  margin-bottom:70px; 
+}
+
+div.pagination  p{
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+div.pagination  p.active {
+    background-color: rgb(45,49,146);
+    color: white;
+}
+
+div.pagination  p:hover:not(.active) {
+  background-color: rgb(45,49,146);
+  color:white;
+}
+
+
+
+
+/*//////////////////////////////////////////////////////////////photo gallery*/
+
+
+
+/*/////buttons */
+.gallerybtns{
+   position: relative;
+   z-index: 1;
+   margin-top: -30px;
+}
+
+.gallerybtns .md-button{
+  border: 2px solid white;
+  margin:-1px;
+  border-radius: 0;
+}
+.gallerybtns .btn{
+  color:white;
+}
+
+.gallerybtns .md-button:hover{
+  background-color: white;
+}
+.gallerybtns .md-button:hover .btn{
+  color: rgb(45,49,146);
+}
+
+
+
+.slideshow-containergallery .foto{
+  height: 400px;
+  width: 500px;
+}
+
+
+
+.autor .btn{
+  margin:0;
+}
+
+.autor .btn .autorfotos, .autor .btn .autorbio{
+  color:white;
+}
+
+
+.autor{
+  margin-top:-20px;
+  margin-right:50px;
+  margin-left:50px;
+  color:white;
+}
+
+.autorname{
+  font-size: 15px;
+}
+
+
+.autor:not(.activeautor):hover , .autor:not(.activeautor):hover .material-icons{
+  color:#00BCF2;
+  cursor:pointer;
+}
+
+.activeautor{
+  color:#00BCF2;
+}
+.activeautor:hover{
+  cursor: pointer;
+}
+
+.autor .btn .activefotos, .autor .btn .activebio{
+  color:#00BCF2;
+}
+
+
+/*////////////////////////////////////////////////////////////////////////////////quienes somos*/
+
+.linea-arribaquienes {
+    width: 1px;
+    height: 130px;
+    background: rgb(45,49,146);
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -65px;
+    z-index: 1000;
+}
+.cuadroquienes h1 {
+    color:rgb(45,49,146);
+    font-size: 40px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    margin:0;
+    font-family: Lora;
+}
+.cuadroquienes p {
+    font-size: 17px;
+    width: 70%;
+    text-align: center;
+     color:rgb(45,49,146);
+    font-family: Lora;
+    line-height: 1.846;
+}
+
+.botonquienes {
+    background-color: #00BCF2;;
+    width: 200px;
+    height: 90px;
+    bottom: -50px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-family: 'Roboto Thin';
+}
+.botonquienes p, .botonquienes .btnmove{
+  color:white;
+}
+
+.botonquienes:hover{
+  cursor:pointer;
+}
+
+
+.fotoquienes {
+  width: 160px;
+  height: 160px;
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  position: relative;
+  margin-bottom: -80px;
+}
+
+.content{
+  width: 280px;
+  height:250px;
+  border: 2px solid rgb(45,49,146);
+  text-align: center;
+  color:rgb(45,49,146);
+}
+
+.content h1{
+  font-size:25px;
+}
+.content p{
+  margin-top: 0;
+  font-size:15px;
+  width: 70%;
+  margin-bottom: 30px;
+}
+
+.cardquienes{
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top:100px;
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////////tienda*/
+
+
+
+.tiendainfo p{
+  font-size: 24px;
+  width: 50%;
+  color:white;
+  text-align: center;
+}
+.tiendainfo p span{
+  font-weight: bold;
+  text-align: center;
+}
+
+.mySlidestienda{
+  width: 80%;
+}
+
+.mySlidestienda .fotogroup1{
+  z-index: 0;
+}
+
+
+.dottienda {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: white;
+  transition: background-color 0.6s ease;
+}
+
+
+.dotstienda .active, .dottienda:hover {
+  background-color: rgb(45,49,146);
+}
+
+
+
+
+
+
+
+
+
+</style>
+
+
+<!-- /////////////////////////////////////////////////////////////////////////script -->
+<script src="index.js"></script>
+<script>
+
+
+
+
+
+
+</script>
