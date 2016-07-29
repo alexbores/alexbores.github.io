@@ -13,7 +13,8 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
       
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-
+      <link rel="stylesheet" type="text/css" href="slidesfotos.css">
+      <link rel="stylesheet" type="text/css" href="icons/style.css">
       
       <script>
            angular
@@ -253,34 +254,31 @@ angular.module('appSvgIconSets', ['ngMaterial'])
                
              <div flex layout="row" layout-align="space-around center">
                
-               <md-button ng-click="toggleLeft()" ng-hide="isOpenLeft()" style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
-                 <md-icon  class="material-icons btn1">menu</md-icon>
+               <md-button ng-click="toggleLeft()" ng-hide="isOpenLeft()" style="color:white; margin-top:4px;" class="md-icon-button btntool" aria-label="Settings">
+                 <md-icon class="icon-menu-hamburguesa btn1" ></md-icon>
                </md-button>
                
 
               
-   <!-- ///////////////////////////////////////////////////////////////////////////////////////ICONO SVG/////////////////////////////////////////////////////////////////////////
-   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  -->           
+              
                 <md-button  class="btntool" style="color:white;" >
                      <div layout="row">
-                       <!-- <md-icon  class="material-icons btn1" >person</md-icon> --> 
-                       <md-icon class="logo btn1" md-svg-icon="imagenes/login.svg"></md-icon>
+                       <!-- <md-icon  class="material-icons btn1" >person</md-icon>  -->
+                       <md-icon class="icon-login btn1 icon1" ></md-icon>
                        <p  class="btn1" >LOG IN</p>
                      </div>
                 </md-button>
- <!--  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
 
                 <md-button class="btntool" style="color:white;">
                     <div layout="row">
-                      <md-icon  class="material-icons btn1">attach_money</md-icon>
+                      <md-icon class="icon-donar btn1 icon1" ></md-icon>
                       <p  class="btn1" >DONATIVOS</p>
                     </div>
                 </md-button>
 
                 <md-button class="btntool" style="color:white; margin-right:0;">
                     <div layout="row" style="margin-right:0;">
-                      <md-icon  class="material-icons btn1">shopping_cart</md-icon>
+                      <md-icon class="icon-carrito btn1 icon1" ></md-icon>
                       <p  class="btn1" >CARRITO</p>
                       <p  class="btn1 shoppingvalue" style="margin-left:5px;">(0)<p>
                     </div>
@@ -290,7 +288,7 @@ angular.module('appSvgIconSets', ['ngMaterial'])
 
                 <div flex="10" layout="row" layout-align="center center">
                    <div >
-                    <img src="https://yt3.ggpht.com/-ve-3VFseWeU/AAAAAAAAAAI/AAAAAAAAAAA/vHUIhIdc54E/s900-c-k-no-rj-c0xffffff/photo.jpg" width="100%" height="100%">
+                     <img src="https://yt3.ggpht.com/-ve-3VFseWeU/AAAAAAAAAAI/AAAAAAAAAAA/vHUIhIdc54E/s900-c-k-no-rj-c0xffffff/photo.jpg" width="100%" height="100%">
                    </div>
                 </div>
 
@@ -308,19 +306,19 @@ angular.module('appSvgIconSets', ['ngMaterial'])
 
                   <div layout="row" style="margin:0;">
                     <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
-                      <md-icon  class="material-icons btn1">lens</md-icon>
+                      <md-icon class="icon-google-plus btn1 icon1" ></md-icon>
                     </md-button>
                     <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
-                      <md-icon  class="material-icons btn1">lens</md-icon>
+                      <md-icon class="icon-facebook2 btn1 icon1" ></md-icon>
                     </md-button>
                     <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
-                      <md-icon  class="material-icons btn1">lens</md-icon>
+                      <md-icon class="icon-twitter btn1 icon1" ></md-icon>
                     </md-button>
                     <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
-                      <md-icon  class="material-icons btn1">lens</md-icon>
+                      <md-icon class="icon-instagram btn1 icon1" ></md-icon>
                     </md-button>
                     <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
-                      <md-icon  class="material-icons btn1">lens</md-icon>
+                      <md-icon class="icon-vimeo btn1 icon1" ></md-icon>
                     </md-button>
                   </div>
 
@@ -345,27 +343,28 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
                
              <div  layout="row" layout-align="center center">
-               <md-button ng-click="toggleLeft()" ng-hide="isOpenLeft()" style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
-                 <md-icon  class="material-icons btn1">menu</md-icon>
+               <md-button ng-click="toggleLeft()" ng-hide="isOpenLeft()" style="color:white; margin-top:4px;" class="md-icon-button btntool" aria-label="Settings">
+                 <md-icon class="icon-menu-hamburguesa btn1 " ></md-icon>
                </md-button>
                
                 <md-button  class="btntool" style="color:white;" >
                      <div layout="row">
-                       <md-icon  class="material-icons btn1">person</md-icon>
+                       <!-- <md-icon  class="material-icons btn1" >person</md-icon>  -->
+                       <md-icon class="icon-login btn1 icon1" ></md-icon>
                        <p  class="btn1" >LOG IN</p>
                      </div>
                 </md-button>
 
                 <md-button class="btntool" style="color:white;">
                     <div layout="row">
-                      <md-icon  class="material-icons btn1">attach_money</md-icon>
+                      <md-icon class="icon-donar btn1 icon1" ></md-icon>
                       <p  class="btn1" >DONATIVOS</p>
                     </div>
                 </md-button>
 
-                <md-button class="btntool" style="color:white;">
-                    <div layout="row">
-                      <md-icon  class="material-icons btn1">shopping_cart</md-icon>
+                <md-button class="btntool" style="color:white; margin-right:0;">
+                    <div layout="row" style="margin-right:0;">
+                      <md-icon class="icon-carrito btn1 icon1" ></md-icon>
                       <p  class="btn1" >CARRITO</p>
                       <p  class="btn1 shoppingvalue" style="margin-left:5px;">(0)<p>
                     </div>
@@ -389,19 +388,19 @@ angular.module('appSvgIconSets', ['ngMaterial'])
 
                   <div layout="row" style="margin:0;">
                     <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
-                      <md-icon  class="material-icons btn1">lens</md-icon>
+                      <md-icon class="icon-google-plus btn1 icon1" ></md-icon>
                     </md-button>
                     <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
-                      <md-icon  class="material-icons btn1">lens</md-icon>
+                      <md-icon class="icon-facebook2 btn1 icon1" ></md-icon>
                     </md-button>
                     <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
-                      <md-icon  class="material-icons btn1">lens</md-icon>
+                      <md-icon class="icon-twitter btn1 icon1" ></md-icon>
                     </md-button>
                     <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
-                      <md-icon  class="material-icons btn1">lens</md-icon>
+                      <md-icon class="icon-instagram btn1 icon1" ></md-icon>
                     </md-button>
                     <md-button class="md-icon-button btntool" aria-label="Settings" style="color:white; margin:0;">
-                      <md-icon  class="material-icons btn1">lens</md-icon>
+                      <md-icon class="icon-vimeo btn1 icon1" ></md-icon>
                     </md-button>
                   </div>
 
@@ -587,7 +586,7 @@ angular.module('appSvgIconSets', ['ngMaterial'])
             <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
       background-size: cover; width:200px; height:200px;" >
                <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
-                 <md-icon  class="material-icons btn1">menu</md-icon>
+                 <md-icon class="icon-blog btn1 icon1" ></md-icon>
                </md-button>
             </div>
             <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
@@ -598,12 +597,12 @@ angular.module('appSvgIconSets', ['ngMaterial'])
                  <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
                  <div layout="row"  style="margin-top:-30px;">
                    <div layout="row" style="margin-top:0">
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="sharesblognum">11111</p>
                      <p class="shareblog" style="margin-left:10px"> shares</p>
                    </div>
                    <div layout="row" style="margin-top:0; margin-left:10px;" >
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="viewsblognum">11111</p>
                      <p class="viewsblog"style="margin-left:10px"> views</p>
                    </div>
@@ -616,7 +615,7 @@ angular.module('appSvgIconSets', ['ngMaterial'])
             <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
       background-size: cover; width:200px; height:200px;" >
                <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
-                 <md-icon  class="material-icons btn1">menu</md-icon>
+                 <md-icon class="icon-blog btn1 icon1" ></md-icon>
                </md-button>
             </div>
             <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
@@ -627,12 +626,12 @@ angular.module('appSvgIconSets', ['ngMaterial'])
                  <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
                  <div layout="row"  style="margin-top:-30px;">
                    <div layout="row" style="margin-top:0">
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="sharesblognum">11111</p>
                      <p class="shareblog" style="margin-left:10px"> shares</p>
                    </div>
                    <div layout="row" style="margin-top:0; margin-left:10px;" >
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="viewsblognum">11111</p>
                      <p class="viewsblog"style="margin-left:10px"> views</p>
                    </div>
@@ -648,7 +647,7 @@ angular.module('appSvgIconSets', ['ngMaterial'])
             <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
       background-size: cover; width:200px; height:200px;" >
                <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
-                 <md-icon  class="material-icons btn1">menu</md-icon>
+                 <md-icon class="icon-blog btn1 icon1" ></md-icon>
                </md-button>
             </div>
             <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
@@ -659,12 +658,12 @@ angular.module('appSvgIconSets', ['ngMaterial'])
                  <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
                  <div layout="row"  style="margin-top:-30px;">
                    <div layout="row" style="margin-top:0">
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="sharesblognum">11111</p>
                      <p class="shareblog" style="margin-left:10px"> shares</p>
                    </div>
                    <div layout="row" style="margin-top:0; margin-left:10px;" >
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="viewsblognum">11111</p>
                      <p class="viewsblog"style="margin-left:10px"> views</p>
                    </div>
@@ -677,7 +676,7 @@ angular.module('appSvgIconSets', ['ngMaterial'])
             <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
       background-size: cover; width:200px; height:200px;" >
                <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
-                 <md-icon  class="material-icons btn1">menu</md-icon>
+                 <md-icon class="icon-blog btn1 icon1" ></md-icon>
                </md-button>
             </div>
             <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
@@ -688,12 +687,12 @@ angular.module('appSvgIconSets', ['ngMaterial'])
                  <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
                  <div layout="row"  style="margin-top:-30px;">
                    <div layout="row" style="margin-top:0">
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="sharesblognum">11111</p>
                      <p class="shareblog" style="margin-left:10px"> shares</p>
                    </div>
                    <div layout="row" style="margin-top:0; margin-left:10px;" >
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="viewsblognum">11111</p>
                      <p class="viewsblog"style="margin-left:10px"> views</p>
                    </div>
@@ -714,7 +713,7 @@ angular.module('appSvgIconSets', ['ngMaterial'])
             <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
       background-size: cover; width:200px; height:200px;" >
                <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
-                 <md-icon  class="material-icons btn1">menu</md-icon>
+                 <md-icon class="icon-blog btn1 icon1" ></md-icon>
                </md-button>
             </div>
             <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
@@ -725,12 +724,12 @@ angular.module('appSvgIconSets', ['ngMaterial'])
                  <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
                  <div layout="row"  style="margin-top:-30px;">
                    <div layout="row" style="margin-top:0">
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="sharesblognum">11111</p>
                      <p class="shareblog" style="margin-left:10px"> shares</p>
                    </div>
                    <div layout="row" style="margin-top:0; margin-left:10px;" >
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="viewsblognum">11111</p>
                      <p class="viewsblog"style="margin-left:10px"> views</p>
                    </div>
@@ -743,7 +742,7 @@ angular.module('appSvgIconSets', ['ngMaterial'])
             <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
       background-size: cover; width:200px; height:200px;" >
                <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
-                 <md-icon  class="material-icons btn1">menu</md-icon>
+                 <md-icon class="icon-blog btn1 icon1" ></md-icon>
                </md-button>
             </div>
             <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
@@ -754,12 +753,12 @@ angular.module('appSvgIconSets', ['ngMaterial'])
                  <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
                  <div layout="row"  style="margin-top:-30px;">
                    <div layout="row" style="margin-top:0">
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="sharesblognum">11111</p>
                      <p class="shareblog" style="margin-left:10px"> shares</p>
                    </div>
                    <div layout="row" style="margin-top:0; margin-left:10px;" >
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="viewsblognum">11111</p>
                      <p class="viewsblog"style="margin-left:10px"> views</p>
                    </div>
@@ -775,7 +774,7 @@ angular.module('appSvgIconSets', ['ngMaterial'])
             <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
       background-size: cover; width:200px; height:200px;" >
                <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
-                 <md-icon  class="material-icons btn1">menu</md-icon>
+                 <md-icon class="icon-blog btn1 icon1" ></md-icon>
                </md-button>
             </div>
             <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
@@ -786,12 +785,12 @@ angular.module('appSvgIconSets', ['ngMaterial'])
                  <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
                  <div layout="row"  style="margin-top:-30px;">
                    <div layout="row" style="margin-top:0">
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="sharesblognum">11111</p>
                      <p class="shareblog" style="margin-left:10px"> shares</p>
                    </div>
                    <div layout="row" style="margin-top:0; margin-left:10px;" >
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="viewsblognum">11111</p>
                      <p class="viewsblog"style="margin-left:10px"> views</p>
                    </div>
@@ -804,7 +803,7 @@ angular.module('appSvgIconSets', ['ngMaterial'])
             <div layout="row"  style="background-image: url('http://0201.nccdn.net/4_2/000/000/060/85f/BUC4.jpg');
       background-size: cover; width:200px; height:200px;" >
                <md-button  style="color:white; margin-top:5px;" class="md-icon-button btntool" aria-label="Settings">
-                 <md-icon  class="material-icons btn1">menu</md-icon>
+                 <md-icon class="icon-blog btn1 icon1" ></md-icon>
                </md-button>
             </div>
             <div layout="column" style="margin:0; margin-left:15px; margin-top:0px; width:320px;" >
@@ -815,12 +814,12 @@ angular.module('appSvgIconSets', ['ngMaterial'])
                  <p class="md-title autorblog" style="margin:0;">by Anna Millet<p>
                  <div layout="row"  style="margin-top:-30px;">
                    <div layout="row" style="margin-top:0">
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="sharesblognum">11111</p>
                      <p class="shareblog" style="margin-left:10px"> shares</p>
                    </div>
                    <div layout="row" style="margin-top:0; margin-left:10px;" >
-                     <md-icon  style="color: #00BCF2;" class="material-icons">lens</md-icon>
+                     <md-icon class="icon-view icon2" ></md-icon>
                      <p class="viewsblognum">11111</p>
                      <p class="viewsblog"style="margin-left:10px"> views</p>
                    </div>
@@ -1314,10 +1313,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20" >
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(1);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(1);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(1);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(1);"></md-icon>
                </div>
              </div>
           </div>
@@ -1328,10 +1327,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20">
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(2);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(2);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(2);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(2);"></md-icon>
                </div>
              </div>
           </div>
@@ -1342,10 +1341,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20">
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(3);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(3);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(3);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(3);"></md-icon>
                </div>
              </div>
           </div>
@@ -1356,10 +1355,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20">
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(4);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(4);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(4);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(4);"></md-icon>
                </div>
              </div>
           </div>
@@ -1370,10 +1369,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20">
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(5);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(5);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(5);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(5);"></md-icon>
                </div>
              </div>
           </div>
@@ -1390,10 +1389,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20">
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(6);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(6);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(6);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(6);"></md-icon>
                </div>
              </div>
           </div>
@@ -1404,10 +1403,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20">
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(7);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(7);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(7);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(7);"></md-icon>
                </div>
              </div>
           </div>
@@ -1418,10 +1417,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20">
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(8);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(8);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(8);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(8);"></md-icon>
                </div>
              </div>
           </div>
@@ -1432,10 +1431,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20">
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(9);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(9);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(9);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(9);"></md-icon>
                </div>
              </div>
           </div>
@@ -1446,10 +1445,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20">
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(10);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(10);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(10);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(10);"></md-icon>
                </div>
              </div>
           </div>
@@ -1466,10 +1465,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20">
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(11);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(11);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(11);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(11);"></md-icon>
                </div>
              </div>
           </div>
@@ -1480,10 +1479,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20">
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(12);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(12);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(12);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(12);"></md-icon>
                </div>
              </div>
           </div>
@@ -1494,10 +1493,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20">
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(13);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(13);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(13);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(13);"></md-icon>
                </div>
              </div>
           </div>
@@ -1508,10 +1507,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20">
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(14);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(14);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(14);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(14);"></md-icon>
                </div>
              </div>
           </div>
@@ -1522,10 +1521,10 @@ angular.module('appSvgIconSets', ['ngMaterial'])
              </div>
              <div layout="row" style="margin-left:15px;" flex="20">
                <div class="btn">
-                 <md-icon  class="material-icons autorfotos" onclick="selectfotoicon(15);">lens</md-icon>
+                 <md-icon  class="icon-photo autorfotos" onclick="selectfotoicon(15);"></md-icon>
                </div>
                <div class="btn">
-                  <md-icon  class="material-icons autorbio" onclick="selectbioicon(15);">lens</md-icon>
+                  <md-icon  class="icon-perfil autorbio" onclick="selectbioicon(15);"></md-icon>
                </div>
              </div>
           </div>
@@ -1600,28 +1599,1013 @@ angular.module('appSvgIconSets', ['ngMaterial'])
      <p>Amigos del mar, llévate de nuestros <span>#productosconcausa</span>. La recaudación de fondos es vital para los programas que llevamos a cabo día a día en Blue Core. Con tu ayuda, juntos podremos seguir trabajando por la conservación de nuestros ecosistemas marinos.</p>
   </div>
 
-
+<!-- //////////////////////////////////////////////////////////////////////////////////fotos 1 al 6//////////////////////////////////////////////// -->
   <!-- fotos tienda -->
-  <div layout="column" layout-align="center center" class="mySlidestienda" >
-     <div layout="row" layout-align="center center">
-        <div class="fotogroup1" flex="25" >
-           <img src="imagenes/IMG_2684_edit_1024x1024.jpg" width="100%" height="100%">
+  <div layout="column" layout-align="center center" class="mySlidestienda fade" >
+     <div hide show-gt-sm layout="row" layout-align="center center" class="group1">
+        
+        <div class="fotogroup1 foto1"  flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
         </div>
-        <div class="fotogroup1" flex="25" >
-           <img src="imagenes/IMG_3039_edit_1024x1024.jpg" width="100%" height="100%">
+        <div class="fotogroup1 foto2"  flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
         </div>
-        <div class="fotogroup1" flex="25" >
-           <img src="imagenes/IMG_3838_edit_1024x1024.jpg" width="100%" height="100%">
+        <div class="fotogroup1 foto3" flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
         </div>
-        <div class="fotogroup1" flex="25" >
-           <img src="imagenes/IMG_0931_edit_large.jpg" width="100%" height="100%">
+        <div class="fotogroup1 foto4"  flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+
+     </div>
+     <div hide show-gt-sm layout="row" layout-align="center center" class="group2">
+        <div class="fotogroup2 foto5" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+        <div class="fotogroup2 foto6" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+     </div>
+
+     
+     <!-- /////////////sm -->
+     <div  hide show-sm layout="row" layout-align="center center" class="group1">
+        <div class="fotogroup1 foto1" flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto2"  flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+     </div>
+      <div  hide show-sm layout="row" layout-align="center center" class="group1">
+        <div class="fotogroup1 foto3" flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto4"  flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+     </div>
+
+     
+     <div  hide show-sm  layout="row" layout-align="center center" class="group1">
+        <div class="fotogroup1 foto5" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+        <div class="fotogroup1 foto6" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+     </div>
+
+
+      <!--  /////////////////////xs -->
+      <div hide-gt-xs layout="column">
+        
+        <div class="fotogroup1 foto1"  layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto2"  layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto3" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto4"  layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto5" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+        <div class="fotogroup1 foto6" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
         </div>
 
      </div>
 
-     <div layout="row" layout-align="center center">
-       
+
+  </div>
+  <!-- //////////////////////////////////////////////////////////////////////////////////fotos 7 al 12//////////////////////////////////////////////// -->
+  <!-- fotos tienda -->
+  <div layout="column" layout-align="center center" class="mySlidestienda fade" >
+     <div hide show-gt-sm layout="row" layout-align="center center" class="group1">
+        
+        <div class="fotogroup1 foto7"  flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto8"  flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto9" flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto10"  flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+
      </div>
+     <div hide show-gt-sm layout="row" layout-align="center center" class="group2">
+        <div class="fotogroup2 foto11" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+        <div class="fotogroup2 foto12" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+     </div>
+
+     
+     <!-- /////////////sm -->
+     <div  hide show-sm layout="row" layout-align="center center" class="group1">
+        <div class="fotogroup1 foto7" flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto8"  flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+     </div>
+      <div  hide show-sm layout="row" layout-align="center center" class="group1">
+        <div class="fotogroup1 foto9" flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto10"  flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+     </div>
+
+     
+     <div  hide show-sm  layout="row" layout-align="center center" class="group1">
+        <div class="fotogroup1 foto11" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+        <div class="fotogroup1 foto12" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+     </div>
+
+
+      <!--  /////////////////////xs -->
+      <div hide-gt-xs layout="column">
+        
+        <div class="fotogroup1 foto7"  layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto8"  layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto9" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto10"  layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto11" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+        <div class="fotogroup1 foto12" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+
+     </div>
+
+
+  </div>
+  <!-- //////////////////////////////////////////////////////////////////////////////////fotos 13 al 18//////////////////////////////////////////////// -->
+  <!-- fotos tienda -->
+  <div layout="column" layout-align="center center" class="mySlidestienda fade" >
+     <div hide show-gt-sm layout="row" layout-align="center center" class="group1">
+        
+        <div class="fotogroup1 foto13"  flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto14"  flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto15" flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto16"  flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+
+     </div>
+     <div hide show-gt-sm layout="row" layout-align="center center" class="group2">
+        <div class="fotogroup2 foto17" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+        <div class="fotogroup2 foto18" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+     </div>
+
+     
+     <!-- /////////////sm -->
+     <div  hide show-sm layout="row" layout-align="center center" class="group1">
+        <div class="fotogroup1 foto13" flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto14"  flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+     </div>
+      <div  hide show-sm layout="row" layout-align="center center" class="group1">
+        <div class="fotogroup1 foto15" flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto16"  flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+     </div>
+
+     
+     <div  hide show-sm  layout="row" layout-align="center center" class="group1">
+        <div class="fotogroup1 foto17" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+        <div class="fotogroup1 foto18" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+     </div>
+
+
+      <!--  /////////////////////xs -->
+      <div hide-gt-xs layout="column">
+        
+        <div class="fotogroup1 foto13"  layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto14"  layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto15" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto16"  layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto17" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+        <div class="fotogroup1 foto18" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+
+     </div>
+
+
+  </div>
+  <!-- //////////////////////////////////////////////////////////////////////////////////fotos 19 al 24//////////////////////////////////////////////// -->
+  <!-- fotos tienda -->
+  <div layout="column" layout-align="center center" class="mySlidestienda fade" >
+     <div hide show-gt-sm layout="row" layout-align="center center" class="group1">
+        
+        <div class="fotogroup1 foto19"  flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto20"  flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto21" flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto22"  flex="25" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+
+     </div>
+     <div hide show-gt-sm layout="row" layout-align="center center" class="group2">
+        <div class="fotogroup2 foto23" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+        <div class="fotogroup2 foto24" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+     </div>
+
+     
+     <!-- /////////////sm -->
+     <div  hide show-sm layout="row" layout-align="center center" class="group1">
+        <div class="fotogroup1 foto19" flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto20"  flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+     </div>
+      <div  hide show-sm layout="row" layout-align="center center" class="group1">
+        <div class="fotogroup1 foto21" flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto22"  flex="50" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+     </div>
+
+     
+     <div  hide show-sm  layout="row" layout-align="center center" class="group1">
+        <div class="fotogroup1 foto23" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+        <div class="fotogroup1 foto24" flex="50" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+     </div>
+
+
+      <!--  /////////////////////xs -->
+      <div hide-gt-xs layout="column">
+        
+        <div class="fotogroup1 foto19"  layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto20"  layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto21" layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto22"  layout="column" layout-align="center center" >
+           <!-- The Modal -->
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+           
+        </div>
+        <div class="fotogroup1 foto23" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+        <div class="fotogroup1 foto24" layout="column" layout-align="center center" >
+           <div  class="fotoinfo" layout="column" layout-align="center center">
+               <p class="categoriatienda" style="font-weight:bold; font-style:italic;"></p>
+               <h1 class="nombretienda"></h1>
+               <h3 class="preciotienda"></h3>
+               <p class="contenttienda"></p>
+               <md-button>
+                 <p style="margin: 0">AGREGAR AL CARRITO</p>
+               </md-button>
+           </div>
+        </div>
+
+     </div>
+
+
   </div>
 
 
@@ -1636,6 +2620,53 @@ angular.module('appSvgIconSets', ['ngMaterial'])
 
 </md-content>
 
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////contact////////////////////////////////////////////////////////////-->
+<md-content layout="row" layout-align="center center"   >
+    <div layout="column" layout-align="center center" flex="25">
+       
+         
+       
+       <div style="margin-bottom:30px">
+         <img src="imagenes/Logo Blue Core azules.jpg" width="90%" height="90%" style="margin:0">
+         <p style="font-weight:bold; font-size:15px; color:#00BCF2;">BLUE CORE A.C.</p>
+         <p style="font-weight:bold; font-size:15px; color:rgb(45,49,146);">Es una organización ecologica de la sociedad civil, sin fines de lucro</p>
+       </div>
+    </div>
+    <div layout="column" layout-align="center center" flex="25">
+       
+       <div style="font-weight:bold; font-size:13px; color:rgb(45,49,146);">
+         <p >ACERCA DE BLUE CORE</p>
+         <p >FOTOGRAFOS SUBMARINOS</p>
+         <p >COLABORADORES</p>
+         <p >BENEFACTORES</p>
+         <p >ACTIVIDADES</p>
+         <p >EXPEDICIONES</p>
+         <p >EXPLORA</p>
+         <p >DONACIONES</p>
+         <p >TIENDA</p>
+         <p >BLOG</p>
+         <p >CONTACTO</p>
+       </div>
+    </div>
+    <div layout="column" layout-align="center center" flex="25">
+       
+       <div style="font-weight:bold; font-size:13px; color:rgb(45,49,146);">
+         <p >ACERCA DE BLUE CORE</p>
+         <p >FOTOGRAFOS SUBMARINOS</p>
+         <p >COLABORADORES</p>
+         <p >BENEFACTORES</p>
+         <p >ACTIVIDADES</p>
+         <p >EXPEDICIONES</p>
+         <p >EXPLORA</p>
+         <p >DONACIONES</p>
+         <p >TIENDA</p>
+         <p >BLOG</p>
+         <p >CONTACTO</p>
+       </div>
+    </div>
+
+</md-content>
 
 </body>
 
@@ -1671,6 +2702,16 @@ angular.module('appSvgIconSets', ['ngMaterial'])
   color: #00BCF2;
 }
 
+
+.icon1{
+  font-size: 18px;
+  padding-right: 5px;
+}
+.icon2{
+  font-size: 24px;
+  padding-right: 5px;
+  color:#00BCF2;
+}
 
 
 
@@ -1870,7 +2911,7 @@ angular.module('appSvgIconSets', ['ngMaterial'])
   background-color: #00BCF2;
 }
 .boxgroup1 .md-button:hover{
-  background-color: rgb(45,49,146);;
+  background-color: rgb(45,49,146);
   color:white;
 }
 
@@ -2007,8 +3048,13 @@ div.pagination  p:hover:not(.active) {
   margin:0;
 }
 
-.autor .btn .autorfotos, .autor .btn .autorbio{
+.autor .btn .autorfotos{
   color:white;
+  padding: 5px;
+}
+.autor .btn .autorbio{
+  color:white;
+  padding: 5px;
 }
 
 
@@ -2072,7 +3118,7 @@ div.pagination  p:hover:not(.active) {
 }
 
 .botonquienes {
-    background-color: #00BCF2;;
+    background-color: #00BCF2;
     width: 200px;
     height: 90px;
     bottom: -50px;
@@ -2142,20 +3188,155 @@ div.pagination  p:hover:not(.active) {
   text-align: center;
 }
 
+.tiendainfo{
+  margin-bottom: 50px;
+}
+
+
+
 .mySlidestienda{
   width: 80%;
 }
 
-.mySlidestienda .fotogroup1{
-  z-index: 0;
+.mySlidestienda .group2{
+  margin-top:0px;
 }
+
+
+.mySlidestienda .fotogroup1{
+  background-size:cover;
+  background-origin: center;
+  position: relative;
+  height: 400px;
+
+}
+.mySlidestienda .fotogroup2{
+  background-size:cover;
+  background-origin: center;
+  position: relative;
+  height: 700px;
+
+}
+
+.fotoinfo {
+  background-color: #00BCF2;
+  opacity: 0.0;
+  position: absolute;
+  text-align: center;
+ 
+  margin: 0 auto;
+  left:0;
+  right:0;
+  max-width: 80%;
+}
+.fotogroup1 .fotoinfo{
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto auto;
+  width: 80%;
+  height: 80%;
+}
+
+.fotogroup1:hover .fotoinfo, .fotogroup2:hover .fotoinfo{
+  opacity: 0.9;
+}
+
+.fotogroup1 .fotoinfo h1 ,.fotogroup1 .fotoinfo p, .fotogroup1 .fotoinfo h3, .fotogroup2 .fotoinfo h1 ,.fotogroup2 .fotoinfo p, .fotogroup2 .fotoinfo h3{
+  color:white;
+}
+
+.fotogroup1 .fotoinfo h1{
+  margin-top:3px;
+  margin-bottom:3px;
+  font-size: 20px;
+}
+.fotogroup1 .fotoinfo h3{
+  margin-top:3px;
+  margin-bottom:3px;
+  font-size: 20px;
+}
+.fotogroup1 .fotoinfo p{
+  text-align: center;
+  margin:20px;
+  margin-top:5px;
+  margin-bottom:3px;
+  font-size: 12px;
+}
+
+.fotogroup1 .md-button{
+  border: 2px solid rgb(45,49,146);
+  border-radius: 0;
+  margin:4px;
+}
+.fotogroup1 .md-button p{
+  color:rgb(45,49,146);
+  font-weight: bold;
+}
+.fotogroup1 .md-button:hover{
+  background-color: rgb(45,49,146);
+  
+}
+.fotogroup1 .md-button:hover p{
+  color: white;
+}
+
+
+
+
+.fotogroup2 .fotoinfo{
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto auto;
+  width: 80%;
+  height: 80%;
+  padding: 50px;
+}
+.fotogroup2 .fotoinfo h1{
+  margin-top:10px;
+  margin-bottom:10px;
+  font-size: 35px;
+}
+.fotogroup2 .fotoinfo h3{
+  margin-top:10px;
+  margin-bottom:10px;
+  font-size: 30px;
+}
+.fotogroup2 .fotoinfo p{
+  text-align: center;
+  margin:20px;
+  margin-top:10px;
+  margin-bottom:15px;
+  font-size: 15px;
+}
+
+.fotogroup2 .md-button{
+  border: 2px solid rgb(45,49,146);
+  border-radius: 0;
+  margin:10px;
+}
+.fotogroup2 .md-button p{
+  color:rgb(45,49,146);
+  font-weight: bold;
+}
+.fotogroup2 .md-button:hover{
+  background-color: rgb(45,49,146);
+  
+}
+.fotogroup2 .md-button:hover p{
+  color: white;
+}
+
 
 
 .dottienda {
   cursor:pointer;
   height: 13px;
   width: 13px;
-  margin: 0 2px;
+  margin: 0 10px;
   margin-top: 100px;
   margin-bottom: 100px;
   border: 2px solid white;
@@ -2183,6 +3364,8 @@ div.pagination  p:hover:not(.active) {
 
 <!-- /////////////////////////////////////////////////////////////////////////script -->
 <script src="index.js"></script>
+<script src="articulostiendaindex.js"></script>
+
 <script>
 
 
