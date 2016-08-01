@@ -15,6 +15,9 @@
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
       <!-- <link rel="stylesheet" type="text/css" href="slidesfotos.css"> -->
       <link rel="stylesheet" type="text/css" href="icons/style.css">
+
+
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
       
       <script>
            angular
@@ -196,7 +199,8 @@ angular.module('appSvgIconSets', ['ngMaterial'])
                    </div>
                    <div class="dropdown">
                      <div class="btndropdown">
-                        <p>CONTACTO</p>
+                        <p ><a  style="text-decoration: none;" href="#footer">CONTACTO</a></p>
+
                      </div>
                       <!-- hacer ancla al fondo -->
                    </div>
@@ -393,22 +397,22 @@ angular.module('appSvgIconSets', ['ngMaterial'])
           <div  flex="100" layout="row" layout-align="center start" style="margin-top:8%;">
             <div  flex="70" flex-md="85" flex-sm="95" layout="row" layout-align="center center" layout-wrap>
              <div  flex="100" layout="column" layout-align="center center" style="color:white">
-               <p class="md-title">Cancún Quintana Roo, México</p>
+               <p class="md-title" style="font-style:italic;">Cancún Quintana Roo, México</p>
                <div style="background: white; width: 100px; height: 2px; margin-top:-5px; margin-bottom:2%;"></div>
              </div>
 
 
             <div flex="100" hide show-gt-sm layout="column" layout-align="center center" >
                <h1 class="md-display-4 maintitle" >BLUE CORE A.C. </h1>
-               <p class="md-headline" style="margin-top:2; color:white; text-align:center; font-family:Archie Regular;">Non-Govermental Organization (NGO)</p>
+               <p class="md-headline" style="margin-top:2; color:white; text-align:center; font-family: 'Roboto', sans-serif;">Non-Govermental Organization (NGO)</p>
             </div>
             <div flex="100" hide show-sm layout="column" layout-align="center center" >
                <h1 class="md-display-3 maintitle" >BLUE CORE A.C. </h1>
-               <p class="md-title" style="margin-top:2; color:white; text-align:center; font-family:Archie Regular;">Non-Govermental Organization (NGO)</p>
+               <p class="md-title" style="margin-top:2; color:white; text-align:center; font-family: 'Roboto', sans-serif;">Non-Govermental Organization (NGO)</p>
             </div>
             <div flex="100" hide show-xs layout="column" layout-align="center center" >
                <h1 class="md-display-1 maintitle" >BLUE CORE A.C. </h1>
-               <p class="md-subhead" style="margin-top:2; color:white; text-align:center; font-family:Archie Regular;">Non-Govermental Organization (NGO)</p>
+               <p class="md-subhead" style="margin-top:2; color:white; text-align:center; font-family: 'Roboto', sans-serif;">Non-Govermental Organization (NGO)</p>
             </div>
 
 
@@ -3125,7 +3129,8 @@ angular.module('appSvgIconSets', ['ngMaterial'])
 </md-content>
 
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////footer///////////////////////////////////////////////////// -->
-<md-content style="background-color:#00BCF2;">
+<md-content style="background-color:#00BCF2;" >
+<a name="footer"></a>
   <div layout="column" layout-align="center center" style="margin:50px;">
     <div layout-gt-xs="row" layout="column" layout-align="center center" style="color:white;">
       <h1 style="font-size:14px;">Copyright 2016, Blue Core A.C.</h1>
@@ -3158,11 +3163,15 @@ angular.module('appSvgIconSets', ['ngMaterial'])
 
 <style>
 
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
 
 .main{
   background-image: url('imagenes/fondo-mar.jpg');
   background-size: cover;
-  min-height: 1500px;
+  min-height: 1700px;
 }
 
 .maintitle{
@@ -3172,7 +3181,6 @@ angular.module('appSvgIconSets', ['ngMaterial'])
   text-transform: uppercase;
   margin:0;
   text-align: center;
-  font-family: 'Roboto Thin';
 }
 
  .btn1{
@@ -3220,7 +3228,12 @@ angular.module('appSvgIconSets', ['ngMaterial'])
    font-weight:bold; 
    margin:0;
    margin-left:20px;
+   color:black;
 }
+.btndropdown a{
+   color:black;
+}
+
 .dropdown:hover .btndropdown{
    border-left: 6px solid #00BCF2;
 }
@@ -3581,7 +3594,7 @@ div.pagination  p:hover:not(.active) {
 
 /*////////////////////////////////////////////////////////////////////////////////quienes somos*/
 .quienessomos{
-   max-height: 1000px;
+   min-height: 2000px;
 }
 
 .linea-arribaquienes {
