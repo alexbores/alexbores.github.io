@@ -1,0 +1,949 @@
+body {
+  display: none;
+}
+
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////toolbar*/
+.maintoolbar {
+  position: fixed;
+}
+
+.maintoolbar .toolbarlogo{
+  max-height: 120px;
+  max-width: 120px;
+  min-height: 100px;
+  min-width: 100px;
+}
+.maintoolbar .toolbarlogolg{
+  max-height: 200px;
+  max-width: 200px;
+  min-height: 200px;
+  min-width: 200px;
+}
+
+.maintoolbar .toolbarleft .bluebackground, .maintoolbar .toolbarright .bluebackground, .maintoolbar .toolbarrightlg .bluebackground{
+  background-color: rgb(27,31,87);
+}
+
+.maintoolbar .toolbarrightlg {
+  height: 95px;
+}
+
+
+.maintoolbar .toolbarleft .iconbtn{
+  cursor: pointer;
+  color:white;
+  font-size: 30px;
+}
+.maintoolbar .toolbarleft .iconbtnlg{
+  cursor: pointer;
+  color:white;
+  font-size: 60px;
+}
+.maintoolbar .toolbarleft .iconbtn:hover,.maintoolbar .toolbarleft .iconbtnlg:hover{
+  color:#00BCF2;
+}
+.maintoolbar .toolbarleft .btncontainer, .maintoolbar .toolbarleft .btncontainerlg{
+  cursor: pointer;
+  color:white;
+}
+.maintoolbar .toolbarleft .btncontainer:hover,.maintoolbar .toolbarleft .btncontainerlg:hover{
+  color:#00BCF2;
+}
+.maintoolbar .toolbarleft .btncontainer .iniconbtn{
+  margin-right: 10px;
+  font-size: 24px;
+}
+.maintoolbar .toolbarleft .btncontainerlg .iniconbtn{
+  margin-right: 20px;
+  font-size: 36px;
+}
+.maintoolbar .toolbarleft .btncontainer .inbtn{
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.maintoolbar .toolbarleft .btncontainerlg .inbtn{
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+
+
+.maintoolbar .toolbarright .btn{
+  cursor: pointer;
+  color:white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
+  margin-right:5px; 
+  margin-left:5px;
+}
+.maintoolbar .toolbarright .division{
+  height: 16px;
+  color:#00BCF2;
+}
+.maintoolbar .toolbarright .btn:hover{
+  color:#00BCF2;
+}
+.maintoolbar .toolbarright .iconbtn{
+  cursor: pointer;
+  margin-right: 10%;
+  margin-left: 10%;
+  font-size: 20px;
+}
+.maintoolbar .toolbarright .iconbtn:hover{
+  color:#00BCF2;
+}
+.maintoolbar .toolbarrightlg .btn{
+  cursor: pointer;
+  color:white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 24px;
+  margin-right:10px; 
+  margin-left:10px;
+}
+.maintoolbar .toolbarrightlg .division{
+  height: 24px;
+  color:#00BCF2;
+}
+.maintoolbar .toolbarrightlg .btn:hover{
+  color:#00BCF2;
+}
+.maintoolbar .toolbarrightlg .iconbtn{
+  cursor: pointer;
+  margin-right: 10%;
+  margin-left: 10%;
+  font-size: 34px;
+}
+.maintoolbar .toolbarrightlg .iconbtn:hover{
+  color:#00BCF2;
+}
+
+
+
+
+
+.maintoolbarsm{
+  background-color: none;
+  margin:0;
+  margin-bottom: -10px;
+}
+.maintoolbarsm .toolbarlogo{
+  max-height: 150px;
+  max-width: 150px;
+  min-height: 100px;
+  min-width: 100px;
+}
+
+
+.maintoolbarsm .toolbarleftsm .iconbtn{
+  cursor: pointer;
+  color:white;
+  font-size: 25px;
+}
+.maintoolbarsm .toolbarleftsm .iconbtn:hover{
+  color:#00BCF2;
+}
+.maintoolbarsm .toolbarleftsm .btncontainer{
+  cursor: pointer;
+  color:white;
+}
+.maintoolbarsm .toolbarleftsm .btncontainer:hover{
+  color:#00BCF2;
+}
+.maintoolbarsm .toolbarleftsm .btncontainer .iniconbtn{
+  margin-right: 10px;
+  font-size: 20px;
+}
+.maintoolbarsm .toolbarleftsm .btncontainer .inbtn{
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+
+
+.maintoolbarsm .toolbarrightsm .btn{
+  cursor: pointer;
+  color:white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
+  margin-right:5px; 
+  margin-left:5px;
+}
+.maintoolbarsm .toolbarrightsm .division{
+  height: 16px;
+  color:#00BCF2;
+}
+.maintoolbarsm .toolbarrightsm .btn:hover{
+  color:#00BCF2;
+}
+.maintoolbarsm .toolbarrightsm .iconbtn{
+  cursor: pointer;
+  margin-right: 10%;
+  margin-left: 10%;
+  font-size: 20px;
+}
+.maintoolbarsm .toolbarrightsm .iconbtn:hover{
+  color:#00BCF2;
+}
+
+
+
+
+#loginlg{
+    margin: 0;
+    top: 75px;
+    display: none;
+    min-width: 300px;
+    max-width: 800px;
+    position: fixed;
+    width: 33%;
+    overflow-x: hidden;
+}
+#login { 
+    margin: 0;
+    top: 55px;
+    display: none;
+    min-width: 300px;
+    max-width: 500px;
+    position: fixed;
+    width: 33%;
+    overflow-x: hidden;
+}
+#login .back, #loginlg .back{
+    background-color: white;     
+}
+#login  .title, #loginlg .title{
+  background-color: lightgray; /*corregir color*/
+}
+#loginlg  .title .noname{
+  text-transform: uppercase;
+  font-size:30px;
+  color:rgb(27,31,87);
+}
+#loginlg  .title .name{
+  text-transform: uppercase;
+  font-size:30px;
+  color:rgb(27,31,87);
+  margin-left: 10px;
+  font-weight: bold;
+}
+#login  .title .noname{
+  text-transform: uppercase;
+  font-size:20px;
+  color:rgb(27,31,87);
+}
+#login  .title .name{
+  text-transform: uppercase;
+  font-size:20px;
+  color:rgb(27,31,87);
+  margin-left: 5px;
+  font-weight: bold;
+}
+#login  .secondpart , #loginlg .secondpart {
+  right:0;
+  left:0;
+  margin:0 auto;
+  width: 90%;
+}
+#login  .secondpart .division, #loginlg  .secondpart .division{
+  height: 2px;
+  background-color: rgb(27,31,87);
+  width: 100%;
+  margin-bottom: 20px;
+}
+#loginlg  .secondpart .iniciodesesion .noname{
+  text-transform: uppercase;
+  font-size:25px;
+  color:rgb(27,31,87);
+}
+#loginlg  .secondpart .iniciodesesion .name{
+  text-transform: uppercase;
+  font-size:25px;
+  color:rgb(27,31,87);
+  margin-left: 5px;
+  font-weight: bold;
+}
+#login  .secondpart .iniciodesesion .noname{
+  text-transform: uppercase;
+  font-size:18px;
+  color:rgb(27,31,87);
+}
+#login  .secondpart .iniciodesesion .name{
+  text-transform: uppercase;
+  font-size:18px;
+  color:rgb(27,31,87);
+  margin-left: 5px;
+  font-weight: bold;
+}
+#login  .secondpart .inputs, #loginlg .secondpart .inputs {
+  margin: 0;
+}
+#loginlg  .secondpart .inputs  .correo {
+  margin: 0;
+  margin-bottom: 20px;
+}
+#loginlg  .secondpart .inputs  .contra {
+  margin: 0;
+  margin-bottom: 20px;
+}
+#login  .secondpart .inputs  .correo {
+  margin: 0;
+  margin-bottom: 10px;
+}
+#login  .secondpart .inputs  .contra {
+  margin: 0;
+  margin-bottom: 10px;
+}
+#loginlg  .secondpart .inputs  .loginbtn{
+  margin: 0;
+  background-color: #00BCF2;
+  height: 60px;
+  width: 70px;
+}
+#login  .secondpart .inputs  .loginbtn{
+  margin: 0;
+  background-color: #00BCF2;
+  height: 40px;
+  width: 50px;
+}
+#login  .secondpart .inputs  .loginbtn div, #loginlg  .secondpart .inputs  .loginbtn div{
+  right:0;
+  left: 0;
+  top:0;
+  bottom:0;
+  margin: auto auto;
+}
+#loginlg  .secondpart .inputs  .loginbtn .btn{
+  color: white;
+  font-size: 20px;
+}
+#login  .secondpart .inputs  .loginbtn .btn{
+  color: white;
+  font-size: 12px;
+}
+#loginlg .secondpart .inputs .logininput{
+  border: 1px solid lightgray;
+  height: 60px;
+  margin: 0;
+}
+#login  .secondpart .inputs .logininput{
+  border: 1px solid lightgray;
+  height: 40px;
+  margin: 0;
+}
+#loginlg  .secondpart .inputs .checkboxforgot{
+  margin-bottom: 20px;
+}
+#loginlg  .secondpart .inputs .checkboxforgot input{
+  height: 20px;
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  padding-right: 20px;
+}
+#login  .secondpart .inputs .checkboxforgot {
+  margin-bottom: 10px;
+}
+#loginlg  .secondpart .inputs .checkboxforgot .recordar {
+  font-size: 20px;
+  color:rgb(27,31,87);
+  font-weight: bold;
+}
+#loginlg  .secondpart .inputs .checkboxforgot .forgotpswd  {
+  font-size: 20px;
+  color:rgb(27,31,87);
+}
+#login  .secondpart .inputs .checkboxforgot .recordar {
+  font-size: 12px;
+  color:rgb(27,31,87);
+  font-weight: bold;
+}
+#login  .secondpart .inputs .checkboxforgot .forgotpswd  {
+  font-size: 12px;
+  color:rgb(27,31,87);
+}
+#loginlg  .secondpart .facebtn  {
+  background-color:rgb(27,31,87);
+  cursor: pointer;
+  height: 60px;
+  margin-bottom: 20px;
+}
+#login  .secondpart .facebtn{
+  background-color:rgb(27,31,87);
+  cursor: pointer;
+  height: 40px;
+  margin-bottom: 20px;
+}
+#loginlg  .secondpart .facebtn p {
+  color:white;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+#login  .secondpart .facebtn p {
+  color:white;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+#login .secondpart .nuevoen,#loginlg .secondpart .nuevoen{
+  margin-top: -10px;
+  margin-bottom: -20px;
+}
+#loginlg  .secondpart .nuevoen .noname{
+  text-transform: uppercase;
+  font-size:25px;
+  color:rgb(27,31,87);
+}
+#loginlg  .secondpart .nuevoen .name{
+  text-transform: uppercase;
+  font-size:25px;
+  font-weight: bold;
+  color:rgb(27,31,87);
+  margin-left: 5px;
+}
+#login  .secondpart .nuevoen .noname{
+  text-transform: uppercase;
+  font-size:18px;
+  color:rgb(27,31,87);
+}
+#login  .secondpart .nuevoen .name{
+  text-transform: uppercase;
+  font-size:18px;
+  font-weight: bold;
+  color:rgb(27,31,87);
+  margin-left: 5px;
+}
+#loginlg  .secondpart .textbottom{
+  font-size:24px;
+  color:rgb(27,31,87);
+  text-align: left;
+}
+#login  .secondpart .textbottom{
+  font-size:15px;
+  color:rgb(27,31,87);
+  text-align: left;
+}
+#loginlg  .secondpart .registrobtn  {
+  background-color:#00BCF2;
+  cursor: pointer;
+  height: 60px;
+  margin-bottom: 20px;
+}
+#login  .secondpart .registrobtn {
+  background-color:#00BCF2;
+  cursor: pointer;
+  height: 40px;
+  margin-bottom: 20px;
+}
+#loginlg  .secondpart .registrobtn p {
+  color:rgb(27,31,87);
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+#login  .secondpart .registrobtn p {
+  color:rgb(27,31,87);
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+
+
+#searchlg{
+    margin: 0;
+    right: 5%;
+    top: 75px;
+    display: none;
+    min-width: 300px;
+    max-width: 800px;
+    position: fixed;
+    width: 25%;
+    overflow-x: hidden; 
+}
+#search{
+    margin: 0;
+    right: 5%;
+    top: 45px;
+    display: none;
+    min-width: 300px;
+    max-width: 800px;
+    position: fixed;
+    width: 25%;
+    overflow-x: hidden; 
+}
+
+#searchlg .searchinput{
+  background-color: white;
+   height: 60px;
+}
+#search .searchinput{
+  background-color: white;
+   height: 40px;
+}
+
+
+
+
+
+/*.maintoolbar .dropdown:hover .dropdown-contentlogin {
+    display: block;
+}*/
+
+
+
+
+
+
+
+
+
+
+/*////////////////////////////////////////////////////////////////////////////////////overlay menu*/
+/* The Overlay (background) */
+.overlay { 
+    height: 100%;
+    width: 0;
+    position: fixed; 
+    z-index: 9999; 
+    left: 0;
+    top: 0;
+    font-family: 'Roboto', sans-serif;
+    
+    overflow-x: hidden; 
+    transition: 0.5s; 
+}
+
+.overlay .overlaylogo{
+  max-height: 150px;
+  max-width: 150px;
+  min-height: 100px;
+  min-width: 100px;
+}
+.overlay .overlaylogolg{
+  max-height: 200px;
+  max-width: 200px;
+  min-height: 200px;
+  min-width: 200px;
+}
+
+
+.overlay .toppart{
+  /*left:0;
+  right:0;
+  margin: 0 auto;*/
+  background-color:transparent;
+}
+
+
+.overlay .overlaycontent {
+    left:0;
+    right:0;
+    margin: 0 auto;
+    width: 90%; 
+    height: 100%;
+    min-height: 600px;
+}
+.overlay .overlaybackground{
+    background-color:white; 
+    left:0;
+    right:0;
+    margin: 0 auto;
+    width: 98%; 
+    height: 100%;
+    overflow-y: auto;
+}
+
+
+
+.overlay .division{
+  height: 12px;
+}
+.overlay .divisionlg{
+  height: 24px;
+}
+
+.overlay .topbtnsright .btn{
+  font-size: 15px;
+  font-weight: bold;
+ }
+ .overlay .topbtnsright .btnlg{
+  font-size: 30px;
+  font-weight: bold;
+ }
+
+ .overlay .topbtnsright .iconbtn{
+  font-size: 18px;
+  font-weight: bold;
+ }
+ .overlay .topbtnsright .iconbtnlg{
+  font-size: 34px;
+  font-weight: bold;
+ }
+
+ .overlay .topbtnsleft .iconbtn{
+  font-size: 30px;
+ }
+ .overlay .topbtnsleft .iconbtnlg{
+  font-size: 60px;
+ }
+
+.overlay .topbtnsright .btn{
+  color:#00BCF2;
+  margin:0;
+  margin-right:5px;
+  margin-left: 5px;
+ }
+ .overlay .topbtnsright .btnlg{
+  color:#00BCF2;
+  margin:0;
+  margin-right:10px;
+  margin-left: 10px;
+ }
+
+ .overlay .topbtnsright .iconbtn{
+  color:#00BCF2;
+  margin-right:5px;
+  margin-left: 5px;
+ }
+ .overlay .topbtnsright .iconbtnlg{
+  color:#00BCF2;
+  margin-right:10px;
+  margin-left: 10px;
+ }
+ .overlay .topbtnsleft .iconbtn, .overlay .topbtnsleft .iconbtnlg{
+  color:rgb(27,31,87);
+ }
+
+ .overlay  .subcontent{
+  margin-top: 30px;
+ }
+
+
+
+
+.overlay .middlepart{
+    left:0;
+    right:0;
+    margin: 0 auto;
+    width: 90%; 
+}
+
+
+
+ .overlay .middlepart  .iconbtn{
+  color:#00BCF2;
+  font-size:40px;
+  margin-bottom: 10px;
+ }
+ .overlay .middlepart  .iconbtnlg{
+  color:#00BCF2;
+  font-size:70px;
+  margin-bottom: 20px;
+ }
+
+
+ .overlay .middlepart .menu{
+   margin:0;
+   /*background-color: black;*/
+ }
+ .overlay .middlepart .menu .menubtn{
+   margin:0;
+   font-size: 24px;
+   font-weight: bold;
+   text-transform: uppercase;
+   color:rgb(27,31,87);
+ }
+ .overlay .middlepart .menu .menubtnsm{
+   margin:0;
+   font-size: 18px;
+   font-weight: bold;
+   text-transform: uppercase;
+   color:rgb(27,31,87);
+ }
+ .overlay .middlepart .menu .menubtnlg{
+   margin:0;
+   font-size: 40px;
+   font-weight: bold;
+   text-transform: uppercase;
+   color:rgb(27,31,87);
+ }
+ 
+
+ .overlay .middlepart .menu:hover .menubtn, .overlay .middlepart .menu:hover .menubtnlg, .overlay .middlepart .menu:hover .menubtnsm{
+   color:#00BCF2;
+ }
+
+ .overlay .middlepart .menu .menucontent .overlaymenu .iconbtn, .overlay .middlepart .menu .menucontent .overlaymenusm .iconbtn{
+    font-size: 15px;
+    margin: 0;
+    margin-right: 10px;
+    color:#00BCF2;
+ }
+ .overlay .middlepart .menucontent .overlaymenu .btn, .overlay .middlepart .menu .menucontent .overlaymenusm .btn{
+    margin:0;
+    font-size: 15px;
+    text-transform: uppercase;
+    color:rgb(27,31,87);
+ }
+
+ .overlay .middlepart .menu .menucontent .overlaymenulg .iconbtn{
+    font-size: 30px;
+    margin: 0;
+    margin-right: 10px;
+    color:#00BCF2;
+ }
+ .overlay .middlepart .menucontent .overlaymenulg .btn{
+    margin:0;
+    font-size: 30px;
+    text-transform: uppercase;
+    color:rgb(27,31,87);
+ }
+
+ .overlay .middlepart .menucontent .overlaymenu .btn:hover,.overlay .middlepart .menucontent .overlaymenusm .btn:hover, .overlay .middlepart .menucontent .overlaymenulg .btn:hover{
+    color:#00BCF2;
+    font-weight: bold;
+ }
+
+ .overlay .middlepart .menu .menucontent{
+    margin: 0;
+    display: none;
+    transition: 0.5s;
+    position: relative;
+ }
+
+
+ .overlay .middlepart .menu .menucontent .overlaymenu, .overlay .middlepart .menu .menucontent .overlaymenulg{
+   margin:0;
+   right: 0;
+   left:0;
+   margin: 0 auto;
+   position: absolute;
+ }
+ .overlay .middlepart .menu .menucontent .overlaymenusm{
+   margin:0;
+   right: 0;
+   left:0;
+   margin: 0 auto;
+ }
+ 
+
+ .overlay .middlepart .menu:hover .menucontent{
+    display: block;
+ }
+ .overlay .middlepart .menu .menucontent:hover{
+    display: block;
+ }
+
+
+
+.overlay .bottompart{ 
+}
+.overlay .bottompart .contentinfo{
+  margin:2px;
+}
+.overlay .bottompart .contentinfo .infoweb{
+   margin: 0;
+   font-size: 12px;
+   font-weight: bold;
+   color:rgb(27,31,87);
+}
+.overlay .bottompart .contentinfo .infotel{
+   margin: 0;
+   font-size: 12px;
+   color:rgb(27,31,87);
+}
+.overlay .bottompart .contentinfo .divtel{
+  height: 12px;
+  width: 1px;
+  margin: 0;
+  margin-right: 5px;
+  margin-left: 5px;
+  background-color:#00BCF2;
+}
+.overlay .bottompart .contentinfo .infodir{
+   margin: 10px;
+   font-size: 12px;
+   color:rgb(27,31,87);
+}
+
+.overlay .bottompart .socialicons{
+   margin:0;
+}
+.overlay .bottompart .socialicons .iconbtn{
+  font-size: 20px;
+  margin: 0 20px 0 20px;
+  color:#00BCF2;
+}
+
+
+.overlay .bottompart .contentinfolg .infoweb{
+   margin: 0;
+   font-size: 28px;
+   font-weight: bold;
+   color:rgb(27,31,87);
+}
+.overlay .bottompart .contentinfolg .infotel{
+   margin: 0;
+   font-size: 28px;
+   color:rgb(27,31,87);
+}
+.overlay .bottompart .contentinfolg .divtel{
+  height: 28px;
+  width: 1px;
+  margin: 0;
+  margin-right: 5px;
+  margin-left: 5px;
+  background-color:#00BCF2;
+}
+.overlay .bottompart .contentinfolg .infodir{
+   margin: 20px;
+   font-size: 28px;
+   color:rgb(27,31,87);
+}
+
+.overlay .bottompart .socialiconslg .iconbtn{
+  font-size: 35px;
+  margin: 0 50px 0 50px;
+  color:#00BCF2;
+}
+
+ 
+
+.iconbtn, .btn, .btnsm, .iconbtnlg, .btnlg, .loginbtn{
+    cursor: pointer;
+}
+
+
+
+
+
+    
+
+
+/*////////////////////////////sidenav*/
+.btnclose{
+   color:darkgray;
+ }
+.btntool:not([disabled]):hover .btnclose {
+  color: #00BCF2;
+}
+
+
+
+
+
+
+
+
+.btnlen p{
+    margin: 0;
+    padding: 0;
+}
+.btnlen{
+   margin-right: -5%;
+   width: -10%;
+}
+
+.btnlen1 p{
+    margin: 0;
+    padding: -10%;
+}
+.btnlen1{
+    margin-left: -5%;
+    width: -10%;
+}
+
+
+
+.searchinput{
+  margin: 10px;
+  margin-top:0;
+  margin-bottom: 0;
+}
+
+
+
+ 
+
+
+
+.btnmove{
+  margin:0;
+  transition: 0.5s;
+}
+
+.boton-enlace:hover .btnmove {
+  transition: 0.5s;
+  padding-left: 25px;
+}
+
+
+
+
+.toolbar{
+  left:0;
+  right:0;
+  margin: 0 auto;
+  position: fixed;
+  max-height: 200px;
+}
+.bluebackground{
+  background-color: rgb(45,49,146);
+}
+
+
+
+
+
+ .btn1{
+   color:white;
+ }
+
+ .btntool p{
+  margin:0;
+ }
+
+.btntool:not([disabled]):hover .btn1 {
+  color: #00BCF2;
+}
+
+
+.icon1{
+  font-size: 18px;
+  padding-right: 5px;
+}
+.icon2{
+  font-size: 24px;
+  padding-right: 5px;
+  color:#00BCF2;
+}
+.icon3{
+  font-size: 18px;
+  padding-top: 2px;
+  padding-left: 15px;
+  color:#00BCF2;
+}
