@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>side game4</title>
+    <style>
+      * { padding: 0; margin: 0; }
+       
+    </style>
+
+    
+</head>
+
+<body >
+
+
+
+<canvas id="canvas" style="border:4px solid black; display: block;  float: left;"></canvas>
+<p id = "test" >stats</p>
+<p id = "test1" >stats</p>
+<p id = "test2" >stats</p>
+<p id = "test3" >stats</p>
+<p id = "test4" >stats</p>
+<p id = "test5" >stats</p>
+
+
+<script type="text/javascript" src="imagesmanage.js"></script>
+<script type="text/javascript" src="soundmanage.js"></script>
+<script type="text/javascript" src="mapmanage.js"></script>
+<script type="text/javascript" src="hudmanage.js"></script>
+
+
+
+<script>
+
+
+/////////////////////////////////////////////////////////////////////////variables ////////////////////////////////////////////////////
+(function() {
+    var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    window.requestAnimationFrame = requestAnimationFrame;
+})();
+ 
+var canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext("2d");
+var width = 960,
+    height = 520;
+
+    
+
+
+canvas.width = width;
+canvas.height = height;
+
+
+
+////////////////////////////////////////////////////////////////////////////support fucntions /////////////////////////////////////////////
+function randval(randmax,add){
+  return Math.floor((Math.random() * randmax) + add);
+
+ }
+
+
+
+var mousePos = 0;
+var cursorposx=0;
+var cursorposy=0;
+function getMousePos(evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+      x: evt.clientX - rect.left,
+      y: evt.clientY - rect.top
+    };
+}
+
+canvas.addEventListener('click', function(evt) {
+    mousePos = getMousePos(evt);
+    console.log(mousePos.x+" "+mousePos.y);
+        
+
+    console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
+}, false);
+
+var extradir="";
+function colCheck(shapeA, shapeB, move) {
+    extradir="";
+    // get the vectors to check against
+    var vX = (shapeA.x + (shapeA.width / 2)) - (shapeB.x + (shapeB.width / 2));
+    var vY = (shapeA.y + (shapeA.height / 2)) - (shapeB.y + (shapeB.height / 2));
+        // add the half widths and half heights of the objects
+    var hWidths = (shapeA.width / 2) + (shapeB.width / 2);
+    var hHeights = (shapeA.height / 2) + (shapeB.height / 2);
+    var colDir = null;
+ 
+    // if the x and y vector are less than the half width or half height, they we must be inside the object, causing a collision
+    if (Math.abs(vX) < hWidths && Math.abs(vY) <= hHeights) {         // figures out on which side we are colliding (top, bottom, left, or right)         
+        var oX = hWidths - Math.abs(vX),             
+        oY = hHeights - Math.abs(vY);        
+       if (oX >= oY) {
+            if (vY > 0) {
+                colDir = "t";
+                if(move==true){
+                  shapeA.y += oY;
+                }
+            } 
+            else {
+                colDir = "b";
+                if(move==true){
+                  shapeA.y -= oY;
+                }
+            }
+        } 
+        else {
+            extradir="s";
+            if (vX > 0) {
+                colDir = "l";
+                if(move==true){
+                  shapeA.x += oX;
+                }
+            } 
+            else {
+                colDir = "r";
+                if(move==true){
+                  shapeA.x -= oX;
+                }
+            }
+        }
+    }
+    else{
+      colDir = "a"
+    }
+    return colDir;
+}
+
+
+var playerdead=0;
+var restarting=0;
+function playerdeadmenu(){
+
+    ctx.beginPath();
+    ctx.rect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = "rgba(255,0,0,0.4)";
+    ctx.fill();
+    ctx.closePath();  
+
+    ctx.font = "40px Consolas";
+    ctx.fillStyle = "black";
+    ctx.fillText("GAME OVER", canvas.width/2, canvas.height/2);
+
+    // ctx.font = "20px Consolas";
+    // ctx.fillStyle = "black";
+    // ctx.fillText("restarting in:", (canvas.width/2), (canvas.height/2)+50);
+
+    // ctx.font = "20px Consolas";
+    // ctx.fillStyle = "white";
+    // ctx.fillText(""+restarting, (canvas.width/2)+160, (canvas.height/2)+50);
+
+    // if(numframes%30==0){
+    //    restarting -=1;
+    // }
+}
+
+
+
+function specialbox(){
+  var temp=0;
+  for(var i=0; i<boxes.length; i++){
+    if(boxes[i].time==true && boxes[i].obj=="hitbox"){
+      if(frame%60==0 && boxes[i].timecontrol == 0){
+        boxes[i].hp-=1;
+        boxes[i].timecontrol =1;   
+      }
+      if(frame%60!=0 ){
+        boxes[i].timecontrol=0;
+      }
+    }
+    if(boxes[i].obj=="special" && boxes[i].location==player.location){
+       temp=0;
+       if(boxes[i].enemycount==true){
+         for(var j=0; j<enemys.length; j++){
+           if(enemys[j].location==player.location){
+             temp++;
+           }
+         }
+         if(temp<=0){
+           if(boxes[i].spawn!=null){
+             for(var j=0; j<boxes[i].spawn; j++){
+               spawnenemy(boxes[i].sx,boxes[i].sy,boxes[i].location);
+             }
+           }
+           boxes.splice(i,1);
+           popsound.play();
+         }
+       }
+       else if(boxes[i].hitbox!=null){
+         for(var j=0; j<boxes.length; j++){
+          if(boxes[j].obj=="hitbox" && boxes[j].location==player.location){
+             if(boxes[j].id==boxes[i].hitbox){
+              temp=1;
+             }
+          }
+         }//forend
+         if(temp==0){
+           if(boxes[i].spawn!=null){
+             for(var j=0; j<boxes[i].spawn; j++){
+               spawnenemy(boxes[i].sx,boxes[i].sy,boxes[i].location);
+             }
+           }
+           boxes.splice(i,1);
+           popsound.play();
+         }
+       }
+    }
+    if(boxes[i].hp<=0){
+      boxes.splice(i,1);
+      popsound.play();
+    }
+  }//forend
+
+  var temp=0;
+  for(var i=0; i<extras.length; i++){
+    if(extras[i].obj=="hiddenspecial" && extras[i].location==player.location){
+       temp=0;
+       if(extras[i].enemycount==true){
+         for(var j=0; j<enemys.length; j++){
+           if(enemys[j].location==player.location){
+             temp++;
+           }
+         }
+         if(temp<=0){
+           if(extras[i].spawn!=null){
+             for(var j=0; j<extras[i].spawn; j++){
+               spawnenemy(extras[i].sx,extras[i].sy,extras[i].location);
+             }
+           }
+           boxes.push({
+             obj:"extra",
+             img:extras[i].img,
+             location:extras[i].location,
+             x: extras[i].x,
+             y: extras[i].y,
+             width: extras[i].width,
+             height: extras[i].height
+           });
+           extras.splice(i,1);
+           popsound.play();
+         }
+       }
+       else if(extras[i].hitbox!=null){
+         for(var j=0; j<extras.length; j++){
+          if(extras[j].obj=="hitbox" && extras[j].location==player.location){
+             if(extras[j].id==extras[i].hitbox){
+              temp=1;
+             }
+          }
+         }//forend
+         if(temp==0){
+           if(extras[i].spawn!=null){
+             for(var j=0; j<extras[i].spawn; j++){
+               spawnenemy(extras[i].sx,extras[i].sy,extras[i].location);
+             }
+           }
+           boxes.push({
+             obj:"extra",
+             img:extras[i].img,
+             location:extras[i].location,
+             x: extras[i].x,
+             y: extras[i].y,
+             width: extras[i].width,
+             height: extras[i].height
+           });
+           extras.splice(i,1);
+           popsound.play();
+         }
+       }
+    }
+  }//forend
+
+  return 0;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////// enemy handler ///////////////////////////////////////////////////////
+
+
+var enemysimgwidth=90;
+var enemysimgheight=100;
+
+var tempx=0;
+var tempy=0;
+
+var viewblock={
+  x:0,
+  y:0,
+  width:0,
+  height:0
+};
+function spawnenemy(x,y,location){
+   enemys.push({
+        obj:"enemy",
+        location:location,
+        hp:20,
+        hit:0,
+        x: x,
+        y: y,
+        width: 25,
+        height: 51,
+        viewdistance:300,
+        side:0,
+        grounded:false,
+        gravity: 0.7,
+        speed: 1,
+        velX: 0,
+        velY: 0,
+        runcontrol:0,
+        runcontroltemp:0,
+        runtimecontrol:0,
+        running:false,
+        jumptry:0,
+        jump:0,
+        get:false,
+        getuse:0,
+        status:"wandering",
+        viewblockx:0,
+        viewblocky:0,
+        viewblockwidth:0,
+        viewblockheight:0,
+        feetm:0,
+        feetmtimecontrol:0
+    });
+    return 0;
+}
+
+function enemyhandlermain(){
+   for(var enei=0; enei<enemys.length; enei++){
+    if(enemys[enei].location==player.location){
+     if(enemys[enei].x < 0 || enemys[enei].x > width){
+       enemys[enei].velX*= -1;
+       if(enemys[enei].side==0){
+         enemys[enei].side=1;
+         enemys[enei].x+=10;
+       }
+       else if(enemys[enei].side==1){
+         enemys[enei].side=0;
+         enemys[enei].x-=10;
+       }
+     }
+     if(enemys[enei].y > height){
+       enemys[enei].hp=0;
+     }
+     if(enemys[enei].hp<=0){
+        enemys.splice(enei,1);
+        popsound.play();
+      }
+    }
+   }
+   for(var enei=0; enei<enemys.length; enei++){
+    if(enemys[enei].location==player.location){
+     enemyhandler(enemys[enei]);
+    }
+   }
+   return 0;
+}
+
+
+function enemyhandler(test){
+ 
+ tempx=test.x;
+
+ if(test.status=="wandering"){
+
+   if(test.searching==true){
+     if(test.runcontrol>0){
+         if(frame%5==0 && test.runtimecontrol == 0){
+            test.runtimecontroll =1;
+            test.runcontrol--;
+            if(test.runcontrol%2==0){
+              if(test.side==0){
+               test.side=1;
+              }
+              else{
+               test.side=0;
+              }
+            }
+         }
+         if(frame%5!=0 ){
+           test.runtimecontroll=0;
+           
+         }
+         if(test.runcontrol <= 0 ){
+           test.searching=false;
+         }
+      }
+      else{
+        test.runcontrol=0;
+      }
+   }
+   else{
+      if(test.running==false){
+        var temp = randval(200,0);
+        //console.log(temp)
+      }
+      if(temp>180 && test.runcontrol==0){
+       
+       if(temp>185){
+         test.side=1;
+       }
+       else{
+         test.side=0;
+       }
+       test.runcontrol = 80;
+       test.runcontroltemp=test.runcontrol;
+       test.runcontroltemp=test.runcontroltemp/randval(2,2);
+       test.running=true;
+       test.runtimecontrol=0;
+      }
+
+      if(test.runcontrol>0){
+         if(frame%5==0 && test.runtimecontrol == 0){
+            test.runtimecontroll =1;
+            test.runcontrol--;
+         }
+         if(frame%5!=0 ){
+           test.runtimecontroll=0;
+         }
+         if(test.runcontrol <= test.runcontroltemp ){
+           test.running=false;
+         }
+      }
+      else{
+        test.runcontrol=0;
+      }
+
+
+
+      if(test.running==true){
+         if(test.side==0){
+           if (test.velX > -test.speed) {             
+              test.velX--;         
+           }  
+         }
+         if(test.side==1){
+           if (test.velX < test.speed) {             
+              test.velX++;         
+           }  
+         }
+      }
+      if(test.running==false){
+        test.velX = 0;
+      }
+    }
+ }//fin wandering
+
+
+else if(test.status=="attacking"){
+
+
+
+         test.running=true;
+         if(test.side==0){
+           if (test.velX > -(test.speed+1) ) {             
+              test.velX--;         
+           }  
+         }
+         if(test.side==1){
+           if (test.velX < test.speed+1) {             
+              test.velX++;         
+           }  
+         }
+
+       if(test.jump > 0 && test.grounded==true){
+         test.velY = -test.speed*(test.jump);
+       }
+       test.jump=0;
+
+       
+    
+       if(player.jumping==true && randval(10,0)<5 && test.grounded==true){
+         if(test.jumptry==0){
+          test.velY = -test.speed*(4);
+          test.jumptry+=50;
+         }
+         else{
+           test.jumptry--;
+         }
+       }
+    
+
+ }//fin attacking
+
+
+
+
+
+
+if(test.side==0){
+  viewblock.x=test.x-test.viewdistance;
+  viewblock.y=test.y;
+  viewblock.width=test.viewdistance;
+  viewblock.height=test.height;
+}
+else if(test.side==1){
+  viewblock.x=test.x+test.width;
+  viewblock.y=test.y;
+  viewblock.width=test.viewdistance;
+  viewblock.height=test.height;
+}
+
+
+//colide check
+    
+    var dir = colCheck(viewblock, player,false);
+    
+    if (dir != "a") {
+        test.status="attacking";
+        if(test.getuse==0){
+          test.velY = -test.speed*(2);
+          test.getuse=1;
+          test.runcontrol=0;
+          test.searching=false;
+          shieldsound.play();
+        }
+    }
+    if (dir == "a") {
+        test.status="wandering";
+        if(test.getuse==1){
+          test.velX=0;
+          test.getuse=0;
+          test.searching=true;
+          test.runcontrol=10;
+        }
+    }
+    
+ 
+
+
+ //////////////////////////////////////forces
+    test.y += test.velY;
+    test.x += test.velX;
+
+    
+    test.velY += test.gravity;
+
+
+   
+    //colide check
+    test.grounded=false;
+    for (var i = 0; i < boxes.length; i++) {
+      if(boxes[i].location==player.location){
+        var dir = colCheck(test, boxes[i],true);
+        
+        if (dir === "b" ) {
+            test.velY=0;
+            test.grounded=true;   
+        }
+        else if (dir === "t") {
+            test.velY *= -1;
+        }
+        if (extradir==="s") {
+            //console.log(dir+"  "+extradir);
+            if(test.x<=tempx+2 && test.x >=tempx-2 && test.status=="attacking" && frame%30==0 ){
+                //console.log("jump");
+                test.jump=8;
+            }
+            else if(test.x<=tempx+2 && test.x >=tempx-2 && test.status=="wandering" ){
+              //console.log("change direction");
+              test.velX=0;
+              if(test.side==0){
+                test.side=1;
+              }
+              else if(test.side==1){
+                test.side=0;
+              }
+            }
+    
+        }
+      }
+    }
+    var dir = colCheck(test, player,true);
+   
+    if (dir === "l") {
+        test.velX = 10;
+        if(player.posing=="ducking"){
+          player.velX = -2;
+        }
+        else{
+          player.velX = -10;
+        }
+        player.hp-=10;
+        test.get=true;
+        player.hit=1;
+       }
+    else if (dir === "r") {
+        test.velX = -10;
+        if(player.posing=="ducking"){
+          player.velX = 2;
+        }
+        else{
+          player.velX = 10;
+        }
+        player.hp-=10;
+        test.get=true;
+        player.hit=1;
+    }
+    else if (dir === "b" ) {
+        test.velY=0;
+        test.grounded=true;    
+    }
+    else if (dir === "t") {
+        test.velY *= -1;
+    }
+
+
+    
+
+ test.viewblockx=viewblock.x;
+ test.viewblocky=viewblock.y;
+ test.viewblockwidth=viewblock.width;
+ test.viewblockheight=viewblock.height;
+
+
+ //running control
+  if(test.running == true){
+    if(frame%feetspeed==0 && test.feetmtimecontrol == 0){
+       test.feetmtimecontrol =1;
+       test.feetm+=1;
+    }
+    if(frame%feetspeed!=0 ){
+      test.feetmtimecontrol=0;
+    }
+    if(test.feetm > 2){
+      test.feetm = 0;
+    }
+  }
+  else{
+    test.feetm=0;
+  }
+ 
+ overlapcontroler();
+ return 0;
+}
+
+
+///////////////////////////overlap controler
+function overlapcontroler(){
+  for(var i=0; i<enemys.length; i++){
+   if(enemys[i].location==player.location){
+    for(var j=0; j<enemys.length; j++){
+      if(j != i){
+        if((enemys[i].x<enemys[j].x+5 && enemys[i].x>enemys[j].x-5 ) && enemys[i].y==enemys[j].y ){
+          if(randval(5,0)>2){
+            enemys[i].x+=10;
+          }
+          else{
+            enemys[i].x-=10;
+          }
+        }
+      }
+    }
+   }
+  }
+
+  return 0;
+}
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////// player handlers ////////////////////////////////////////////////////
+var player = {
+      hp:100,
+      stamina:100,
+      hit:0,
+      x: 120,
+      y: 250,
+      width: 25,
+      height: 70,
+      imgx:0,
+      imgy:0,
+      imgheight:105,
+      imgwidth:100,
+      speed: 4,
+      velX: 0,
+      velY: 0,
+      jumping: false,
+      jumpforce:2.5,
+      force:2.5,
+      friction : 0.8,
+      running: false,
+      gravity: 0.7,
+      side: 1,
+      ducking:false,
+      breath:0,
+      contactdam:null,
+      location:1,
+      row:1,
+      powerid:1,
+      changelocation:true,
+      posing:"normal",
+      grounded:false,
+      charging:false
+    };
+
+
+var tool={
+    name:"sword",
+    x:null,    
+    y:null,
+    width:25,
+    height:25,
+    basedam:2,
+    tempdam:0,
+};
+
+
+var power={
+    side:0,
+    active:false,
+    explosion:false,
+    x:-10,    
+    y:-10,
+    width:15,
+    height:15,
+}
+
+var keys = [];
+var inhale =0;
+var breathspeed=0.02;
+var toolcicle=false;
+var doublejump=0;
+var discharge=0;
+var plusdam=0;
+var toolnonreapet=0;
+var powernonreapet=0;
+var powercicle=false;
+var powerm=0;
+var powertimecontrol=0;
+var explosionm=0;
+var explosiontimecontrol=0;
+var staminatimecontrol=0;
+var staminause=false;
+var hptimecontrol=0;
+var changepowercontrol=0;
+var changepowerimg=0;
+
+keys[65]=false;
+keys[68]=false;
+keys[83]=false;
+keys[32]=false;
+keys[80]=false;
+
+
+
+document.body.addEventListener("keydown", function(e) {
+    keys[e.keyCode] = true;
+});
+ 
+document.body.addEventListener("keyup", function(e) {
+    keys[e.keyCode] = false;
+});
+
+
+function playerhandler(){
+    if(player.x > width-5 && player.changelocation==false){
+      player.location+=1;
+      player.x=20;
+      player.changelocation=true;
+      teleportani=1;
+    }
+    else if(player.x < -5 && player.changelocation==false){
+      player.location-=1;
+      player.x=width-20;
+      player.changelocation=true;
+      teleportani=1;
+    }
+
+    if(player.y > height){
+      player.hp=0;
+    }
+
+    //posing
+    if(keys[83]==false && player.jumping==false && keys[68]==false && keys[65]==false && discharge==0 ){
+      player.posing="normal";
+      staminause=false;
+    }
+    else if(keys[83]==true && player.jumping==false && discharge==0 && player.running==false){
+      player.posing="ducking";
+      staminause=false;
+    }
+    else if(keys[83]==true && keys[80]==true && player.jumping==true && discharge==0 && player.stamina >= 10){
+      player.posing="air ducking";
+
+      if(staminause==false){
+        player.stamina -= 10;
+        staminause=true;
+      }
+    }
+    else if((keys[68]==true || keys[65] ==true) && player.jumping==false && discharge==0){
+      player.posing="running";
+      staminause=false;
+    }
+    if(keys[32]==true && player.jumping==false && discharge==0){
+      player.posing="jumping";
+      staminause=false;
+    }
+
+
+    if(keys[88]==true && activeextractrl==0){
+      activeextra=(!activeextra);
+      activeextractrl=1;
+    }
+    if(keys[88]==false && activeextractrl==1){
+      activeextractrl=0;
+    }
+    
+
+
+    
+
+    //move y
+    if (player.posing=="ducking") {
+    
+      player.jumpforce+=0.02;
+      if(player.jumpforce > player.force*1.5){
+        player.jumpforce=player.force*1.5;
+      }
+    }
+
+    if(player.posing=="normal"){
+      player.jumpforce=player.force;
+      player.ducking=false;
+      player.charging=false;
+      discharge=0;
+      weaponc=0;
+    }
+
+    if(player.posing=="running"){
+      player.jumpforce=player.force;
+    }
+
+    
+    //jump
+    if(keys[32]==true && player.jumping==false && player.posing!="air ducking" ) { //normal
+      player.jumping=true;
+      player.grounded = false;
+      player.velY = -player.speed*(player.jumpforce);
+      player.jumpforce=player.force;
+      doublejump=1;
+    }
+    if(keys[32]==false && doublejump==1){
+      doublejump=2;
+    }
+
+    if(keys[32]==true && doublejump==2 && player.jumping==true && player.posing!="air ducking") {//double
+      player.jumping = true;
+      player.grounded = false;
+      player.velY = -player.speed*(player.jumpforce);
+      doublejump=0;
+    }
+
+    
+    //move x
+    if (keys[68]==true && keys[65]==false && player.posing!="air ducking") {// right 
+        if (player.velX < player.speed) {             
+            player.velX++;         
+         }  
+         player.side=1;
+         player.running=true;
+    }
+    if (keys[65]==true && keys[68]==false && player.posing!="air ducking") {// left       
+        if (player.velX > -player.speed) {
+            player.velX--;
+        }
+        player.side=0;
+        player.running=true;
+    }
+    if(keys[65]==false && keys[68]==false){
+      player.running=false;
+    }
+
+
+    //tools
+    if(keys[80]==true  && discharge==0 && toolnonreapet==0 && toolcicle==false && powercicle==false ){ //normal
+      toolnonreapet=1;
+      toolcicle=true;
+      //playmusic("swordswooshsound",maxvol-0.2);
+      swordsound.play();
+    }
+    if(keys[80]==false && toolnonreapet==1){
+      toolnonreapet=0;
+    }
+    if(keys[80]==true && (player.posing=="ducking" || player.posing=="air ducking")){
+      toolnonreapet=1;
+      toolcicle=false;
+    }
+    
+
+
+    if(player.posing=="air ducking" && player.grounded==false){//air drop
+      plusdam+=0.05;
+      player.velX
+    }
+
+
+
+    //power
+    if(keys[81]==true && changepowercontrol ==0){
+      changepowercontrol=1;
+      player.powerid+=1;
+      if(player.powerid>2){
+        player.powerid=1;
+      }
+      changepowerimgtime=3;
+      selectorsound.play();
+    }
+    if(keys[81]==false && changepowercontrol==1){
+      changepowercontrol=0;
+    }
+
+
+    if(keys[79]==true && player.powerid==1 && discharge==0 && powernonreapet==0 && toolcicle==false && powercicle==false && power.active==false && player.posing!="ducking" && player.posing!="air ducking" &&player.stamina >= 50){ //normal
+      powernonreapet=1;
+      powercicle=true;
+
+      power.active=true;
+      power.side=player.side;
+      power.width=15;
+      power.height=15;
+      if(power.side==0){
+        power.x=player.x;
+        if(player.posing!="running"){
+          player.x+=4;
+        }
+      }
+      else{
+        power.x=player.x+player.width;
+        if(player.posing!="running"){
+          player.x-=4;
+        }
+      }
+      power.y=player.y+(player.height/2);
+      player.stamina-=50;
+      fireballsound.play();
+    }
+    if(keys[79]==false && powernonreapet==1){
+      powernonreapet=0;
+    }
+
+    
+    var power2={};
+    if(keys[79]==true && player.powerid==2 && discharge==0 && powernonreapet==0 && toolcicle==false && player.posing!="ducking" && player.posing!="air ducking" &&player.stamina >= 30){ //normal
+      powernonreapet=1;
+      var tempx=0;;
+      if(player.side==0){
+         tempx=player.x-45;
+         player.x+=5;
+      }
+      else{
+         tempx=player.x+player.width+5;
+         player.x-=5;
+      }
+      power2 ={
+        x:tempx,
+        y:player.y+15,
+        width:50,
+        height:50
+      }
+      var temp=0;
+      for(var i=0; i<enemys.length; i++){
+        if(enemys[i].location==player.location){
+          var dir = colCheck(power2,enemys[i],false);
+          if(dir!="a"){
+            temp+=1;
+          }
+        }
+      }
+      if(temp<=0){
+        if(player.side==0){
+           player.x+=5;
+        }
+        else{
+           player.x-=5;
+        }
+        powercicle=true;
+        boxes.push({
+            hp:5,
+            hit:0,
+            obj:"hitbox",
+            id:0,
+            location:player.location,
+            x: tempx,
+            y: player.y+18,
+            width: 40,
+            height: 40,
+            time:true,
+            timecontrol:0,
+        });
+        popsound.play();
+        player.stamina-=30;
+      }
+      
+    }
+    if(keys[79]==false && powernonreapet==1){
+      powernonreapet=0;
+    }
+
+    
+
+
+    //actions
+
+    //////////////////////////////////////forces
+    player.y += player.velY;
+    player.x += player.velX;
+
+    if(player.running==false){
+       player.velX *= player.friction;
+    }
+    
+    
+    player.velY += player.gravity;
+
+    if(player.posing=="air ducking"){
+      player.velX =0;
+      player.velY += player.gravity;
+    }
+    
+   
+    //colide check
+    player.grounded=false;
+    for (var i = 0; i < boxes.length; i++) {
+      if(boxes[i].location==player.location){
+        var dir = colCheck(player, boxes[i],true);
+      
+        if (dir === "l" || dir === "r") {
+            player.velX = 0;
+        } 
+        else if (dir === "b" ) {
+            player.velY=0;
+            player.grounded=true;
+            player.jumping=false;
+            doublejump=0;
+
+            if(player.posing=="air ducking" && discharge==0){
+              discharge=1;
+            }
+        }
+        else if (dir === "t") {
+            player.velY *= -0.1;
+        }
+      }
+    }
+    for(var i=0; i<enemys.length; i++){
+     if(enemys[i].location==player.location){
+       var dir = colCheck(player, enemys[i],true);
+       if (dir === "l" || dir === "r") {
+           player.velX = 0;
+       }
+       else if (dir === "b" ) {
+           player.velY=0;
+           player.grounded=true;
+           player.jumping=false;
+           doublejump=0;
+           if(player.posing=="air ducking" && discharge==0){
+             discharge=1;
+           }
+       }
+       else if (dir === "t") {
+           player.velY *= -0.1;
+       }
+      }
+    }
+
+ 
+
+    
+
+
+    /////////////////////////////////breath
+    if(inhale == 0){
+      player.breath-=breathspeed;
+      if(player.breath <= 0){
+        inhale=1;
+      }
+    }
+    else{
+      player.breath+=breathspeed;
+      if(player.breath >=1){
+        inhale=0;
+      }
+    }
+
+
+////////////////////////////////////stamina recovery
+
+  if(player.stamina < 100){
+   if(frame%8==0 && staminatimecontrol == 0){
+      staminatimecontrol =1;
+      player.stamina+=1;
+   }
+   if(frame%8!=0 ){
+     staminatimecontrol=0;
+   }
+  }
+  if(player.stamina < 0){
+    player.stamina=0;
+  }
+
+  ////////////////////////////////////hp recovery
+
+  if(player.hp < 100){
+   if(frame%20==0 && hptimecontrol == 0){
+      hptimecontrol =1;
+      player.hp+=1;
+   }
+   if(frame%20!=0 ){
+     hptimecontrol=0;
+   }
+  }
+  if(player.hp < 0){
+    player.hp=0;
+  }
+
+
+    return 0;
+}
+
+  
+
+
+
+//////////////////////////////////////////////////////////////////////////colides
+function toolcolide(){
+    switch(weaponm){
+      case 1:
+         tool.tempdam = tool.basedam;
+      break;
+      case 2:
+         tool.tempdam = tool.basedam*1.4;
+      break;
+      case 3:
+         tool.tempdam = tool.basedam*1.6;
+      break
+      case 4:
+         tool.tempdam = tool.basedam*1.8;
+      break
+    }
+    if(weaponc==2){
+      tool.tempdam=tool.basedam*plusdam;
+    }
+
+    //console.log("damage: "+tool.tempdam);
+    for(var i=0; i<boxes.length; i++){
+     if(boxes[i].location==player.location){
+      if(boxes[i].obj=="hitbox"){
+         var dir = colCheck(tool, boxes[i],false);
+         if(dir != "a"){
+           boxes[i].hp-=tool.tempdam;
+           boxes[i].hit=1;
+           console.log("hit! "+tool.tempdam);
+         }
+         if(boxes[i].hp<=0){
+           boxes.splice(i,1);
+           popsound.play();
+         }
+      }
+     }
+    }
+    for(var i=0; i<enemys.length; i++){
+     if(enemys[i].location==player.location){
+      var dir = colCheck(tool, enemys[i],false);
+      if(dir != "a"){
+        enemys[i].hp-=tool.tempdam;
+        enemys[i].hit=1;
+        console.log("hit! "+tool.tempdam);
+        
+      }
+      if((dir=="l" || dir=="r") && enemys[i].status=="wandering"){
+        if(enemys[i].side==0){
+          enemys[i].side=1;
+        }
+        else{
+          enemys[i].side=0;
+        }
+      }
+      if(dir!="a" && player.posing!="air ducking"   ){
+        if(player.side==0){
+           enemys[i].velX=-10;
+        }
+        else{
+           enemys[i].velX=10;
+        }
+      }
+      if(enemys[i].hp<=0){
+        enemys.splice(i,1);
+        popsound.play();
+      }
+     }
+    }
+    tool.tempdam=tool.basedam;
+
+
+    return 0;
+}
+
+function powercolide(){
+    
+    //console.log("damage: "+tool.tempdam);
+    for(var i=0; i<boxes.length; i++){
+      if(boxes[i].location==player.location){
+         var dir = colCheck(power, boxes[i],false);
+         if(dir != "a"){
+           boxes[i].hp-=10;
+           boxes[i].hit=1;
+           console.log("hit! "+10);
+           power.explosion=true;
+           //explosionsound.play();
+           power.width=40;
+           power.height=40;
+           power.y-=15;
+           if(power.side==1){
+           
+            power.x-=30;
+           }
+         }
+         if(boxes[i].hp<=0){
+           boxes.splice(i,1);
+           popsound.play();
+         }
+      }   
+    }
+    for(var i=0; i<enemys.length; i++){
+     if(enemys[i].location==player.location){
+      var dir = colCheck(power, enemys[i],false);
+      if(dir != "a"){
+        enemys[i].hp-=10;
+        enemys[i].hit=1;
+        console.log("hit! "+10);
+        power.explosion=true;
+        //explosionsound.play();
+        power.width=40;
+        power.height=40;
+        power.y-=15;
+        if(power.side==1){
+         power.x-=30;
+        }
+      }
+      if((dir=="l" || dir=="r") &&enemys[i].status=="wandering"){
+        if(enemys[i].side==0){
+          enemys[i].side=1;
+        }
+        else{
+          enemys[i].side=0;
+        }
+      }
+      if(dir!="a"  ){
+        if(player.side==0){
+           enemys[i].velX=-10;
+        }
+        else{
+           enemys[i].velX=10;
+        }
+      }
+     }
+    }
+    
+
+    
+    
+    return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////////player draws control
+function playerdrawscontrol(){
+
+  //running control
+  if(player.running == true){
+    if(frame%feetspeed==0 && feetmtimecontrol == 0){
+       feetmtimecontrol =1;
+       feetm+=1;
+    }
+    if(frame%feetspeed!=0 ){
+      feetmtimecontrol=0;
+    }
+    if(feetm > 2){
+      feetm = 0;
+    }
+  }
+  else{
+    feetm=0;
+  }
+
+  //weapon control
+  if(toolcicle==true && player.posing!="air ducking"){
+    if(frame%weaponspeed==0 && weapontimecontrol == 0){
+       weapontimecontrol =1;
+       weaponm+=1;
+    }
+    if(frame%weaponspeed!=0 ){
+      weapontimecontrol=0;
+    }
+    if(weaponm > 6){
+      weaponm = 0;
+      toolcicle=false;
+    }
+  }
+  else{
+    weaponm=0;
+    tool.x=-10;
+    tool.y=-10;
+  }
+
+
+  //power control
+  if(powercicle==true &&power.explosion==false && player.posing!="air ducking"){
+    if(frame%weaponspeed==0 && powertimecontrol == 0){
+       powertimecontrol =1;
+       powerm+=1;
+    }
+    if(frame%weaponspeed!=0 ){
+      powertimecontrol=0;
+    }
+    if(powerm > 6){
+      powerm = 0;
+      powercicle=false;
+      
+    }
+  }
+  
+  if(power.explosion==true){
+    if(frame%weaponspeed==0 && explosiontimecontrol == 0){
+       explosiontimecontrol =1;
+       explosionm+=1;
+    }
+    if(frame%weaponspeed!=0 ){
+      explosiontimecontrol=0;
+    }
+    if(explosionm > 6){
+      explosionm = 0;
+      power.explosion=false;
+      power.active=false
+      power.x=-50;
+      power.y=-50;
+    }
+    
+  }
+  if(power.active==true && power.explosion==false){
+    if(power.side==0){
+      power.x-=15;
+    }
+    else{
+      power.x+=15;
+    }
+    power.width-=0.3;
+    power.height-=0.3;
+    
+    powercolide();
+  }
+  if(power.width<=7){
+    explosionm = 0;
+    power.explosion=false;
+    power.active=false
+    power.x=-50;
+    power.y=-50;
+  }
+  
+
+
+
+  //air drop
+  if(player.posing=="air ducking" && discharge==0){
+    weaponc=1;
+  }
+  else if(discharge==1){
+    if(frame%2==0){
+      weaponc+=1;
+    }
+    if(weaponc>10){
+      weaponc=0;
+      discharge=0;
+      plusdam=0;
+    }
+
+    
+    if(frame%2==0){
+      tool.x= player.x-(player.width/2)+9;
+      tool.y= player.y+(player.height+5);
+    }
+    else if(frame%4==0){
+      tool.x= -10;
+      tool.y= -10;
+    }
+    else{
+      tool.x= player.x+(player.width/2);
+      tool.y= player.y+(player.height+5);
+    }
+    toolcolide();
+    
+    
+  }
+  else{
+    tool.x=-10;
+    tool.y=-10;
+  }
+
+  
+  switch(player.side){
+    case 0:
+      if(weaponm==1){
+         tool.x= player.x;
+         tool.y= player.y-20;
+         toolcolide();
+      }
+      else if(weaponm==3){
+         tool.x= player.x-30;
+         tool.y= player.y;
+         toolcolide();
+      }
+      else if(weaponm==4){
+         tool.x= player.x-35;
+         tool.y= player.y+40;
+         toolcolide();
+      }
+    break;
+    case 1:
+      if(weaponm==1){
+         tool.x= player.x;
+         tool.y= player.y-20;
+         toolcolide();
+      }
+      else if(weaponm==3){
+         tool.x= player.x+30;
+         tool.y= player.y;
+         toolcolide();
+      }
+      else if(weaponm==4){
+         tool.x= player.x+35;
+         tool.y= player.y+40;
+         toolcolide();
+      }
+    break;
+  }
+
+  
+
+  return 0; 
+}
+
+
+ //////////////////////////////////////////////////////////////////////// time support //////////////////////////////////////////////////////
+ var frame = 0;
+ var fps = 60;
+ var time=0;
+ var day = true;
+ function timemanage(){
+      frame+=1;
+      if(frame > fps){
+          frame= 0;
+          time++;
+      }
+      if(time >= 420){
+        time =0;
+        day= !(day);
+      }
+ }
+
+
+//////////////////////////////////////////////////////////////////////////////// main ///////////////////////////////////////////////////////////
+var openmain=0;
+function main(){
+  ctx.clearRect(0,0,canvas.width,canvas.height); //borra el canvas actual
+  document.getElementById("test").innerHTML = ("velx: "+player.velX);
+  document.getElementById("test1").innerHTML = ("vely: "+player.velY);
+  if(enemys.length>0){
+   document.getElementById("test2").innerHTML = ("enemy length: "+enemys.length);
+  }
+  document.getElementById("test3").innerHTML = ("boxes length:  "+boxes.length);
+  document.getElementById("test4").innerHTML = ("posing: "+player.posing+" hp: "+player.hp+"   stm: "+player.stamina+" powerid: "+player.powerid+"   posx: "+player.x+"   posy: "+player.x); 
+  document.getElementById("test5").innerHTML = ("location: "+player.location+"   time: "+time+"  day:"+day); //time
+  
+  if(player.changelocation==true){
+    teleportani=1;
+    player.changelocation=false;
+  }
+
+
+  
+  else if(playerdead==0){
+   playerhandler();
+
+   enemyhandlermain();
+  
+ 
+    
+ 
+   draws();
+  
+   if(player.hp<=0){
+     playerdead=1;
+   }
+
+   timemanage();
+  }
+
+  else if(playerdead==1){ ///////////////////////////////////////////////////////dead
+     
+     draws();
+
+     
+     playerdeadmenu();
+  }
+  hud();
+  specialbox();
+
+  drawteleportani();
+  
+  requestAnimationFrame(main);
+}
+
+
+//////////////////////////////////////////////////////////////////////// main support
+ 
+window.addEventListener("load",function(){
+    
+    delaystart();
+});
+
+var teleportani=0;
+var circleopentime=0;
+function drawteleportani(){
+  if(teleportani==1){
+    if(circleopentime<10 ){
+      
+         ctx.beginPath();
+         ctx.rect(0-circleopentime*50,0,500,520);
+         ctx.fillStyle="black";
+         ctx.fill();
+         ctx.closePath();
+
+         ctx.beginPath();
+         ctx.rect(460+circleopentime*50,0,500,520);
+         ctx.fillStyle="black";
+         ctx.fill();
+         ctx.closePath(); 
+
+         circleopentime+=1;
+    }
+    if(circleopentime >= 10){
+      circleopentime=0;
+      teleportani=0;
+      if(player.changelocation==true){
+        player.changelocation=false;
+      }
+    }
+
+  }
+  return 0;
+}
+
+function delaystart(){
+    ctx.beginPath();
+    ctx.rect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = "rgba(0,0,0)";
+    ctx.fill();
+    ctx.closePath();  
+
+    ctx.font = "50px Consolas";
+    ctx.fillStyle = "white";
+    ctx.fillText("GAME SIDE 4", canvas.width/16, canvas.height/2);
+    
+
+    //loadgame()
+    swordsound.play();
+    popsound.play();
+    shieldsound.play();
+    //explosionsound.play();
+    fireballsound.play();
+    selectorsound.play();
+
+    teleportani=1;
+    mapmanage(player.row);
+    setTimeout(main,2000);
+}
+
+
+//////////////////////////////////////////////  fin javascript //////////////////////////////////////////////////
+</script>
+
+
+</body>
+
+
+</html>
